@@ -1,2 +1,7 @@
+include ':base'
+include ':base1'
+include ':base2'
+include ':quiz'
+include ':categories'
 include ':app'
 rootProject.name = "Work4Experience"
