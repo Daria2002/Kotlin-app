@@ -6,9 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.base.helper.isLoggedIn
 
 class SignInFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        activity?.run {
+            if(isLoggedIn()) {
+                navigateToCategoryActivity()
+            } else {
+                login.loginWorker(this, ::onSuccessfulLogin)
+            }
+        }
         super.onCreate(savedInstanceState)
     }
 

@@ -1,5 +1,6 @@
 package com.example.base.helper
 
+import android.app.Activity
 import android.content.Context
 
 /**
@@ -19,3 +20,9 @@ fun Context.isLoggedIn(): Boolean {
 
 private fun Context.getWorkerPreferences() =
     getSharedPreferences(WORKER_PREFERENCE, Context.MODE_PRIVATE)
+
+
+interface Login {
+    fun loginWorker(activity: Activity, onSucess: (Worker) -> Unit)
+
+}
