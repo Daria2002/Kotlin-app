@@ -21,6 +21,10 @@ allprojects {
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+ext {
+    compileSdk = 30
+    targetSdk = 30
+    minSdkInstant = 21
+    minSdk = 14
+
 }

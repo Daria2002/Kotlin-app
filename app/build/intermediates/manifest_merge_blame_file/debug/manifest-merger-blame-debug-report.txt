@@ -1,0 +1,91 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    xmlns:dist="http://schemas.android.com/apk/distribution"
+4    package="com.example.app"
+5    android:versionCode="1" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="14"
+8-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->[:base] /home/daria/Documents/Work4Experience/base/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-67
+11-->[:base] /home/daria/Documents/Work4Experience/base/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:22-64
+12
+13    <application
+13-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:7:5-18:19
+14        android:allowBackup="false"
+14-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:8:9-36
+15        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+15-->[androidx.core:core:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/173f9208ffbdf9865c01df7b01988e09/core-1.1.0/AndroidManifest.xml:24:18-86
+16        android:debuggable="true"
+17        android:fullBackupContent="false"
+17-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:9:9-42
+18        android:hardwareAccelerated="true"
+18-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:10:9-43
+19        android:testOnly="true" >
+20        <activity android:name="com.example.base.activity.SignInActivity" >
+20-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:11:9-17:20
+20-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:11:19-74
+21            <intent-filter>
+21-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:13:13-16:29
+22                <action android:name="android.intent.action.MAIN" />
+22-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:14:17-69
+22-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:14:25-66
+23
+24                <category android:name="android.intent.category.LAUNCHER" />
+24-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:15:17-77
+24-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:15:27-74
+25            </intent-filter>
+26        </activity>
+27
+28        <meta-data
+28-->[com.google.android.instantapps:instantapps:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/c85519382c3b484b18e7dbd5dc9cdac3/jetified-instantapps-1.1.0/AndroidManifest.xml:10:9-12:33
+29            android:name="aia-compat-api-min-version"
+29-->[com.google.android.instantapps:instantapps:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/c85519382c3b484b18e7dbd5dc9cdac3/jetified-instantapps-1.1.0/AndroidManifest.xml:11:13-54
+30            android:value="1" />
+30-->[com.google.android.instantapps:instantapps:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/c85519382c3b484b18e7dbd5dc9cdac3/jetified-instantapps-1.1.0/AndroidManifest.xml:12:13-30
+31
+32        <activity
+32-->[com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/f93dca72e469de32c95772275a2b4455/jetified-play-services-auth-17.0.0/AndroidManifest.xml:23:9-27:75
+33            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+33-->[com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/f93dca72e469de32c95772275a2b4455/jetified-play-services-auth-17.0.0/AndroidManifest.xml:24:13-93
+34            android:excludeFromRecents="true"
+34-->[com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/f93dca72e469de32c95772275a2b4455/jetified-play-services-auth-17.0.0/AndroidManifest.xml:25:13-46
+35            android:exported="false"
+35-->[com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/f93dca72e469de32c95772275a2b4455/jetified-play-services-auth-17.0.0/AndroidManifest.xml:26:13-37
+36            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+36-->[com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/f93dca72e469de32c95772275a2b4455/jetified-play-services-auth-17.0.0/AndroidManifest.xml:27:13-72
+37        <!--
+38            Service handling Google Sign-In user revocation. For apps that do not integrate with
+39            Google Sign-In, this service will never be started.
+40        -->
+41        <service
+41-->[com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/f93dca72e469de32c95772275a2b4455/jetified-play-services-auth-17.0.0/AndroidManifest.xml:33:9-36:110
+42            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+42-->[com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/f93dca72e469de32c95772275a2b4455/jetified-play-services-auth-17.0.0/AndroidManifest.xml:34:13-89
+43            android:exported="true"
+43-->[com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/f93dca72e469de32c95772275a2b4455/jetified-play-services-auth-17.0.0/AndroidManifest.xml:35:13-36
+44            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" />
+44-->[com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/f93dca72e469de32c95772275a2b4455/jetified-play-services-auth-17.0.0/AndroidManifest.xml:36:13-107
+45
+46        <activity
+46-->[com.google.android.gms:play-services-base:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/b1beed74396dcf2ff7139271bbe8d64c/jetified-play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+47            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+47-->[com.google.android.gms:play-services-base:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/b1beed74396dcf2ff7139271bbe8d64c/jetified-play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+48            android:exported="false"
+48-->[com.google.android.gms:play-services-base:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/b1beed74396dcf2ff7139271bbe8d64c/jetified-play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+49            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+49-->[com.google.android.gms:play-services-base:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/b1beed74396dcf2ff7139271bbe8d64c/jetified-play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+50
+51        <meta-data
+51-->[com.google.android.gms:play-services-basement:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/93be7174b7be54dada154bbbe746f6ab/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+52            android:name="com.google.android.gms.version"
+52-->[com.google.android.gms:play-services-basement:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/93be7174b7be54dada154bbbe746f6ab/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+53            android:value="@integer/google_play_services_version" />
+53-->[com.google.android.gms:play-services-basement:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/93be7174b7be54dada154bbbe746f6ab/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+54    </application>
+55
+56</manifest>
