@@ -27,4 +27,15 @@ class SignInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }
+
+    companion object {
+        private const val ARG_EDIT = "EDIT"
+        fun newInstance(edit: Boolean = false): SignInFragment {
+            return SignInFragment().apply {
+                arguments = Bundle().apply {
+                    putBoolean(ARG_EDIT, edit)
+                }
+            }
+        }
+    }
 }

@@ -1,8 +1,8 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-20:12
-INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-20:12
-INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-20:12
+ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-21:12
 MERGED from [:base] /home/daria/Documents/Work4Experience/base/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-13:12
 MERGED from [com.google.android.material:material:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/3cbf517ba7e3687c73b950c88e49ed8a/material-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/e46f3e16fd8948e8e4c48c913cb404d3/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
@@ -49,8 +49,8 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/daria/.grad
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/24d5b49fe2b36ef44f901a0f8118cef3/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [:categories] /home/daria/Documents/Work4Experience/categories/build/intermediates/metadata_feature_manifest/debug/metadata-feature/AndroidManifest.xml:2:1-11:12
 MERGED from [:quiz] /home/daria/Documents/Work4Experience/quiz/build/intermediates/metadata_feature_manifest/debug/metadata-feature/AndroidManifest.xml:2:1-11:12
-INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-20:12
-INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-20:12
+INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-21:12
 	package
 		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:5:5-30
 		INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
@@ -61,12 +61,12 @@ INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest
 		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:3:5-61
 	android:versionCode
 		INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-20:12
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-21:12
 		INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:11-69
 application
-ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:7:5-18:19
+ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:7:5-19:19
 MERGED from [com.google.android.material:material:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/3cbf517ba7e3687c73b950c88e49ed8a/material-1.1.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/3cbf517ba7e3687c73b950c88e49ed8a/material-1.1.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.instantapps:instantapps:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/c85519382c3b484b18e7dbd5dc9cdac3/jetified-instantapps-1.1.0/AndroidManifest.xml:9:5-13:19
@@ -90,25 +90,27 @@ MERGED from [:quiz] /home/daria/Documents/Work4Experience/quiz/build/intermediat
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/173f9208ffbdf9865c01df7b01988e09/core-1.1.0/AndroidManifest.xml:24:18-86
 	android:hardwareAccelerated
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:10:9-43
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:11:9-43
 	android:fullBackupContent
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:9:9-42
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:10:9-42
 	android:allowBackup
 		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:8:9-36
+	android:theme
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:9:9-53
 activity#com.example.base.activity.SignInActivity
-ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:11:9-17:20
+ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:12:9-18:20
 	android:name
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:11:19-74
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:12:19-74
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:13:13-16:29
+ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:14:13-17:29
 action#android.intent.action.MAIN
-ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:14:17-69
+ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:15:17-69
 	android:name
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:14:25-66
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:15:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:15:17-77
+ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:16:17-77
 	android:name
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:15:27-74
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:16:27-74
 uses-sdk
 INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
