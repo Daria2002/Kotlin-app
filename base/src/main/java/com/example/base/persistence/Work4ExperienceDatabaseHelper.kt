@@ -29,6 +29,8 @@ class Work4ExperienceDatabaseHelper private constructor(
         }
     }
 
+    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) = Unit
+
     @Throws(JSONException::class, IOException::class)
     private fun fillCategories(db: SQLiteDatabase) {
         db.transact {
@@ -79,10 +81,21 @@ class Work4ExperienceDatabaseHelper private constructor(
             val id = getString(0)
             val category = Category(
                 id = id,
-                name = getString(1),
-                post = getString(200)
+                name = getString(1)
             )
             return category
+        }
+    }
+
+    companion object {
+        private var instance: Work4ExperienceDatabaseHelper? = null
+
+        fun getInstance(context: Context): Work4ExperienceDatabaseHelper {
+            return instance ?: synchronized(Work4ExperienceDatabaseHelper::class) {
+                Work4ExperienceDatabaseHelper(context).also {
+                    instance = it
+                }
+            }
         }
     }
 }
