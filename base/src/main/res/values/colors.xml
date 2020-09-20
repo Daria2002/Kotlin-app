@@ -17,10 +17,10 @@
 <resources>
     <color name="touch_effect">#9ccc</color>
 
-    <color name="topeka_primary">#00bad2</color>
-    <color name="topeka_primary_dark">#00a3b8</color>
-    <color name="topeka_blank">#424242</color>
-    <color name="topeka_accent">#3F51B5</color>
+    <color name="work4experience_primary">#00bad2</color>
+    <color name="work4experience_primary_dark">#00a3b8</color>
+    <color name="work4experience_blank">#424242</color>
+    <color name="work4experience_accent">#3F51B5</color>
 
     <color name="text_light">@android:color/white</color>
     <color name="text_dark">#616161</color>

@@ -7,10 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.fragment.app.Fragment
-import com.example.base.helper.ActivityLaunchHelper
-import com.example.base.helper.DefaultLogin
-import com.example.base.helper.isLoggedIn
-import com.example.base.helper.login
+import com.example.base.R
+import com.example.base.helper.*
 import com.example.base.model.Worker
 
 class SignInFragment : Fragment() {
@@ -67,7 +65,11 @@ class SignInFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+        val contentView = inflater.inflate(R.layout.fragment_sign_in, container, false)
+        contentView.onLayoutChange {
+            // TODO select image
+        }
+        return  contentView
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
