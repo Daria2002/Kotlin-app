@@ -901,11 +901,11 @@ color theme_yellow_primary_dark
 color theme_yellow_text
 color tooltip_background_dark
 color tooltip_background_light
-color topeka_accent
-color topeka_blank
-color topeka_primary
-color topeka_primary_dark
 color touch_effect
+color work4experience_accent
+color work4experience_blank
+color work4experience_primary
+color work4experience_primary_dark
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
 dimen abc_action_bar_default_height_material
@@ -1503,8 +1503,10 @@ id design_menu_item_text
 id design_navigation_view
 id dialog_button
 id disableHome
+id done
 id dropdown_menu
 id edit_query
+id empty
 id end
 id end_padder
 id enterAlways
@@ -1518,9 +1520,11 @@ id fill_horizontal
 id fill_vertical
 id filled
 id filter_chip
+id first_name
 id fitToContents
 id fixed
 id forever
+id fragment_sign_in_content
 id ghost_view
 id ghost_view_holder
 id group_divider
@@ -1537,6 +1541,7 @@ id italic
 id item_touch_helper_previous_elevation
 id labeled
 id largeLabel
+id last_name
 id left
 id light
 id line1
@@ -1765,6 +1770,8 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout fab_done
+layout fragment_sign_in
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title
@@ -1811,6 +1818,7 @@ layout notification_template_part_time
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout sign_in_username
 layout support_simple_spinner_dropdown_item
 layout test_action_chip
 layout test_design_checkbox
@@ -1855,7 +1863,9 @@ string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string app_name
 string appbar_scrolling_view_behavior
+string back
 string bottom_sheet_behavior
+string category
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
@@ -1883,8 +1893,10 @@ string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string first_name
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
+string last_name
 string mtrl_badge_numberless_content_description
 string mtrl_chip_close_icon_content_description
 string mtrl_exceed_max_badge_number_suffix
@@ -1925,6 +1937,8 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string search_menu_title
+string sign_in
+string sign_out
 string status_bar_notification_info_overflow
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
@@ -2601,6 +2615,7 @@ style Widget_MaterialComponents_Toolbar_Primary
 style Widget_MaterialComponents_Toolbar_PrimarySurface
 style Widget_MaterialComponents_Toolbar_Surface
 style Widget_Support_CoordinatorLayout
+style Work4Experience_TextAppearance_Title
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth

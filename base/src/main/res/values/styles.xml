@@ -16,5 +16,7 @@
   -->
 
 <resources xmlns:tools="http://schemas.android.com/tools">
-
+    <style name="Work4Experience.TextAppearance.Title" parent="TextAppearance.AppCompat.Title" >
+        <item name="android:textColor">@color/work4experience_primary</item>
+    </style>
 </resources>
