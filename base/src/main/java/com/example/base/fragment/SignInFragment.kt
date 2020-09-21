@@ -1,14 +1,19 @@
 package com.example.base.fragment
 
+import android.annotation.TargetApi
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import com.example.base.R
 import com.example.base.helper.*
 import com.example.base.model.Worker
@@ -49,20 +54,23 @@ class SignInFragment : Fragment() {
         if(edit) {
             with(worker) {
                 firstNameView?.setText(worker.firstName)
-                lastNameView?.run {
-                    setText(worker.lastName)
-                    requestFocus()
-                    setSelection(length())
-                }
+                lastNameView?.setText(worker.firstName)
                 this@SignInFragment.worker = worker.also {
                     if(activity != null) {
-                        login.saveWorker(activity!!, this, {})
+                        login.saveWorker(activity!!, this, {
+                            Log.d("!!!!!!", "!!!! show fab")
+                            showFab()
+                        })
                     }
                 }
             }
         } else {
             navigateToCategoryActivity()
         }
+    }
+
+    private fun showFab() {
+        if(isInputDataValid()) doneFab?.show()
     }
 
     override fun onCreateView(
@@ -72,7 +80,7 @@ class SignInFragment : Fragment() {
     ): View? {
         val contentView = inflater.inflate(R.layout.fragment_sign_in, container, false)
         contentView.onLayoutChange {
-            // TODO select image
+            showFab()
         }
         return  contentView
     }
@@ -118,14 +126,43 @@ class SignInFragment : Fragment() {
             }
 
             override fun afterTextChanged(s: Editable) {
+                Log.d("!!!!!!!!!!", "!!!!! after text changed")
                 if(isInputDataValid()) doneFab?.show()
             }
         }
         firstNameView?.addTextChangedListener(textWatcher)
         lastNameView?.addTextChangedListener(textWatcher)
         doneFab?.setOnClickListener {
-
+            if(it.id == R.id.done) {
+                val first = firstNameView?.text?.toString()
+                val last = lastNameView?.text?.toString()
+                activity?.run {
+                    val toSave = worker?.apply {
+                        firstName = first
+                        lastName = lastName
+                    } ?: Worker(first, last)
+                    login.saveWorker(this, toSave) {
+                        Log.d(TAG, "Saving login info successful")
+                    }
+                }
+            }
+            removeDoneFab {
+                performSignInWithTransition()
+            }
         }
+    }
+
+    private fun removeDoneFab(endAction: () -> Unit) {
+        ViewCompat.animate(doneFab!!)
+            .scaleX(0f)
+            .scaleY(0f)
+            .setInterpolator(FastOutSlowInInterpolator())
+            .start()
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private fun performSignInWithTransition(v: View? = null) {
+        // TODO
     }
 
     private fun isInputDataValid() = firstNameView?.text?.isNotEmpty() == true &&
