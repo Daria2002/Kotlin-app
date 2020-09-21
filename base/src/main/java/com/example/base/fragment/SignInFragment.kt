@@ -30,7 +30,7 @@ class SignInFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         activity?.run {
             if(isLoggedIn()) {
-                navigateToCategoryActivity()
+                // navigateToCategoryActivity()
             } else {
                 login.loginWorker(this, ::onSuccessfulLogin)
             }
@@ -80,6 +80,7 @@ class SignInFragment : Fragment() {
     ): View? {
         val contentView = inflater.inflate(R.layout.fragment_sign_in, container, false)
         contentView.onLayoutChange {
+
             showFab()
         }
         return  contentView

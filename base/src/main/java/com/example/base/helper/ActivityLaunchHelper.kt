@@ -10,11 +10,11 @@ import androidx.core.app.ActivityOptionsCompat
 class ActivityLaunchHelper {
     companion object {
         const val EXTRA_EDIT = "EDIT"
-        private  const val URL_BASE = "https://Work4Experience.instantappsample.com"
+        private  const val URL_BASE = "https://work4experience.instantappsample.com"
         private const val URL_CATEGORIES = "$URL_BASE/categories"
 
         fun launchCategorySelection(activity: Activity, options: ActivityOptionsCompat? = null) {
-            val starter = categorySelectionInteent(activity)
+            val starter = categorySelectionIntent(activity)
             if(options == null) {
                 activity.startActivity(starter)
             } else {
@@ -22,7 +22,7 @@ class ActivityLaunchHelper {
             }
         }
 
-        fun categorySelectionInteent(context: Context? = null) = baseIntent(URL_CATEGORIES, context)
+        fun categorySelectionIntent(context: Context? = null) = baseIntent(URL_CATEGORIES, context)
 
         private fun baseIntent(url: String, context: Context? = null): Intent {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
