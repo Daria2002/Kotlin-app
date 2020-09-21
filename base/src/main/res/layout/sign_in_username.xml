@@ -52,7 +52,6 @@
             android:hint="Last Name"
             android:imeOptions="actionDone"
             android:inputType="textNoSuggestions|textCapWords"
-            android:maxLength="1"
             android:textSize="18dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
