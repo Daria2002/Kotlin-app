@@ -8,6 +8,7 @@ import android.content.IntentSender
 import android.net.wifi.hotspot2.pps.Credential
 import android.util.Log
 import androidx.annotation.VisibleForTesting
+import com.example.base.model.Avatar
 import com.example.base.model.Worker
 import com.google.android.gms.auth.api.credentials.Credentials
 import com.google.android.gms.auth.api.credentials.CredentialsOptions
@@ -23,7 +24,8 @@ const val REQUEST_LOGIN = 704
 
 const val WORKER_PREFERENCE = "workerPreferences"
 const val PREFERENCE_FIRST_NAME = "$WORKER_PREFERENCE.firstName"
-const val PREFERENCE_LAST_NAME = "$WORKER_PREFERENCE.lastInitial"
+const val PREFERENCE_LAST_NAME = "$WORKER_PREFERENCE.lastName"
+const val PREFERENCE_AVATAR = "$WORKER_PREFERENCE.avatar"
 const val PREFERENCE_EMAIL = "$WORKER_PREFERENCE.email"
 
 /**
@@ -41,6 +43,7 @@ fun Context.getWorker(): Worker? {
     return with(getWorkerPreferences()) {
         val worker = Worker(getString(PREFERENCE_FIRST_NAME, null),
             getString(PREFERENCE_LAST_NAME, null),
+            getString(PREFERENCE_AVATAR, null)?.let { Avatar.valueOf(it) },
             getString(PREFERENCE_EMAIL, ""))
         if(worker.valid()) worker
         else null
@@ -51,6 +54,7 @@ fun Context.isLoggedIn(): Boolean {
     return with(getWorkerPreferences()) {
         contains(PREFERENCE_FIRST_NAME)
                 && contains(PREFERENCE_LAST_NAME)
+                && contains(PREFERENCE_AVATAR)
     }
 }
 
@@ -99,6 +103,7 @@ fun Context.storeWorkerLocally(worker: Worker) {
             editWorker()
                 .putString(PREFERENCE_FIRST_NAME, firstName)
                 .putString(PREFERENCE_LAST_NAME, lastName)
+                .putString(PREFERENCE_AVATAR, avatar?.name)
                 .putString(PREFERENCE_EMAIL, email)
                 .apply()
     }

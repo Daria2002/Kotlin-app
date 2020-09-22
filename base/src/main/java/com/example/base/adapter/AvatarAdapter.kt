@@ -14,7 +14,7 @@ import com.example.base.widget.AvatarView
  */
 class AvatarAdapter(context: Context) : BaseAdapter() {
     private val layoutInflater = LayoutInflater.from(context)
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): AvatarView {
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         return ((convertView ?:
                 layoutInflater.inflate(R.layout.item_avatar, parent, false)) as AvatarView)
             .also { setAvatar(it, avatars[position]) }

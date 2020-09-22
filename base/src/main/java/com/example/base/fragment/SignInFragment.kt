@@ -17,7 +17,9 @@ import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import com.example.base.R
+import com.example.base.adapter.AvatarAdapter
 import com.example.base.helper.*
+import com.example.base.model.Avatar
 import com.example.base.model.Worker
 import com.example.base.widget.TextWatcherAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -28,10 +30,17 @@ class SignInFragment : Fragment() {
     private var worker: Worker? = null
     private var doneFab: FloatingActionButton? = null
     private val edit by lazy { arguments?.getBoolean(ARG_EDIT, false) ?: false }
-
     private var avatarGrid: GridView? = null
+    private var selectedAvatar: Avatar? = null
+    private var selectedAvatarView: View? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        if(savedInstanceState != null) {
+            val avatarIndex = savedInstanceState.getInt(KEY_SELECTED_AVATAR_INDEX)
+            if(avatarIndex != GridView.INVALID_POSITION) {
+                selectedAvatar = Avatar.values()[avatarIndex]
+            }
+        }
         activity?.run {
             if(isLoggedIn()) {
                 // navigateToCategoryActivity()
@@ -58,19 +67,29 @@ class SignInFragment : Fragment() {
         if(edit) {
             with(worker) {
                 firstNameView?.setText(worker.firstName)
-                lastNameView?.setText(worker.firstName)
+                lastNameView?.run {
+                    setText(worker.lastName)
+                    requestFocus()
+                    setSelection(length())
+                }
                 this@SignInFragment.worker = worker.also {
                     if(activity != null) {
-                        login.saveWorker(activity!!, this, {
-                            Log.d("!!!!!!", "!!!! show fab")
-                            showFab()
-                        })
+                        login.saveWorker(activity!!, this, {selectAvatar(it.avatar!!)})
                     }
                 }
             }
         } else {
             navigateToCategoryActivity()
         }
+    }
+
+    private fun selectAvatar(avatar: Avatar) {
+        selectedAvatar = avatar
+        avatarGrid?.run {
+            requestFocusFromTouch()
+            setItemChecked(avatar.ordinal, true)
+        }
+        showFab()
     }
 
     private fun showFab() {
@@ -85,13 +104,28 @@ class SignInFragment : Fragment() {
         val contentView = inflater.inflate(R.layout.fragment_sign_in, container, false)
         contentView.onLayoutChange {
             avatarGrid?.apply {
+                adapter = AvatarAdapter(activity!!)
                 onItemClickListener = AdapterView.OnItemClickListener { _, view, position, _ ->
+                    selectedAvatarView = view
+                    selectedAvatar = Avatar.values()[position]
                     // showing the floating action button if input data is valid
                     showFab()
                 }
+                numColumns = calculateSpanCount()
+                selectedAvatar?.run { selectAvatar(this) }
             }
         }
         return  contentView
+    }
+
+    /**
+     * Calculates spans for avatars dynamically
+     * @return The recommended amount of columns
+     */
+    private fun calculateSpanCount(): Int {
+        val avatarSize = resources.getDimensionPixelSize(R.dimen.size_fab)
+        val avatarPadding = resources.getDimensionPixelOffset(R.dimen.spacing_double)
+        return (avatarGrid?.width ?: 0) / (avatarSize + avatarPadding)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -124,9 +158,12 @@ class SignInFragment : Fragment() {
             valid().let {
                 firstNameView?.setText(firstName)
                 lastNameView?.setText(lastName)
+                avatar?.run { selectAvatar(this) }
             }
         }
     }
+
+    private fun isAvatarSelected() = selectedAvatarView != null || selectedAvatar != null
 
     private fun initContentViews() {
         val textWatcher = object : TextWatcher by TextWatcherAdapter {
@@ -136,8 +173,7 @@ class SignInFragment : Fragment() {
             }
 
             override fun afterTextChanged(s: Editable) {
-                Log.d("!!!!!!!!!!", "!!!!! after text changed")
-                if(isInputDataValid()) doneFab?.show()
+                if(isAvatarSelected() && isInputDataValid()) doneFab?.show()
             }
         }
         firstNameView?.addTextChangedListener(textWatcher)
@@ -149,15 +185,17 @@ class SignInFragment : Fragment() {
                 activity?.run {
                     val toSave = worker?.apply {
                         firstName = first
-                        lastName = lastName
-                    } ?: Worker(first, last)
+                        lastName = last
+                        avatar = selectedAvatar
+                    } ?: Worker(first, last, selectedAvatar)
                     login.saveWorker(this, toSave) {
                         Log.d(TAG, "Saving login info successful")
                     }
                 }
             }
             removeDoneFab {
-                performSignInWithTransition()
+                performSignInWithTransition(selectedAvatarView
+                    ?: avatarGrid?.getChildAt(selectedAvatar!!.ordinal))
             }
         }
     }
@@ -176,10 +214,12 @@ class SignInFragment : Fragment() {
     }
 
     private fun isInputDataValid() = firstNameView?.text?.isNotEmpty() == true &&
-            lastNameView?.text?.isNotEmpty() == true
+            lastNameView?.text?.isNotEmpty() == true && selectedAvatar != null
 
     companion object {
         private const val ARG_EDIT = "EDIT"
+        private const val KEY_SELECTED_AVATAR_INDEX = "selectedAvatarIndex"
+
         fun newInstance(edit: Boolean = false): SignInFragment {
             return SignInFragment().apply {
                 arguments = Bundle().apply {
