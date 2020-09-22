@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:padding="@dimen/spacing_double"
-        android:textAppearance="@style/Wo.TextAppearance.CategoryItem"
+        android:textAppearance="@style/Work4Experience.TextAppearance.CategoryItem"
         tools:targetApi="lollipop" />
 
 </FrameLayout>

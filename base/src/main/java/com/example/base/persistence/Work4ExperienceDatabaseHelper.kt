@@ -87,6 +87,19 @@ class Work4ExperienceDatabaseHelper private constructor(
         }
     }
 
+    /**
+     * Gets all categories with their posts.
+     * @param fromDatabase 'true' if a data refresh is needed, else 'false'
+     * @return All categories stored in the db
+     */
+    fun getCategories(fromDatabase: Boolean = false): List<Category> {
+        if(fromDatabase) {
+            categories.clear()
+            categories.addAll(loadCategories())
+        }
+        return categories
+    }
+
     companion object {
         private var instance: Work4ExperienceDatabaseHelper? = null
 

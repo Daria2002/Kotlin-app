@@ -10,7 +10,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.EditText
+import android.widget.GridView
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
@@ -26,6 +28,8 @@ class SignInFragment : Fragment() {
     private var worker: Worker? = null
     private var doneFab: FloatingActionButton? = null
     private val edit by lazy { arguments?.getBoolean(ARG_EDIT, false) ?: false }
+
+    private var avatarGrid: GridView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         activity?.run {
@@ -80,8 +84,12 @@ class SignInFragment : Fragment() {
     ): View? {
         val contentView = inflater.inflate(R.layout.fragment_sign_in, container, false)
         contentView.onLayoutChange {
-
-            showFab()
+            avatarGrid?.apply {
+                onItemClickListener = AdapterView.OnItemClickListener { _, view, position, _ ->
+                    // showing the floating action button if input data is valid
+                    showFab()
+                }
+            }
         }
         return  contentView
     }
@@ -94,6 +102,7 @@ class SignInFragment : Fragment() {
         firstNameView = view.findViewById<EditText>(R.id.first_name)
         lastNameView = view.findViewById<EditText>(R.id.last_name)
         doneFab = view.findViewById<FloatingActionButton>(R.id.done)
+        avatarGrid = view.findViewById<GridView>(R.id.avatars)
 
         if(edit || (worker != null && worker!!.valid())) {
             initContentViews()
