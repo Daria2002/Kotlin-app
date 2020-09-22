@@ -96,7 +96,7 @@ MERGED from [:quiz] /home/daria/Documents/Work4Experience/quiz/build/intermediat
 	android:allowBackup
 		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:8:9-36
 	android:theme
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:9:9-53
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:9:9-65
 activity#com.example.base.activity.SignInActivity
 ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:12:9-18:20
 	android:name

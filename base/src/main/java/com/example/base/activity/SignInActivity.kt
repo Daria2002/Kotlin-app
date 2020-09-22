@@ -12,6 +12,7 @@ import com.example.base.helper.findFragmentById
 
 class SignInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        supportActionBar?.setDisplayShowTitleEnabled(false)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
         if (savedInstanceState == null) {

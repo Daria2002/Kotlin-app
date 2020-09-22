@@ -17,7 +17,7 @@
         android:fullBackupContent="false"
         android:hardwareAccelerated="true"
         android:testOnly="true"
-        android:theme="@style/Theme.AppCompat.Light" >
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
         <activity android:name="com.example.base.activity.SignInActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

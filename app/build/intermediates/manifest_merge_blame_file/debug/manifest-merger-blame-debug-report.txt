@@ -26,8 +26,8 @@
 18        android:hardwareAccelerated="true"
 18-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:11:9-43
 19        android:testOnly="true"
-20        android:theme="@style/Theme.AppCompat.Light" >
-20-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:9:9-53
+20        android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+20-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:9:9-65
 21        <activity android:name="com.example.base.activity.SignInActivity" >
 21-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:12:9-18:20
 21-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:12:19-74
