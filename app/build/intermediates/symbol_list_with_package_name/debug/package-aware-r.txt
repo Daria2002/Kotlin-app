@@ -1337,10 +1337,6 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
-drawable avatar1
-drawable avatar2
-drawable avatar_1_raster
-drawable avatar_2_raster
 drawable avd_hide_password
 drawable avd_show_password
 drawable btn_checkbox_checked_mtrl
@@ -1413,7 +1409,6 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
-drawable selector_avatar
 drawable selector_button
 drawable selector_checkable
 drawable selector_list
@@ -1492,8 +1487,6 @@ id all
 id always
 id async
 id auto
-id avatar
-id avatars
 id beginning
 id blocking
 id bottom
@@ -1702,7 +1695,6 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
-id toolbar_choose_avatar
 id top
 id topPanel
 id touch_outside
@@ -1801,7 +1793,6 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fab_done
 layout fragment_sign_in
-layout item_avatar
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title
@@ -1848,7 +1839,6 @@ layout notification_template_part_time
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
-layout sign_in_avatars
 layout sign_in_username
 layout support_simple_spinner_dropdown_item
 layout test_action_chip
@@ -1893,7 +1883,6 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
-string an_avatar
 string app_name
 string appbar_scrolling_view_behavior
 string back
@@ -1903,7 +1892,6 @@ string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
 string chip_text
-string choose_avatar
 string clear_text_end_icon_content_description
 string common_google_play_services_enable_button
 string common_google_play_services_enable_text

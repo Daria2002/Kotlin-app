@@ -11,7 +11,6 @@ import com.example.base.helper.TAG
 data class Worker (
     var firstName: String?,
     var lastName: String?,
-    var avatar: Avatar?,
     /**
      * Only used for SmartLock purposes
      */
@@ -23,7 +22,6 @@ data class Worker (
     constructor(credential: Credential) :
             this(firstName = credential.name?.substringBefore(" "),
                 lastName = credential.name?.substringAfterLast(" ")?.get(0).toString(),
-                avatar = Avatar.ONE,
                 email = credential.id ?: TAG)
 
     override fun writeToParcel(dest: Parcel, flags: Int) {
@@ -31,7 +29,6 @@ data class Worker (
             writeString(firstName)
             writeString(lastName)
             writeString(email)
-            avatar?.run { writeInt(ordinal) }
         }
     }
 
@@ -53,8 +50,7 @@ data class Worker (
             override fun createFromParcel(parcel: Parcel) = with(parcel) {
                 Worker(firstName = readString(),
                         lastName = readString(),
-                        email = readString(),
-                        avatar = Avatar.values()[readInt()])
+                        email = readString())
             }
 
             override fun newArray(size: Int): Array<Worker?> = arrayOfNulls(size)

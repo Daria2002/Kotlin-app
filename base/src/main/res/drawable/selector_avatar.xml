@@ -1,7 +1,0 @@
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="oval">
-    <stroke
-        android:width="@dimen/stroke_width_avatar"
-        android:color="@color/work4experience_primary" />
-    <solid android:color="@android:color/transparent" />
-</shape>

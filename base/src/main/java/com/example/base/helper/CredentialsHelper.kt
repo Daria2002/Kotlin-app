@@ -5,10 +5,8 @@ import android.app.Activity
 import android.content.ContentValues
 import android.content.Context
 import android.content.IntentSender
-import android.net.wifi.hotspot2.pps.Credential
 import android.util.Log
 import androidx.annotation.VisibleForTesting
-import com.example.base.model.Avatar
 import com.example.base.model.Worker
 import com.google.android.gms.auth.api.credentials.Credentials
 import com.google.android.gms.auth.api.credentials.CredentialsOptions
@@ -43,7 +41,6 @@ fun Context.getWorker(): Worker? {
     return with(getWorkerPreferences()) {
         val worker = Worker(getString(PREFERENCE_FIRST_NAME, null),
             getString(PREFERENCE_LAST_NAME, null),
-            getString(PREFERENCE_AVATAR, null)?.let { Avatar.valueOf(it) },
             getString(PREFERENCE_EMAIL, ""))
         if(worker.valid()) worker
         else null
@@ -103,7 +100,6 @@ fun Context.storeWorkerLocally(worker: Worker) {
             editWorker()
                 .putString(PREFERENCE_FIRST_NAME, firstName)
                 .putString(PREFERENCE_LAST_NAME, lastName)
-                .putString(PREFERENCE_AVATAR, avatar?.name)
                 .putString(PREFERENCE_EMAIL, email)
                 .apply()
     }
