@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Work 4 Experience</string>
+    <string name="text_login">Login</string>
+    <string name="text_not_member">Not member</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
 </resources>

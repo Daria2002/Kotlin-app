@@ -346,8 +346,11 @@ color bright_foreground_material_light
 color button_material_dark
 color button_material_light
 color colorAccent
+color colorBackground
 color colorPrimary
 color colorPrimaryDark
+color colorText
+color colorTextHint
 color dim_foreground_disabled_material_dark
 color dim_foreground_disabled_material_light
 color dim_foreground_material_dark
@@ -682,6 +685,7 @@ id activity_chooser_view_content
 id add
 id alertTitle
 id always
+id appCompatButtonLogin
 id async
 id beginning
 id blocking
@@ -721,6 +725,7 @@ id list_item
 id message
 id middle
 id multiply
+id nestedScrollView
 id never
 id none
 id normal
@@ -772,8 +777,13 @@ id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id text
 id text2
+id textInputEditTextEmail
+id textInputEditTextPassword
+id textInputLayoutEmail
+id textInputLayoutPassword
 id textSpacerNoButtons
 id textSpacerNoTitle
+id textViewLinkRegister
 id time
 id title
 id titleDividerNoCustom
@@ -868,8 +878,12 @@ string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string app_name
+string hint_email
+string hint_password
 string search_menu_title
 string status_bar_notification_info_overflow
+string text_login
+string text_not_member
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
