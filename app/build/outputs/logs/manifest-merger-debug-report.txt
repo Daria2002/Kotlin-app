@@ -99,12 +99,12 @@ MERGED from [:quiz] /home/daria/Documents/Work4Experience/quiz/build/intermediat
 		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:8:9-36
 	android:theme
 		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:9:9-65
-activity#com.example.base.activity.SignInActivity
+activity#com.example.base.activity.RegistrationOrSignInActivity
 ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:13:9-19:20
 	android:label
 		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:14:13-45
 	android:name
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:13:19-74
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:13:19-88
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:15:13-18:29
 action#android.intent.action.MAIN

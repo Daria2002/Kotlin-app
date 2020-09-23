@@ -172,8 +172,6 @@ class SignInFragment : Fragment() {
 
     companion object {
         private const val ARG_EDIT = "EDIT"
-        private const val KEY_SELECTED_AVATAR_INDEX = "selectedAvatarIndex"
-
         fun newInstance(edit: Boolean = false): SignInFragment {
             return SignInFragment().apply {
                 arguments = Bundle().apply {
