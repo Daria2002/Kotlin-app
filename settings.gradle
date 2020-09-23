@@ -1,5 +1,2 @@
-include ':base'
-include ':quiz'
-include ':categories'
 include ':app'
-rootProject.name = "Work4Experience"
+rootProject.name = "w4e"
