@@ -11,7 +11,7 @@
 9-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
 10
 11    <application
-11-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:4:5-21:19
+11-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:4:5-20:19
 12        android:allowBackup="true"
 12-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:5:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -28,23 +28,20 @@
 19        android:testOnly="true"
 20        android:theme="@style/AppTheme" >
 20-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:10:9-40
-21        <activity
-21-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:12:9-19:20
-22            android:name="com.example.w4e.mvvm.view.ui.LoginActivity"
-22-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:13:13-55
-23            android:label="@string/app_name" >
-23-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:14:13-45
-24            <intent-filter>
-24-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:15:13-18:29
-25                <action android:name="android.intent.action.MAIN" />
-25-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:16:17-69
-25-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:16:25-66
-26
-27                <category android:name="android.intent.category.LAUNCHER" />
-27-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:17:17-77
-27-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:17:27-74
-28            </intent-filter>
-29        </activity>
-30    </application>
-31
-32</manifest>
+21        <activity android:name="com.example.w4e.mvvm.view.ui.LoginActivity" >
+21-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:12:9-18:20
+21-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:13:13-55
+22            <intent-filter>
+22-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:14:13-17:29
+23                <action android:name="android.intent.action.MAIN" />
+23-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:15:17-69
+23-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:15:25-66
+24
+25                <category android:name="android.intent.category.LAUNCHER" />
+25-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:16:17-77
+25-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:16:27-74
+26            </intent-filter>
+27        </activity>
+28    </application>
+29
+30</manifest>

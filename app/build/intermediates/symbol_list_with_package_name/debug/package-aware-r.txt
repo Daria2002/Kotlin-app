@@ -685,7 +685,6 @@ id activity_chooser_view_content
 id add
 id alertTitle
 id always
-id appCompatButtonLogin
 id async
 id beginning
 id blocking
@@ -725,7 +724,6 @@ id list_item
 id message
 id middle
 id multiply
-id nestedScrollView
 id never
 id none
 id normal
@@ -777,13 +775,8 @@ id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id text
 id text2
-id textInputEditTextEmail
-id textInputEditTextPassword
-id textInputLayoutEmail
-id textInputLayoutPassword
 id textSpacerNoButtons
 id textSpacerNoTitle
-id textViewLinkRegister
 id time
 id title
 id titleDividerNoCustom
