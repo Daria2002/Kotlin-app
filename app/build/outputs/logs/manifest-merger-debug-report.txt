@@ -41,7 +41,7 @@ INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest
 INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-20:12
 INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-20:12
 	package
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:3:5-35
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:3:5-36
 		INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
 		INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
 	android:versionName
@@ -69,15 +69,15 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/daria
 	android:label
 		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:8:9-41
 	android:icon
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:7:9-43
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:7:9-38
 	android:allowBackup
 		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:6:9-35
 	android:theme
 		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:10:9-40
-activity#com.example.w4e.mvvm.view.ui.LoginActivity
+activity#com.example.w4e.start.activity.LoginActivity
 ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:12:9-17:20
 	android:name
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:12:19-56
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:12:19-57
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:13:13-16:29
 action#android.intent.action.MAIN
