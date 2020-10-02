@@ -1,4 +1,4 @@
-#Fri Oct 02 11:34:15 CEST 2020
+#Fri Oct 02 15:08:26 CEST 2020
 base.0=/home/daria/Documents/Work4Experience/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

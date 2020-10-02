@@ -1,5 +1,6 @@
 package com.example.w4e.start.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import androidx.core.widget.NestedScrollView
 import com.example.w4e.start.R
 import com.example.w4e.start.helper.DatabaseHelper
 import com.example.w4e.start.helper.InputValidation
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
@@ -84,7 +86,21 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             return
         }
         if(databaseHelper!!.checkUser(textInputEditTextEmail!!.text.toString().trim {it <= ' '}, textInputEditTextPassword!!.text.toString().trim {it <= ' '})) {
-
+            val intent = Intent(activity, CategoryListActivity::class.java)
+            intent.putExtra("EMAIL", textInputEditTextEmail!!.text.toString().trim {it <= ' '})
+            emptyInputEditText()
+            startActivity(intent)
+        } else {
+            // Snack Bar to show success message that record is wrong
+            Snackbar.make(nestedScrollView!!, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show()
         }
+    }
+
+    /**
+     * This method is to empty all input edit text
+     */
+    private fun emptyInputEditText() {
+        textInputEditTextEmail!!.text = null
+        textInputEditTextPassword!!.text = null
     }
 }
