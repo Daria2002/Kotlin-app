@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        setContentView(R.layout.activity_login)
         supportActionBar!!.hide()
         initViews()
         initListeners()
@@ -43,20 +43,16 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         textInputLayoutPassword = findViewById<TextInputLayout>(R.id.textInputLayoutPassword)
         textInputEditTextEmail = findViewById<TextInputEditText>(R.id.textInputEditTextEmail)
         textInputEditTextPassword = findViewById<TextInputEditText>(R.id.textInputEditTextPassword)
-        /*
-        appCompatButtonLogin = findViewById<AppCompatButton>(R.id.appCompatButtonRegister)
+        appCompatButtonLogin = findViewById<AppCompatButton>(R.id.appCompatButtonLogin)
         textViewLinkRegister = findViewById<AppCompatTextView>(R.id.textViewLinkRegister)
-        */
     }
 
     /**
      * This method initialize listeners
      */
     private fun initListeners() {
-        /*
         appCompatButtonLogin.setOnClickListener(this)
         textViewLinkRegister.setOnClickListener(this)
-         */
     }
 
     /**
