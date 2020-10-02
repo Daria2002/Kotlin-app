@@ -30,8 +30,8 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         supportActionBar!!.hide()
-        /*
         initViews()
+        /*
         initListeners()
         initObjects()
         */
@@ -46,7 +46,17 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initViews() {
-        TODO("Not yet implemented")
+        nestedScrollView = findViewById(R.id.nestedScrollView)
+        textInputLayoutName = findViewById(R.id.textInputLayoutName)
+        textInputLayoutEmail = findViewById(R.id.textInputLayoutEmail)
+        textInputLayoutPassword = findViewById(R.id.textInputLayoutPassword)
+        textInputLayoutConfirmPassword = findViewById(R.id.textInputLayoutConfirmPassword)
+        textInputEditTextName = findViewById(R.id.textInputEditTextName)
+        textInputEditTextEmail = findViewById(R.id.textInputEditTextEmail)
+        textInputEditTextPassword = findViewById(R.id.textInputEditTextPassword)
+        textInputEditTextConfirmPassword = findViewById(R.id.textInputEditTextConfirmPassword)
+        appCompatButtonRegister = findViewById(R.id.appCompatButtonRegister)
+        appCompatTextViewLoginLink = findViewById(R.id.appCompatTextViewLoginLink)
     }
 
     override fun onClick(v: View?) {
