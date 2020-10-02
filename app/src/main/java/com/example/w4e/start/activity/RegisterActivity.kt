@@ -7,6 +7,8 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.widget.NestedScrollView
 import com.example.w4e.start.R
+import com.example.w4e.start.helper.DatabaseHelper
+import com.example.w4e.start.helper.InputValidation
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
@@ -23,26 +25,28 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var textInputEditTextConfirmPassword: TextInputEditText
     private lateinit var appCompatButtonRegister: AppCompatButton
     private lateinit var appCompatTextViewLoginLink: AppCompatTextView
-    // private lateinit var inputValidation: InputValidation
-    // private lateinit var datebaseHelper: DatabaseHelper
+    private lateinit var inputValidation: InputValidation
+    private lateinit var databaseHelper: DatabaseHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         supportActionBar!!.hide()
         initViews()
-        /*
         initListeners()
         initObjects()
-        */
     }
 
     private fun initObjects() {
-        TODO("Not yet implemented")
+        databaseHelper = DatabaseHelper(activity)
+        inputValidation = InputValidation(activity)
     }
 
     private fun initListeners() {
-        TODO("Not yet implemented")
+        // set OnClickListener is appCompatButtonRegister is non-null value or throw
+        // NullPointerException if appCompatButtonRegister is a null
+        appCompatButtonRegister!!.setOnClickListener(this)
+        appCompatTextViewLoginLink!!.setOnClickListener(this)
     }
 
     private fun initViews() {
@@ -59,7 +63,28 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         appCompatTextViewLoginLink = findViewById(R.id.appCompatTextViewLoginLink)
     }
 
-    override fun onClick(v: View?) {
-        TODO("Not yet implemented")
+    override fun onClick(v: View) {
+        when(v.id) {
+            R.id.appCompatButtonRegister -> postDataToSQLite()
+            R.id.appCompatTextViewLoginLink -> finish()
+        }
+    }
+
+    private fun postDataToSQLite() {
+        if(!inputValidation!!.isInputEditTextFilled(textInputEditTextName, textInputLayoutName, getString(R.string.error_message_name))) {
+            return
+        }
+        if(!inputValidation!!.isInputEditTextFilled(textInputEditTextEmail, textInputLayoutEmail, getString(R.string.error_message_email))) {
+            return
+        }
+        if(!inputValidation!!.isInputEditTextEmail(textInputEditTextEmail!!, textInputLayoutEmail!!, getString(R.string.error_message_email))) {
+            return
+        }
+        if(!inputValidation!!.isInputEditTextFilled(textInputEditTextPassword!!, textInputLayoutPassword!!, getString(R.string.error_message_email))) {
+            return
+        }
+        if(databaseHelper!!.checkUser(textInputEditTextEmail!!.text.toString().trim {it <= ' '}, textInputEditTextPassword!!.text.toString().trim {it <= ' '})) {
+
+        }
     }
 }
