@@ -10,6 +10,7 @@ import androidx.core.widget.NestedScrollView
 import com.example.w4e.start.R
 import com.example.w4e.start.helper.DatabaseHelper
 import com.example.w4e.start.helper.InputValidation
+import com.example.w4e.start.model.User
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -85,13 +86,16 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         if(!inputValidation!!.isInputEditTextFilled(textInputEditTextPassword!!, textInputLayoutPassword!!, getString(R.string.error_message_email))) {
             return
         }
-        if(databaseHelper!!.checkUser(textInputEditTextEmail!!.text.toString().trim {it <= ' '}, textInputEditTextPassword!!.text.toString().trim {it <= ' '})) {
-            val intent = Intent(activity, CategoryListActivity::class.java)
-            intent.putExtra("EMAIL", textInputEditTextEmail!!.text.toString().trim {it <= ' '})
+        if(!databaseHelper!!.checkUser(textInputEditTextEmail!!.text.toString().trim {it <= ' '}, textInputEditTextPassword!!.text.toString().trim {it <= ' '})) {
+            var user = User(name = textInputEditTextEmail!!.text.toString().trim(),
+            email = textInputEditTextEmail!!.text.toString().trim(),
+            password = textInputEditTextPassword!!.text.toString().trim())
+            databaseHelper!!.addUser(user)
+            // Snack Bar to show success message that record is saved successfully
+            Snackbar.make(nestedScrollView!!, getString(R.string.success_message), Snackbar.LENGTH_LONG).show()
             emptyInputEditText()
-            startActivity(intent)
         } else {
-            // Snack Bar to show success message that record is wrong
+            // Snack Bar to show error message that record already exists
             Snackbar.make(nestedScrollView!!, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show()
         }
     }
