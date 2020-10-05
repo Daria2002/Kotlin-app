@@ -21,5 +21,10 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity
+            android:name=".activity.CategoryListActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
     </application>
 </manifest>

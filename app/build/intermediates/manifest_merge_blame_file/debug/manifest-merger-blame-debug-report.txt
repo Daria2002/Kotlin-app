@@ -11,7 +11,7 @@
 9-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
 10
 11    <application
-11-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:5:5-24:19
+11-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:5:5-29:19
 12        android:allowBackup="true"
 12-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -47,6 +47,13 @@
 29            android:screenOrientation="portrait" >
 29-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:21:13-49
 30        </activity>
-31    </application>
-32
-33</manifest>
+31        <activity
+31-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:24:9-27:20
+32            android:name="com.example.w4e.start.activity.CategoryListActivity"
+32-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:25:13-58
+33            android:screenOrientation="portrait" >
+33-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:26:13-49
+34        </activity>
+35    </application>
+36
+37</manifest>

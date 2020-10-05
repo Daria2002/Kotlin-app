@@ -149,7 +149,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         val db = this.readableDatabase
         // selection criteria
         val selection = "$COLUMN_USER_EMAIL = ? AND $COLUMN_USER_PASSWORD = ?"
-        // selection argd
+        // selection args
         val selectionArgs = arrayOf(email, password)
         // query user table with conditions
         val cursor = db.query(TABLE_USER,

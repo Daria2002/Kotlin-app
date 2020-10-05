@@ -29,6 +29,10 @@
             android:name="com.example.w4e.start.activity.RegisterActivity"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="com.example.w4e.start.activity.CategoryListActivity"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>

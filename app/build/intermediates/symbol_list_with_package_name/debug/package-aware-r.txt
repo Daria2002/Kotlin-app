@@ -1307,6 +1307,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_category
 layout activity_login
 layout activity_register
 layout custom_dialog
@@ -1324,6 +1325,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout item_category_recycler
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action
