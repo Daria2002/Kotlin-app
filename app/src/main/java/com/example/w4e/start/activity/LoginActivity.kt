@@ -92,7 +92,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             return
         }
         if(databaseHelper!!.checkUser(textInputEditTextEmail!!.text.toString().trim {it <= ' '}, textInputEditTextPassword!!.text.toString().trim{ it <= ' '})) {
-            val accountsIntent = Intent(activity, CategoryListActivity::class.java)
+            val accountsIntent = Intent(activity, CategorySelectionActivity::class.java)
             accountsIntent.putExtra("EMAIL", textInputEditTextEmail!!.text.toString().trim {it <= ' '})
             emptyInputEditText()
             startActivity(accountsIntent)

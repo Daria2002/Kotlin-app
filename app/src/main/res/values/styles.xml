@@ -10,4 +10,8 @@
         <item name="colorControlActivated">@color/colorText</item>
     </style>
 
+    <style name="Work4Experience.TextAppearance.CategoryItem" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textSize">@dimen/category_item_text_size</item>
+    </style>
+
 </resources>

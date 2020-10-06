@@ -669,6 +669,7 @@ color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
 color tooltip_background_dark
 color tooltip_background_light
+color touch_effect
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
 dimen abc_action_bar_default_height_material
@@ -750,6 +751,7 @@ dimen abc_text_size_title_material_toolbar
 dimen cardview_compat_inset_shadow
 dimen cardview_default_elevation
 dimen cardview_default_radius
+dimen category_item_text_size
 dimen compat_button_inset_horizontal_material
 dimen compat_button_inset_vertical_material
 dimen compat_button_padding_horizontal_material
@@ -879,6 +881,12 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+dimen size_toolbar
+dimen spacing_double
+dimen spacing_huge
+dimen spacing_micro
+dimen spacing_nano
+dimen spacing_normal
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
 dimen tooltip_margin
@@ -1010,6 +1018,8 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable selector_list
+drawable selector_subtle
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
@@ -1083,6 +1093,10 @@ id beginning
 id blocking
 id bottom
 id buttonPanel
+id category_container
+id category_icon
+id category_item
+id category_title
 id center
 id center_horizontal
 id center_vertical
@@ -1169,6 +1183,7 @@ id right_side
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
+id score
 id screen
 id scroll
 id scrollIndicatorDown
@@ -1236,6 +1251,7 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id toolbar_player
 id top
 id topPanel
 id touch_outside
@@ -1325,6 +1341,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout item_category
 layout item_category_recycler
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
@@ -1371,6 +1388,7 @@ string action_settings
 string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
+string category
 string character_counter_content_description
 string character_counter_pattern
 string error_email_exists
@@ -1903,6 +1921,7 @@ style Widget_MaterialComponents_TextInputLayout_OutlinedBox
 style Widget_MaterialComponents_TextInputLayout_OutlinedBox_Dense
 style Widget_MaterialComponents_Toolbar
 style Widget_Support_CoordinatorLayout
+style Work4Experience_TextAppearance_CategoryItem
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth
