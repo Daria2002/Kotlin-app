@@ -11,6 +11,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.w4e.start.R
 import com.example.w4e.start.model.Category
+import com.google.android.instantapps.InstantApps
 
 class CategoryAdapter(
     private val activity: Activity,
@@ -36,13 +37,21 @@ class CategoryAdapter(
         }
     }
 
+    fun getItem(position: Int): Category = categories[position]
+
     private fun setCategoryIcon(category: Category, icon: ImageView) {
-        // TODO
+        val packageName =
+            if(InstantApps.isInstantApp(activity))
+                "${activity.packageName}.categories"
+            else activity.packageName
+        val imageRes = resources.getIdentifier(
+            "icon_category_${category.id}",
+            "drawable",
+            "$packageName.categories")
+        icon.setImageResource(imageRes)
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount(): Int = categories.size
 
     class ViewHolder(categoryView: ViewGroup) : RecyclerView.ViewHolder(categoryView) {
         val categoryIcon: ImageView = categoryView.findViewById(R.id.category_icon)
