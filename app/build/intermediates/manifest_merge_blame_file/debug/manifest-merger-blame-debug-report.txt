@@ -23,37 +23,82 @@
 16-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:8:9-41
 17        android:supportsRtl="true"
 17-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:9:9-35
-18        android:testOnly="true"
-19        android:theme="@style/AppTheme" >
-19-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:10:9-40
-20        <activity android:name="com.example.w4e.start.activity.LoginActivity" >
-20-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:12:9-17:20
-20-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:12:19-57
-21            <intent-filter>
-21-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:13:13-16:29
-22                <action android:name="android.intent.action.MAIN" />
-22-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:14:17-69
-22-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:14:25-66
-23
-24                <category android:name="android.intent.category.LAUNCHER" />
-24-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:15:17-77
-24-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:15:27-74
-25            </intent-filter>
-26        </activity>
-27        <activity
-27-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:19:9-22:20
-28            android:name="com.example.w4e.start.activity.RegisterActivity"
-28-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:20:13-54
-29            android:screenOrientation="portrait" >
-29-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:21:13-49
-30        </activity>
-31        <activity
-31-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:24:9-27:20
-32            android:name="com.example.w4e.start.activity.CategorySelectionActivity"
-32-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:25:13-63
-33            android:screenOrientation="portrait" >
-33-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:26:13-49
-34        </activity>
-35    </application>
-36
-37</manifest>
+18        android:theme="@style/AppTheme" >
+18-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:10:9-40
+19        <activity android:name="com.example.w4e.start.activity.LoginActivity" >
+19-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:12:9-17:20
+19-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:12:19-57
+20            <intent-filter>
+20-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:13:13-16:29
+21                <action android:name="android.intent.action.MAIN" />
+21-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:14:17-69
+21-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:14:25-66
+22
+23                <category android:name="android.intent.category.LAUNCHER" />
+23-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:15:17-77
+23-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:15:27-74
+24            </intent-filter>
+25        </activity>
+26        <activity
+26-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:19:9-22:20
+27            android:name="com.example.w4e.start.activity.RegisterActivity"
+27-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:20:13-54
+28            android:screenOrientation="portrait" >
+28-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:21:13-49
+29        </activity>
+30        <activity
+30-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:24:9-27:20
+31            android:name="com.example.w4e.start.activity.CategorySelectionActivity"
+31-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:25:13-63
+32            android:screenOrientation="portrait" >
+32-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:26:13-49
+33        </activity>
+34
+35        <meta-data
+35-->[com.google.android.instantapps:instantapps:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/c634e99a3437004e4522287c383cd04a/jetified-instantapps-1.1.0/AndroidManifest.xml:10:9-12:33
+36            android:name="aia-compat-api-min-version"
+36-->[com.google.android.instantapps:instantapps:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/c634e99a3437004e4522287c383cd04a/jetified-instantapps-1.1.0/AndroidManifest.xml:11:13-54
+37            android:value="1" />
+37-->[com.google.android.instantapps:instantapps:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/c634e99a3437004e4522287c383cd04a/jetified-instantapps-1.1.0/AndroidManifest.xml:12:13-30
+38
+39        <activity
+39-->[com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6dd10e4b2e96d39901fa5bf2e0fdcaf0/jetified-play-services-auth-17.0.0/AndroidManifest.xml:23:9-27:75
+40            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+40-->[com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6dd10e4b2e96d39901fa5bf2e0fdcaf0/jetified-play-services-auth-17.0.0/AndroidManifest.xml:24:13-93
+41            android:excludeFromRecents="true"
+41-->[com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6dd10e4b2e96d39901fa5bf2e0fdcaf0/jetified-play-services-auth-17.0.0/AndroidManifest.xml:25:13-46
+42            android:exported="false"
+42-->[com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6dd10e4b2e96d39901fa5bf2e0fdcaf0/jetified-play-services-auth-17.0.0/AndroidManifest.xml:26:13-37
+43            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+43-->[com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6dd10e4b2e96d39901fa5bf2e0fdcaf0/jetified-play-services-auth-17.0.0/AndroidManifest.xml:27:13-72
+44        <!--
+45            Service handling Google Sign-In user revocation. For apps that do not integrate with
+46            Google Sign-In, this service will never be started.
+47        -->
+48        <service
+48-->[com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6dd10e4b2e96d39901fa5bf2e0fdcaf0/jetified-play-services-auth-17.0.0/AndroidManifest.xml:33:9-36:110
+49            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+49-->[com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6dd10e4b2e96d39901fa5bf2e0fdcaf0/jetified-play-services-auth-17.0.0/AndroidManifest.xml:34:13-89
+50            android:exported="true"
+50-->[com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6dd10e4b2e96d39901fa5bf2e0fdcaf0/jetified-play-services-auth-17.0.0/AndroidManifest.xml:35:13-36
+51            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" />
+51-->[com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6dd10e4b2e96d39901fa5bf2e0fdcaf0/jetified-play-services-auth-17.0.0/AndroidManifest.xml:36:13-107
+52
+53        <activity
+53-->[com.google.android.gms:play-services-base:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/548e9fe7c0dbc0938b6828b2531865ee/jetified-play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+54            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+54-->[com.google.android.gms:play-services-base:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/548e9fe7c0dbc0938b6828b2531865ee/jetified-play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+55            android:exported="false"
+55-->[com.google.android.gms:play-services-base:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/548e9fe7c0dbc0938b6828b2531865ee/jetified-play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+56            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+56-->[com.google.android.gms:play-services-base:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/548e9fe7c0dbc0938b6828b2531865ee/jetified-play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+57
+58        <meta-data
+58-->[com.google.android.gms:play-services-basement:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/1b90b1be4df66705fb91818db0752e78/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+59            android:name="com.google.android.gms.version"
+59-->[com.google.android.gms:play-services-basement:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/1b90b1be4df66705fb91818db0752e78/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+60            android:value="@integer/google_play_services_version" />
+60-->[com.google.android.gms:play-services-basement:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/1b90b1be4df66705fb91818db0752e78/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+61    </application>
+62
+63</manifest>

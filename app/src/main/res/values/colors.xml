@@ -8,4 +8,5 @@
     <color name="colorTextHint">#51d8c7</color>
     <color name="lightGray">#d3d3d3</color>
     <color name="touch_effect">#9ccc</color>
+    <color name="w4e_primary">#00bad2</color>
 </resources>
