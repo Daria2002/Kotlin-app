@@ -13,4 +13,53 @@ import com.example.w4e.start.helper.DatabaseHelper
 import com.example.w4e.start.model.User
 
 class CategorySelectionActivity : AppCompatActivity() {
+    private val activity = this@CategorySelectionActivity
+    private lateinit var textViewName: AppCompatTextView
+    private lateinit var recyclerViewUsers: RecyclerView
+    private lateinit var listUsers: MutableList<User>
+    private lateinit var usersRecyclerAdapter: CategoryAdapter
+    private lateinit var databaseHelper: DatabaseHelper
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_category)
+        supportActionBar!!.title = ""
+        initViews()
+        initObjects()
+    }
+
+    private fun initObjects() {
+        listUsers = ArrayList()
+        usersRecyclerAdapter = CategoryAdapter(listUsers)
+        val mLayoutManager = LinearLayoutManager(applicationContext)
+        recyclerViewUsers.layoutManager = mLayoutManager
+        recyclerViewUsers.itemAnimator = DefaultItemAnimator()
+        recyclerViewUsers.setHasFixedSize(true)
+        recyclerViewUsers.adapter = usersRecyclerAdapter
+        databaseHelper = DatabaseHelper(activity)
+        val emailFromIntent = intent.getStringExtra("EMAIL")
+        textViewName.text = emailFromIntent
+        var getDataFromSQLite = GetDataFromSQLite()
+        getDataFromSQLite.execute()
+    }
+
+    /**
+     * This class fetches all user records from SQLite
+     */
+    inner class GetDataFromSQLite(): AsyncTask<Void, Void, List<User>>() {
+        override fun doInBackground(vararg p0: Void?): List<User> {
+            return databaseHelper.getAllUser()
+        }
+
+        override fun onPostExecute(result: List<User>?) {
+            super.onPostExecute(result)
+            listUsers.clear()
+            listUsers.addAll(result!!)
+        }
+    }
+
+    private fun initViews() {
+        textViewName = findViewById(R.id.textViewName) as AppCompatTextView
+        recyclerViewUsers = findViewById(R.id.recyclerViewUsers) as RecyclerView
+    }
 }

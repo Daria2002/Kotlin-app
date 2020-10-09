@@ -1134,9 +1134,6 @@ id beginning
 id blocking
 id bottom
 id buttonPanel
-id category_icon
-id category_item
-id category_title
 id center
 id center_horizontal
 id center_vertical
@@ -1389,7 +1386,6 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
-layout item_category
 layout item_category_recycler
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
