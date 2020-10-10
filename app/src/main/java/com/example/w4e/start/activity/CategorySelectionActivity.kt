@@ -38,7 +38,7 @@ class CategorySelectionActivity : AppCompatActivity() {
         recyclerViewUsers.adapter = usersRecyclerAdapter
         databaseHelper = DatabaseHelper(activity)
         val emailFromIntent = intent.getStringExtra("EMAIL")
-        textViewName.text = emailFromIntent
+        textViewName.text = databaseHelper.getUser(emailFromIntent)
         var getDataFromSQLite = GetDataFromSQLite()
         getDataFromSQLite.execute()
     }

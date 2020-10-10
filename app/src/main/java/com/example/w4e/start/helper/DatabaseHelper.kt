@@ -26,6 +26,31 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         onCreate(db)
     }
 
+    fun getUser(email: String?) : String {
+        // arr of columns to fetch
+        val columns = arrayOf(COLUMN_USER_ID, COLUMN_USER_EMAIL, COLUMN_USER_NAME, COLUMN_USER_PASSWORD)
+        // sorting orders
+        val sortOrder = "$COLUMN_USER_EMAIL ASC"
+        val db = this.readableDatabase
+        // query the user table
+        val cursor = db.query(TABLE_USER,
+            columns,
+            null,
+            null,
+            null,
+            null,
+            sortOrder)
+        if(cursor.moveToFirst()) {
+            do {
+                if(cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL)) == email) {
+                    val name = cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME))
+                    return cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME))
+                }
+            } while (cursor.moveToNext())
+        }
+        return ""
+    }
+
     /**
      * This method is to fetch all user and return the list of user records
      * @return list
