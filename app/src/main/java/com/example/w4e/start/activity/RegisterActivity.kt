@@ -87,7 +87,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             return
         }
         if(!databaseHelper!!.checkUser(textInputEditTextEmail!!.text.toString().trim {it <= ' '}, textInputEditTextPassword!!.text.toString().trim {it <= ' '})) {
-            var user = User(name = textInputEditTextEmail!!.text.toString().trim(),
+            var user = User(name = textInputEditTextName!!.text.toString().trim(),
             email = textInputEditTextEmail!!.text.toString().trim(),
             password = textInputEditTextPassword!!.text.toString().trim())
             databaseHelper!!.addUser(user)

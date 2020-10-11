@@ -28,24 +28,29 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
     fun getUser(email: String?) : String {
         // arr of columns to fetch
-        val columns = arrayOf(COLUMN_USER_ID, COLUMN_USER_EMAIL, COLUMN_USER_NAME, COLUMN_USER_PASSWORD)
-        // sorting orders
-        val sortOrder = "$COLUMN_USER_EMAIL ASC"
+        val columns = arrayOf(COLUMN_USER_ID, COLUMN_USER_NAME)
         val db = this.readableDatabase
-        // query the user table
+        // selection criteria
+        val selection = "$COLUMN_USER_EMAIL = ?"
+        // selection arg
+        val selectionArgs = arrayOf(email)
+        // query user table with condition
+        /**
+         * query function fetches records from user table
+         * sql query of this function:
+         * SELECT user_name FROM user WHERE user_email = 'jack@app.com'
+         */
         val cursor = db.query(TABLE_USER,
             columns,
+            selection,
+            selectionArgs,
             null,
             null,
-            null,
-            null,
-            sortOrder)
+            null)
         if(cursor.moveToFirst()) {
             do {
-                if(cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL)) == email) {
-                    val name = cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME))
-                    return cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME))
-                }
+                var name = cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME))
+                return name
             } while (cursor.moveToNext())
         }
         return ""
@@ -143,7 +148,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         /**
          * query function fetches records from user table
          * sql query of this function:
-         * SELECT user_ide FROM user WHERE user_email = 'jack@app.com'
+         * SELECT user_id FROM user WHERE user_email = 'jack@app.com'
          */
         val cursor = db.query(TABLE_USER,
                 columns,
