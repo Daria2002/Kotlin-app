@@ -49,8 +49,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
             null)
         if(cursor.moveToFirst()) {
             do {
-                var name = cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME))
-                return name
+                return cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME))
             } while (cursor.moveToNext())
         }
         return ""

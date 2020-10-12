@@ -30,23 +30,26 @@ class CategorySelectionActivity : AppCompatActivity() {
 
     private fun initObjects() {
         listUsers = ArrayList()
+        databaseHelper = DatabaseHelper(activity)
+        listUsers = databaseHelper.getAllUser().toMutableList()
         usersRecyclerAdapter = CategoryAdapter(listUsers)
         val mLayoutManager = LinearLayoutManager(applicationContext)
         recyclerViewUsers.layoutManager = mLayoutManager
         recyclerViewUsers.itemAnimator = DefaultItemAnimator()
         recyclerViewUsers.setHasFixedSize(true)
         recyclerViewUsers.adapter = usersRecyclerAdapter
-        databaseHelper = DatabaseHelper(activity)
         val emailFromIntent = intent.getStringExtra("EMAIL")
         textViewName.text = databaseHelper.getUser(emailFromIntent)
+        /*
         var getDataFromSQLite = GetDataFromSQLite()
         getDataFromSQLite.execute()
+         */
     }
 
     /**
      * This class fetches all user records from SQLite
      */
-    inner class GetDataFromSQLite(): AsyncTask<Void, Void, List<User>>() {
+    inner class GetDataFromSQLite : AsyncTask<Void, Void, List<User>>() {
         override fun doInBackground(vararg p0: Void?): List<User> {
             return databaseHelper.getAllUser()
         }

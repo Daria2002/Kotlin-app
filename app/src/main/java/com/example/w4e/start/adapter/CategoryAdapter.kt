@@ -34,5 +34,4 @@ class CategoryAdapter(private val listCategories: MutableList<User>) : RecyclerV
             textViewPassword = view.findViewById(R.id.textViewPassword) as AppCompatTextView
         }
     }
-
 }
