@@ -1,37 +1,37 @@
 package com.example.w4e.start.adapter
 
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
-import androidx.appcompat.widget.AppCompatTextView
+import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.w4e.start.R
-import com.example.w4e.start.model.User
+import com.example.w4e.start.model.Category
 
-class CategoryAdapter(private val listCategories: MutableList<User>) : RecyclerView.Adapter<CategoryAdapter.UserViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
+class CategoryAdapter(private val listCategories: MutableList<Category>, private val listener: View.OnClickListener) : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_category_recycler, parent, false)
-        return UserViewHolder(itemView)
+        return CategoryViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        holder.textViewName.text = listCategories[position].name
-        holder.textViewEmail.text = listCategories[position].email
-        holder.textViewPassword.text = listCategories[position].password
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
+        holder.textViewName.text = listCategories[position].title()
+        holder.textViewName.setOnClickListener {
+            it.id = position
+            listener.onClick(it)
+        }
     }
 
     override fun getItemCount(): Int = listCategories.size
 
-    inner class UserViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var textViewName: AppCompatTextView
-        var textViewEmail: AppCompatTextView
-        var textViewPassword: AppCompatTextView
+    inner class CategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        var textViewName: AppCompatButton
 
         init {
-            textViewName = view.findViewById(R.id.textViewName) as AppCompatTextView
-            textViewEmail = view.findViewById(R.id.textViewEmail) as AppCompatTextView
-            textViewPassword = view.findViewById(R.id.textViewPassword) as AppCompatTextView
+            textViewName = view.findViewById(R.id.textViewName) as AppCompatButton
         }
     }
 }
