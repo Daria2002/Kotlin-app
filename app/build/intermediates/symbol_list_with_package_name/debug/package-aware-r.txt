@@ -1475,7 +1475,6 @@ string path_password_strike_through
 string search_menu_title
 string status_bar_notification_info_overflow
 string success_message
-string text_accounts
 string text_already_member
 string text_hello
 string text_login

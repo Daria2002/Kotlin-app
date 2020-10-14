@@ -1474,12 +1474,11 @@ int string path_password_strike_through 0x7f0d0047
 int string search_menu_title 0x7f0d0048
 int string status_bar_notification_info_overflow 0x7f0d0049
 int string success_message 0x7f0d004a
-int string text_accounts 0x7f0d004b
-int string text_already_member 0x7f0d004c
-int string text_hello 0x7f0d004d
-int string text_login 0x7f0d004e
-int string text_not_member 0x7f0d004f
-int string text_register 0x7f0d0050
+int string text_already_member 0x7f0d004b
+int string text_hello 0x7f0d004c
+int string text_login 0x7f0d004d
+int string text_not_member 0x7f0d004e
+int string text_register 0x7f0d004f
 int style AlertDialog_AppCompat 0x7f0e0000
 int style AlertDialog_AppCompat_Light 0x7f0e0001
 int style Animation_AppCompat_Dialog 0x7f0e0002
