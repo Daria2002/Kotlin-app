@@ -33,6 +33,9 @@
             android:name="com.example.w4e.start.activity.CategorySelectionActivity"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="com.example.w4e.start.activity.CategoryActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="aia-compat-api-min-version"
