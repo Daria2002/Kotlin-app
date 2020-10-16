@@ -11,17 +11,18 @@ import com.example.w4e.start.R
  */
 class CategoryActivity: AppCompatActivity(), View.OnClickListener {
     private lateinit var appTextName: AppCompatTextView
+    private lateinit var category: String
     override fun onCreate(savedInstanceState: Bundle?) {
-        // val category = intent.getStringExtra("CATEGORY")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.category_posts)
         supportActionBar!!.hide()
+        category = intent.getStringExtra("CATEGORY").toString()
         initViews()
         initObjects()
     }
 
     private fun initObjects() {
-        appTextName.text = "posts"
+        appTextName.text = category
     }
 
     private fun initViews() {
