@@ -1128,6 +1128,7 @@ id always
 id appCompatButtonLogin
 id appCompatButtonRegister
 id appCompatTextViewLoginLink
+id appName
 id async
 id auto
 id beginning
@@ -1369,6 +1370,7 @@ layout abc_tooltip
 layout activity_category
 layout activity_login
 layout activity_register
+layout category_posts
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

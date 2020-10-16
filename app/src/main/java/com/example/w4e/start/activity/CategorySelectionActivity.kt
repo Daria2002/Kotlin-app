@@ -50,7 +50,8 @@ class CategorySelectionActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         if (v != null) {
-            val intent = Intent(applicationContext, Category.values()[v.id].activity())
+            val intent = Intent(applicationContext, CategoryActivity::class.java)
+            intent.putExtra("CATEGORY", Category.values()[v.id].title())
             startActivity(intent)
         }
     }
