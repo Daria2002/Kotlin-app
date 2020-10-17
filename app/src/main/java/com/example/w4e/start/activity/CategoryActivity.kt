@@ -26,7 +26,7 @@ class CategoryActivity: AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initViews() {
-        appTextName = findViewById(R.id.appName) as AppCompatTextView
+        appTextName = findViewById(R.id.textCategoryName) as AppCompatTextView
     }
 
     /**
