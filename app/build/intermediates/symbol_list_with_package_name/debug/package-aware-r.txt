@@ -1128,7 +1128,6 @@ id always
 id appCompatButtonLogin
 id appCompatButtonRegister
 id appCompatTextViewLoginLink
-id appName
 id async
 id auto
 id beginning
@@ -1215,9 +1214,11 @@ id parallax
 id parentPanel
 id parent_matrix
 id pin
+id postText
 id progress_circular
 id progress_horizontal
 id radio
+id recyclerViewPosts
 id recyclerViewUsers
 id right
 id right_icon
@@ -1273,6 +1274,7 @@ id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id text
 id text2
+id textCategoryName
 id textInputEditTextConfirmPassword
 id textInputEditTextEmail
 id textInputEditTextName
@@ -1307,6 +1309,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id userName
 id view_offset_helper
 id visible
 id wide
@@ -1387,6 +1390,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout item_category_recycler
+layout item_post_recycler
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action

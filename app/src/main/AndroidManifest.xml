@@ -26,7 +26,7 @@
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".activity.CategoryActivity"
+        <activity android:name=".activity.PostActivity"
             android:screenOrientation="portrait"/>
 
     </application>

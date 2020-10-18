@@ -15,7 +15,7 @@ import com.example.w4e.start.model.Category
 
 class CategorySelectionActivity : AppCompatActivity(), View.OnClickListener {
     private val activity = this@CategorySelectionActivity
-    private lateinit var textViewName: AppCompatTextView
+    private lateinit var userName: AppCompatTextView
     private lateinit var recyclerViewCategories: RecyclerView
     private lateinit var listCategories: MutableList<Category>
     private lateinit var categoriesRecyclerAdapter: CategoryAdapter
@@ -40,17 +40,17 @@ class CategorySelectionActivity : AppCompatActivity(), View.OnClickListener {
         recyclerViewCategories.setHasFixedSize(true)
         recyclerViewCategories.adapter = categoriesRecyclerAdapter
         val emailFromIntent = intent.getStringExtra("EMAIL")
-        textViewName.text = databaseHelper.getUser(emailFromIntent)
+        userName.text = databaseHelper.getUser(emailFromIntent)
     }
 
     private fun initViews() {
-        textViewName = findViewById(R.id.textViewName) as AppCompatTextView
+        userName = findViewById(R.id.userName) as AppCompatTextView
         recyclerViewCategories = findViewById(R.id.recyclerViewUsers) as RecyclerView
     }
 
     override fun onClick(v: View?) {
         if (v != null) {
-            val intent = Intent(applicationContext, CategoryActivity::class.java)
+            val intent = Intent(applicationContext, PostActivity::class.java)
             intent.putExtra("CATEGORY", Category.values()[v.id].title())
             startActivity(intent)
         }

@@ -56,8 +56,8 @@
 34        </activity>
 35        <activity
 35-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:29:9-30:51
-36            android:name="com.example.w4e.start.activity.CategoryActivity"
-36-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:29:19-60
+36            android:name="com.example.w4e.start.activity.PostActivity"
+36-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:29:19-56
 37            android:screenOrientation="portrait" />
 37-->/home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:30:13-49
 38

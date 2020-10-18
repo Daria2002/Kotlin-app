@@ -8,7 +8,6 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.w4e.start.R
-import com.example.w4e.start.model.Category
 import com.example.w4e.start.model.Post
 
 class PostAdapter(private val listPosts: MutableList<Post>, private val listener: View.OnClickListener) : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
@@ -19,6 +18,7 @@ class PostAdapter(private val listPosts: MutableList<Post>, private val listener
 
     override fun getItemCount(): Int = listPosts.size
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         holder.postText.text = listPosts[position].text
         holder.postText.setOnClickListener {
@@ -29,7 +29,6 @@ class PostAdapter(private val listPosts: MutableList<Post>, private val listener
 
     inner class PostViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var postText: AppCompatButton
-
         init {
             postText = view.findViewById(R.id.postText) as AppCompatButton
         }

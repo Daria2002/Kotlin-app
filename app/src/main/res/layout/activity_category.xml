@@ -15,7 +15,7 @@
             android:layout_marginTop="0dp"
             android:text="@string/text_hello" />
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textViewName"
+            android:id="@+id/userName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </androidx.appcompat.widget.LinearLayoutCompat>

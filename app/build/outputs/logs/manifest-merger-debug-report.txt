@@ -117,12 +117,12 @@ ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xm
 		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:26:13-49
 	android:name
 		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:25:13-63
-activity#com.example.w4e.start.activity.CategoryActivity
+activity#com.example.w4e.start.activity.PostActivity
 ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:29:9-30:51
 	android:screenOrientation
 		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:30:13-49
 	android:name
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:29:19-60
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:29:19-56
 uses-sdk
 INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml

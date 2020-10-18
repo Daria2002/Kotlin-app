@@ -34,7 +34,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.example.w4e.start.activity.CategoryActivity"
+            android:name="com.example.w4e.start.activity.PostActivity"
             android:screenOrientation="portrait" />
 
         <meta-data
