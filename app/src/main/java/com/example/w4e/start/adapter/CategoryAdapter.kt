@@ -18,8 +18,8 @@ class CategoryAdapter(private val listCategories: MutableList<Category>, private
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        holder.textViewName.text = listCategories[position].title()
-        holder.textViewName.setOnClickListener {
+        holder.categoryName.text = listCategories[position].title()
+        holder.categoryName.setOnClickListener {
             it.id = position
             listener.onClick(it)
         }
@@ -28,10 +28,10 @@ class CategoryAdapter(private val listCategories: MutableList<Category>, private
     override fun getItemCount(): Int = listCategories.size
 
     inner class CategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var textViewName: AppCompatButton
+        var categoryName: AppCompatButton
 
         init {
-            textViewName = view.findViewById(R.id.textViewName) as AppCompatButton
+            categoryName = view.findViewById(R.id.categoryName) as AppCompatButton
         }
     }
 }
