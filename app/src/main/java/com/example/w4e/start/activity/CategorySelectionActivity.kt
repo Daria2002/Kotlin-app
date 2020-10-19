@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.w4e.start.R
 import com.example.w4e.start.adapter.CategoryAdapter
-import com.example.w4e.start.helper.DatabaseHelper
+import com.example.w4e.start.helper.UserDatabaseHelper
 import com.example.w4e.start.model.Category
 
 class CategorySelectionActivity : AppCompatActivity(), View.OnClickListener {
@@ -19,7 +19,7 @@ class CategorySelectionActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var recyclerViewCategories: RecyclerView
     private lateinit var listCategories: MutableList<Category>
     private lateinit var categoriesRecyclerAdapter: CategoryAdapter
-    private lateinit var databaseHelper: DatabaseHelper
+    private lateinit var userDatabaseHelper: UserDatabaseHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +31,7 @@ class CategorySelectionActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun initObjects() {
         listCategories = ArrayList()
-        databaseHelper = DatabaseHelper(activity)
+        userDatabaseHelper = UserDatabaseHelper(activity)
         listCategories = Category.values().toMutableList()
         categoriesRecyclerAdapter = CategoryAdapter(listCategories, this)
         val mLayoutManager = LinearLayoutManager(applicationContext)
@@ -40,7 +40,7 @@ class CategorySelectionActivity : AppCompatActivity(), View.OnClickListener {
         recyclerViewCategories.setHasFixedSize(true)
         recyclerViewCategories.adapter = categoriesRecyclerAdapter
         val emailFromIntent = intent.getStringExtra("EMAIL")
-        userName.text = databaseHelper.getUser(emailFromIntent)
+        userName.text = userDatabaseHelper.getUser(emailFromIntent)
     }
 
     private fun initViews() {
@@ -52,6 +52,7 @@ class CategorySelectionActivity : AppCompatActivity(), View.OnClickListener {
         if (v != null) {
             val intent = Intent(applicationContext, PostActivity::class.java)
             intent.putExtra("CATEGORY", Category.values()[v.id].title())
+            intent.putExtra("USER_NAME", userName.text)
             startActivity(intent)
         }
     }

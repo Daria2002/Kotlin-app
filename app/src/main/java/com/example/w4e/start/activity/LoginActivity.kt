@@ -8,7 +8,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.widget.NestedScrollView
 import com.example.w4e.start.R
-import com.example.w4e.start.helper.DatabaseHelper
+import com.example.w4e.start.helper.UserDatabaseHelper
 import com.example.w4e.start.helper.InputValidation
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
@@ -24,7 +24,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var appCompatButtonLogin: AppCompatButton
     private lateinit var textViewLinkRegister: AppCompatTextView
     private lateinit var inputValidation: InputValidation
-    private lateinit var databaseHelper: DatabaseHelper
+    private lateinit var userDatabaseHelper: UserDatabaseHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,7 +60,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
      * This method initialize objects
      */
     private fun initObjects() {
-        databaseHelper = DatabaseHelper(activity)
+        userDatabaseHelper = UserDatabaseHelper(activity)
         inputValidation = InputValidation(activity)
     }
 
@@ -91,7 +91,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         if(!inputValidation!!.isInputEditTextFilled(textInputEditTextPassword!!, textInputLayoutPassword!!, getString(R.string.error_message_email))) {
             return
         }
-        if(databaseHelper!!.checkUser(textInputEditTextEmail!!.text.toString().trim {it <= ' '}, textInputEditTextPassword!!.text.toString().trim{ it <= ' '})) {
+        if(userDatabaseHelper!!.checkUser(textInputEditTextEmail!!.text.toString().trim {it <= ' '}, textInputEditTextPassword!!.text.toString().trim{ it <= ' '})) {
             val accountsIntent = Intent(activity, CategorySelectionActivity::class.java)
             accountsIntent.putExtra("EMAIL", textInputEditTextEmail!!.text.toString().trim {it <= ' '})
             emptyInputEditText()

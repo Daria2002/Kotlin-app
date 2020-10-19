@@ -1,6 +1,5 @@
 package com.example.w4e.start.activity
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +7,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.widget.NestedScrollView
 import com.example.w4e.start.R
-import com.example.w4e.start.helper.DatabaseHelper
+import com.example.w4e.start.helper.UserDatabaseHelper
 import com.example.w4e.start.helper.InputValidation
 import com.example.w4e.start.model.User
 import com.google.android.material.snackbar.Snackbar
@@ -29,7 +28,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var appCompatButtonRegister: AppCompatButton
     private lateinit var appCompatTextViewLoginLink: AppCompatTextView
     private lateinit var inputValidation: InputValidation
-    private lateinit var databaseHelper: DatabaseHelper
+    private lateinit var userDatabaseHelper: UserDatabaseHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +40,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initObjects() {
-        databaseHelper = DatabaseHelper(activity)
+        userDatabaseHelper = UserDatabaseHelper(activity)
         inputValidation = InputValidation(activity)
     }
 
@@ -86,11 +85,11 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         if(!inputValidation!!.isInputEditTextFilled(textInputEditTextPassword!!, textInputLayoutPassword!!, getString(R.string.error_message_email))) {
             return
         }
-        if(!databaseHelper!!.checkUser(textInputEditTextEmail!!.text.toString().trim {it <= ' '}, textInputEditTextPassword!!.text.toString().trim {it <= ' '})) {
+        if(!userDatabaseHelper!!.checkUser(textInputEditTextEmail!!.text.toString().trim {it <= ' '}, textInputEditTextPassword!!.text.toString().trim {it <= ' '})) {
             var user = User(name = textInputEditTextName!!.text.toString().trim(),
             email = textInputEditTextEmail!!.text.toString().trim(),
             password = textInputEditTextPassword!!.text.toString().trim())
-            databaseHelper!!.addUser(user)
+            userDatabaseHelper!!.addUser(user)
             // Snack Bar to show success message that record is saved successfully
             Snackbar.make(nestedScrollView!!, getString(R.string.success_message), Snackbar.LENGTH_LONG).show()
             emptyInputEditText()

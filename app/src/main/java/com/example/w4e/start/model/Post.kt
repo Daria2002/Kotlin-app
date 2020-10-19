@@ -1,5 +1,4 @@
 package com.example.w4e.start.model
 
-class Post(postText: String) {
-    var text = postText
+data class Post(val id: Int = -1, var text: String, var user_name: String, var category: Category) {
 }
