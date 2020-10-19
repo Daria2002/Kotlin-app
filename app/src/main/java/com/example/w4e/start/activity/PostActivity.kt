@@ -31,7 +31,7 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initObjects() {
-        categoryName.text = category
+        categoryName.text = category.toUpperCase()
         var prvi = Post("prvi tekst")
         var drugi = Post("drugi tekst")
         listPosts = mutableListOf<Post>()

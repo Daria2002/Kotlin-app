@@ -10,7 +10,6 @@
         android:orientation="vertical">
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textCategoryName"
-            android:textColor="@color/colorPrimaryDark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </androidx.appcompat.widget.LinearLayoutCompat>
