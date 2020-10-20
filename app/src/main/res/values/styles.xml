@@ -17,4 +17,11 @@
     <style name="Work4Experience.TextAppearance.Title" parent="TextAppearance.AppCompat.Title">
         <item name="android:textColor">@color/w4e_primary</item>
     </style>
+
+    <style name="Work4Experience.AddPostDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/blue</item>
+        <item name="android:textColorPrimary">@color/gray</item>
+        <item name="android:editTextColor">@color/gray</item>
+        <item name="android:background">@color/white</item>
+    </style>
 </resources>
