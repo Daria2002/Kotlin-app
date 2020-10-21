@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/hint_name"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="@android:color/white"
             android:drawableTop="@mipmap/icon_graphics" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

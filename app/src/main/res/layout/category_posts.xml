@@ -20,7 +20,7 @@
             android:layout_height="match_parent">
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/addPost"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@android:color/white"
                 android:layout_gravity="right|bottom"
                 android:text="@string/add_post" />
         </GridLayout>

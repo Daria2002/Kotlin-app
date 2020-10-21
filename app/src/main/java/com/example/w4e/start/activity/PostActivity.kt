@@ -1,6 +1,7 @@
 package com.example.w4e.start.activity
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
@@ -75,13 +76,17 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         when(v.id) {
             R.id.addPost -> addNewPost(activity)
-            // TODO: open post details when clicked
+            R.id.recyclerViewPosts -> showPostDetails(activity)
         }
+    }
+
+    private fun showPostDetails(c: Context) {
+        // TODO: open dialog with post details
     }
 
     private fun addNewPost(c: Context) {
         val postEditText = EditText(c)
-        var text = ""
+        postEditText.setTextColor(Color.WHITE)
         val dialog = AlertDialog.Builder(c, R.style.Work4Experience_AddPostDialog)
             .setTitle("Add a new post")
             .setMessage("What do you want to post?")
