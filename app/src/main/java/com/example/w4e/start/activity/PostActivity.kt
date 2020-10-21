@@ -42,28 +42,21 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
         initObjects()
     }
 
-    private fun initObjects() {
-        postDatabaseHelper = PostDatabaseHelper(activity)
-        categoryName.text = category.toUpperCase()
-        // the next 4 lines are hardcoded for testing db post helper, TODO: implement like it's done for users
-        var prvi = Post(text = "ovo je prvi tekst",
-            user_name = user_name,
-            category = PostDatabaseHelper.titleToCategory(
-                category))
-        var drugi = Post(text = "ovo je drugi tekst",
-            user_name = user_name,
-            category = PostDatabaseHelper.titleToCategory(
-                category))
-        postDatabaseHelper.addPost(prvi)
-        postDatabaseHelper.addPost(drugi)
+    private fun updatePostsInGui() {
         listPosts = mutableListOf<Post>()
         listPosts = postDatabaseHelper.getPostsForCategory(category) as MutableList<Post>
         postsRecyclerAdapter = PostAdapter(listPosts, this)
+        recyclerViewPosts.adapter = postsRecyclerAdapter
+    }
+
+    private fun initObjects() {
+        postDatabaseHelper = PostDatabaseHelper(activity)
+        categoryName.text = category.toUpperCase()
         val mLayoutManager = LinearLayoutManager(applicationContext)
         recyclerViewPosts.layoutManager = mLayoutManager
         recyclerViewPosts.itemAnimator = DefaultItemAnimator()
         recyclerViewPosts.setHasFixedSize(true)
-        recyclerViewPosts.adapter = postsRecyclerAdapter
+        updatePostsInGui()
     }
 
     private fun initListeners() {
@@ -81,32 +74,28 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
      */
     override fun onClick(v: View) {
         when(v.id) {
-            R.id.addPost -> addNewPost()
+            R.id.addPost -> addNewPost(activity)
             // TODO: open post details when clicked
         }
     }
 
-    private fun addNewPost() {
-        var text = showAddItemDialog(activity)
-        var post = Post(text = text,
-            user_name = user_name,
-            category = PostDatabaseHelper.titleToCategory(
-                category))
-        // add post to db
-        postDatabaseHelper.addPost(post)
-    }
-
-    private fun showAddItemDialog(c: Context): String {
+    private fun addNewPost(c: Context) {
         val postEditText = EditText(c)
+        var text = ""
         val dialog = AlertDialog.Builder(c, R.style.Work4Experience_AddPostDialog)
             .setTitle("Add a new post")
             .setMessage("What do you want to post?")
             .setView(postEditText)
             .setPositiveButton("Add"
-            ) { dialog, which -> val task = postEditText.text.toString() }
+            ) { dialog, which -> updatePostsInDb(postEditText.text.toString()) }
             .setNegativeButton("Cancel", null)
             .create()
         dialog.show()
-        return postEditText.text.toString()
+    }
+
+    private fun updatePostsInDb(text: String) {
+        postDatabaseHelper.addPost(Post(text = text,
+            user_name = user_name, category = PostDatabaseHelper.titleToCategory(category)))
+        updatePostsInGui()
     }
 }
