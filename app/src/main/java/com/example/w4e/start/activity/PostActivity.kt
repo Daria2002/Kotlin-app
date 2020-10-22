@@ -83,6 +83,7 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
 
     private fun showPostDetails(c: Context, text: String) {
         val postEditText = EditText(c)
+        // TODO: fix - work with post object instead of post text
         var postDetails = text + "\n" + postDatabaseHelper.getPostCreator(text)
         postEditText.setTextColor(Color.WHITE)
         val dialog = AlertDialog.Builder(c, R.style.Work4Experience_AddPostDialog)
