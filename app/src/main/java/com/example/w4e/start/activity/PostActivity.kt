@@ -17,6 +17,7 @@ import com.example.w4e.start.R.id
 import com.example.w4e.start.adapter.PostAdapter
 import com.example.w4e.start.helper.PostDatabaseHelper
 import com.example.w4e.start.model.Post
+import kotlinx.android.synthetic.main.item_post_recycler.view.*
 
 
 /**
@@ -76,12 +77,26 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         when(v.id) {
             R.id.addPost -> addNewPost(activity)
-            R.id.recyclerViewPosts -> showPostDetails(activity)
+            R.id.postText -> showPostDetails(activity, v.postText.text.toString())
         }
     }
 
-    private fun showPostDetails(c: Context) {
-        // TODO: open dialog with post details
+    private fun showPostDetails(c: Context, text: String) {
+        val postEditText = EditText(c)
+        var postDetails = text + "\n" + postDatabaseHelper.getPostCreator(text)
+        postEditText.setTextColor(Color.WHITE)
+        val dialog = AlertDialog.Builder(c, R.style.Work4Experience_AddPostDialog)
+            .setTitle("Post details")
+            .setMessage(postDetails)
+            // .setView(postEditText)
+            .setPositiveButton("Bid", null)
+                /*
+            .setPositiveButton("Add"
+            ) { dialog, which -> updatePostsInDb(postEditText.text.toString()) }
+                 */
+            .setNegativeButton("Cancel", null)
+            .create()
+        dialog.show()
     }
 
     private fun addNewPost(c: Context) {

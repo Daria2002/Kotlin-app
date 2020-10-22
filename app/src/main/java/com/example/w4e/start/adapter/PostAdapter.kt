@@ -9,6 +9,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.w4e.start.R
 import com.example.w4e.start.model.Post
+import kotlinx.android.synthetic.main.item_post_recycler.view.*
 
 class PostAdapter(private val listPosts: MutableList<Post>, private val listener: View.OnClickListener) : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
@@ -22,7 +23,6 @@ class PostAdapter(private val listPosts: MutableList<Post>, private val listener
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         holder.postText.text = listPosts[position].text
         holder.postText.setOnClickListener {
-            it.id = position
             listener.onClick(it)
         }
     }

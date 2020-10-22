@@ -62,6 +62,42 @@ class PostDatabaseHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, n
     }
 
     /**
+     * This method fetches user that created given post
+     * @return User
+     */
+    fun getPostCreator(postText: String) : String {
+        // arr of columns to fetch
+        val columns = arrayOf(PostDatabaseHelper.COLUMN_POST_ID,
+            PostDatabaseHelper.COLUMN_USER_NAME,
+            PostDatabaseHelper.COLUMN_CATEGORY,
+            PostDatabaseHelper.COLUMN_TEXT)
+        // sorting orders
+        val sortOrder = "${PostDatabaseHelper.COLUMN_CATEGORY} ASC"
+        val postList = ArrayList<Post>()
+        val db = this.readableDatabase
+        // selection criteria
+        val selection = "${PostDatabaseHelper.COLUMN_TEXT} = ?"
+        // selection arg
+        val selectionArgs = arrayOf(postText)
+        // query the user table
+        val cursor = db.query(PostDatabaseHelper.TABLE_POST,
+            columns,
+            selection,
+            selectionArgs,
+            null,
+            null,
+            sortOrder)
+        if(cursor.moveToFirst()) {
+            do {
+                return cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_USER_NAME))
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        db.close()
+        return ""
+    }
+
+    /**
      * This method fetches all posts and returns the list of post records in given category
      * @return list
      */
