@@ -63,7 +63,15 @@ class PostDatabaseHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, n
 
     /**
      * This method fetches user that created given post
-     * @return User
+     * @return User name
+     */
+    fun getPostCreator(post: Post) : String {
+        return getPostCreator(post.text)
+    }
+
+    /**
+     * This method fetches user that created given post
+     * @return User name
      */
     fun getPostCreator(postText: String) : String {
         // arr of columns to fetch

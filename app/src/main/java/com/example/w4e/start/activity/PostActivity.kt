@@ -77,24 +77,18 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         when(v.id) {
             R.id.addPost -> addNewPost(activity)
-            R.id.postText -> showPostDetails(activity, v.postText.text.toString())
+            R.id.postText -> showPostDetails(activity, v.tag as Post)
         }
     }
 
-    private fun showPostDetails(c: Context, text: String) {
+    private fun showPostDetails(c: Context, post: Post) {
         val postEditText = EditText(c)
-        // TODO: fix - work with post object instead of post text
-        var postDetails = text + "\n" + postDatabaseHelper.getPostCreator(text)
+        var postDetails = post.text + "\n" + postDatabaseHelper.getPostCreator(post)
         postEditText.setTextColor(Color.WHITE)
         val dialog = AlertDialog.Builder(c, R.style.Work4Experience_AddPostDialog)
             .setTitle("Post details")
             .setMessage(postDetails)
-            // .setView(postEditText)
             .setPositiveButton("Bid", null)
-                /*
-            .setPositiveButton("Add"
-            ) { dialog, which -> updatePostsInDb(postEditText.text.toString()) }
-                 */
             .setNegativeButton("Cancel", null)
             .create()
         dialog.show()
