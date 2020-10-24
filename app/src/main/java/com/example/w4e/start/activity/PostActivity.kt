@@ -45,8 +45,6 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
     }
 
     private fun updatePostsInGui() {
-        listPosts = mutableListOf<Post>()
-        listPosts = postDatabaseHelper.getPostsForCategory(category) as MutableList<Post>
         postsRecyclerAdapter = PostAdapter(listPosts, this)
         recyclerViewPosts.adapter = postsRecyclerAdapter
     }
@@ -58,6 +56,8 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
         recyclerViewPosts.layoutManager = mLayoutManager
         recyclerViewPosts.itemAnimator = DefaultItemAnimator()
         recyclerViewPosts.setHasFixedSize(true)
+        listPosts = mutableListOf<Post>()
+        listPosts = postDatabaseHelper.getPostsForCategory(category) as MutableList<Post>
         updatePostsInGui()
     }
 
@@ -109,8 +109,10 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
     }
 
     private fun updatePostsInDb(text: String) {
-        postDatabaseHelper.addPost(Post(text = text,
-            user_name = user_name, category = PostDatabaseHelper.titleToCategory(category)))
+        var newPost = Post(text = text,
+            user_name = user_name, category = PostDatabaseHelper.titleToCategory(category))
+        postDatabaseHelper.addPost(newPost)
+        listPosts.add(newPost)
         updatePostsInGui()
     }
 }
