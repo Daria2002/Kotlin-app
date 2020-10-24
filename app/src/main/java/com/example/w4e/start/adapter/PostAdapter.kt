@@ -21,7 +21,7 @@ class PostAdapter(private val listPosts: MutableList<Post>, private val listener
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-        holder.postText.text = listPosts[position].text
+        holder.postText.text = listPosts[position].time.toString() // TODO: this should be text
         holder.postText.setOnClickListener {
             it.tag = listPosts[position]
             listener.onClick(it)
