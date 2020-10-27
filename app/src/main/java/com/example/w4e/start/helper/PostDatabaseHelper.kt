@@ -8,14 +8,8 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import com.example.w4e.start.model.Category
 import com.example.w4e.start.model.Post
-import java.security.Timestamp
-import java.text.SimpleDateFormat
-import java.time.LocalDate
 import java.time.LocalDateTime
-import java.time.ZoneId
 import java.time.format.DateTimeFormatter
-import java.util.*
-import kotlin.collections.ArrayList
 
 class PostDatabaseHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
     // create table sql query
@@ -61,13 +55,17 @@ class PostDatabaseHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, n
      * Add post
      * @param post to add
      */
+    @RequiresApi(Build.VERSION_CODES.O)
     fun addPost(post: Post) {
         val db = this.writableDatabase
         val values = ContentValues()
         values.put(PostDatabaseHelper.COLUMN_USER_NAME, post.user_name)
         values.put(PostDatabaseHelper.COLUMN_CATEGORY, post.category.title())
         values.put(PostDatabaseHelper.COLUMN_TEXT, post.text)
-        values.put(PostDatabaseHelper.COLUMN_TIME, post.time.toString())
+        var time: LocalDateTime = post.time
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+        val output_time = formatter.format(time)
+        values.put(PostDatabaseHelper.COLUMN_TIME, output_time)
         // Inserting row
         db.insert(PostDatabaseHelper.TABLE_POST, null, values)
         db.close()
@@ -148,9 +146,11 @@ class PostDatabaseHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, n
             sortOrder)
         if(cursor.moveToFirst()) {
             do {
-                val time = LocalDateTime.now()
+                // val time = LocalDateTime.now()
                 // TODO: set right time and date format
-                // val time = LocalDateTime.parse(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_TIME).toString(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"))
+                val time_str = cursor.getColumnIndex(PostDatabaseHelper.COLUMN_TIME).toString()
+                val time = LocalDateTime.parse(time_str,
+                    DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"))
                 // val unix = l.atStartOfDay(ZoneId.systemDefault()).toInstant().epochSecond
                 // var time: LocalDateTime = LocalDateTime.now()
                 val post = Post(id = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_POST_ID))
