@@ -83,7 +83,8 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
 
     private fun showPostDetails(c: Context, post: Post) {
         val postEditText = EditText(c)
-        var postDetails = post.text + "\n" + postDatabaseHelper.getPostCreator(post)
+        var postDetails = post.text + "\nCreated by: " + postDatabaseHelper.getPostCreator(post) +
+                "\nPosted on: " + post.time
         postEditText.setTextColor(Color.WHITE)
         val dialog = AlertDialog.Builder(c, R.style.Work4Experience_AddPostDialog)
             .setTitle("Post details")

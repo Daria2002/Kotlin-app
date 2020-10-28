@@ -10,6 +10,7 @@ import com.example.w4e.start.model.Category
 import com.example.w4e.start.model.Post
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 class PostDatabaseHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
     // create table sql query
@@ -62,10 +63,7 @@ class PostDatabaseHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, n
         values.put(PostDatabaseHelper.COLUMN_USER_NAME, post.user_name)
         values.put(PostDatabaseHelper.COLUMN_CATEGORY, post.category.title())
         values.put(PostDatabaseHelper.COLUMN_TEXT, post.text)
-        var time: LocalDateTime = post.time
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-        val output_time = formatter.format(time)
-        values.put(PostDatabaseHelper.COLUMN_TIME, output_time)
+        values.put(PostDatabaseHelper.COLUMN_TIME, post.time)
         // Inserting row
         db.insert(PostDatabaseHelper.TABLE_POST, null, values)
         db.close()
@@ -146,20 +144,11 @@ class PostDatabaseHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, n
             sortOrder)
         if(cursor.moveToFirst()) {
             do {
-                // val time = LocalDateTime.now()
-                // TODO: set right time and date format
-                val time_str = cursor.getColumnIndex(PostDatabaseHelper.COLUMN_TIME).toString()
-                val time = LocalDateTime.parse(time_str,
-                    DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"))
-                // val unix = l.atStartOfDay(ZoneId.systemDefault()).toInstant().epochSecond
-                // var time: LocalDateTime = LocalDateTime.now()
-                val post = Post(id = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_POST_ID))
-                    .toInt(),
+                val post = Post(id = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_POST_ID)).toInt(),
                     user_name = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_USER_NAME)),
-                    category = titleToCategory(cursor.getString(cursor.getColumnIndex(
-                        PostDatabaseHelper.COLUMN_CATEGORY))),
+                    category = titleToCategory(cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_CATEGORY))),
                     text = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_TEXT)),
-                    time = time)
+                    time = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_TIME)))
                 postList.add(post)
             } while (cursor.moveToNext())
         }
@@ -172,6 +161,7 @@ class PostDatabaseHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, n
      * This method fetches all posts and returns the list of post records
      * @return list
      */
+    @RequiresApi(Build.VERSION_CODES.O)
     fun getAllPosts() : List<Post> {
         // arr of columns to fetch
         val columns = arrayOf(PostDatabaseHelper.COLUMN_POST_ID,
@@ -192,12 +182,12 @@ class PostDatabaseHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, n
             sortOrder)
         if(cursor.moveToFirst()) {
             do {
-                val post = Post(id = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_POST_ID))
-                    .toInt(),
+                val post = Post(id = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_POST_ID)).toInt(),
                     user_name = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_USER_NAME)),
                     category = titleToCategory(cursor.getString(cursor.getColumnIndex(
                         PostDatabaseHelper.COLUMN_CATEGORY))),
-                    text = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_TEXT)))
+                    text = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_TEXT)),
+                    time = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_TIME)))
                 postList.add(post)
             } while (cursor.moveToNext())
         }
