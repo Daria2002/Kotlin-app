@@ -1,10 +1,15 @@
 package com.example.w4e.start.activity
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
@@ -16,8 +21,8 @@ import com.example.w4e.start.R
 import com.example.w4e.start.R.id
 import com.example.w4e.start.adapter.PostAdapter
 import com.example.w4e.start.helper.PostDatabaseHelper
+import com.example.w4e.start.helper.UserDatabaseHelper
 import com.example.w4e.start.model.Post
-import kotlinx.android.synthetic.main.item_post_recycler.view.*
 
 
 /**
@@ -33,6 +38,7 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
     private lateinit var category: String
     private lateinit var user_name: String
     private lateinit var postDatabaseHelper: PostDatabaseHelper
+    private lateinit var userDatabaseHelper: UserDatabaseHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.category_posts)
@@ -51,6 +57,7 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
 
     private fun initObjects() {
         postDatabaseHelper = PostDatabaseHelper(activity)
+        userDatabaseHelper = UserDatabaseHelper(activity)
         categoryName.text = category.toUpperCase()
         val mLayoutManager = LinearLayoutManager(applicationContext)
         recyclerViewPosts.layoutManager = mLayoutManager
@@ -74,6 +81,7 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
     /**
      * Open post for more info.
      */
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onClick(v: View) {
         when(v.id) {
             R.id.addPost -> addNewPost(activity)
@@ -89,12 +97,46 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
         val dialog = AlertDialog.Builder(c, R.style.Work4Experience_AddPostDialog)
             .setTitle("Post details")
             .setMessage(postDetails)
-            .setPositiveButton("Bid", null)
+            .setPositiveButton("Bid"
+            ) { dialog, which -> sendAnEmail(post.user_name, user_name) }
             .setNegativeButton("Cancel", null)
             .create()
         dialog.show()
     }
 
+    private fun sendAnEmail(receiverName: String, senderName: String) {
+        // TODO:
+        // var receiverEmail = userDatabaseHelper.getUserEmail(receiverName)
+        // var senderEmail = userDatabaseHelper.getUserEmail(senderName)
+        var receiverEmail = "dariamatkovicdaria@gmail.com"
+        /*ACTION_SEND action to launch an email client installed on your Android device.*/
+        val mIntent = Intent(Intent.ACTION_SEND)
+        /*To send an email you need to specify mailto: as URI using setData() method
+        and data type will be to text/plain using setType() method*/
+        mIntent.data = Uri.parse("mailto:")
+        mIntent.type = "text/plain"
+        // put recipient email in intent
+        /* recipient is put as array because you may wanna send email to multiple emails
+           so enter comma(,) separated emails, it will be stored in array*/
+        mIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf(receiverEmail))
+        //put the Subject in the intent
+        var subject = "[Work4Experience] Post bid"
+        mIntent.putExtra(Intent.EXTRA_SUBJECT, subject)
+        //put the message in the intent
+        var message = "Hello $receiverName,\n\nI have bid your post.\n\nBest regards,\n$senderName"
+        mIntent.putExtra(Intent.EXTRA_TEXT, message)
+        try {
+            //start email intent
+            startActivity(Intent.createChooser(mIntent, "Choose Email Client..."))
+        }
+        catch (e: Exception){
+            //if any thing goes wrong for example no email client application or any exception
+            //get and show exception message
+            Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun addNewPost(c: Context) {
         val postEditText = EditText(c)
         postEditText.setTextColor(Color.WHITE)
@@ -109,9 +151,12 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
         dialog.show()
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun updatePostsInDb(text: String) {
         var newPost = Post(text = text,
-            user_name = user_name, category = PostDatabaseHelper.titleToCategory(category))
+            user_name = user_name,
+            category = PostDatabaseHelper.titleToCategory(
+                category))
         postDatabaseHelper.addPost(newPost)
         listPosts.add(newPost)
         updatePostsInGui()

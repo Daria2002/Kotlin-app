@@ -195,6 +195,35 @@ class UserDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
         return false
     }
 
+    fun getUserEmail(userName: String): String {
+        // arr of columns to fetch
+        val columns = arrayOf(COLUMN_USER_NAME)
+        val db = this.readableDatabase
+        // selection criteria
+        val selection = "$COLUMN_USER_NAME = ?"
+        // selection arg
+        val selectionArgs = arrayOf(userName)
+        // query user table with condition
+        /**
+         * query function fetches records from user table
+         * sql query of this function:
+         * SELECT user_name FROM user WHERE user_name = 'jack'
+         */
+        val cursor = db.query(TABLE_USER,
+            columns,
+            selection,
+            selectionArgs,
+            null,
+            null,
+            null)
+        if(cursor.moveToFirst()) {
+            do {
+                return cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL))
+            } while (cursor.moveToNext())
+        }
+        return ""
+    }
+
     companion object {
         // Database Version
         private val DATABASE_VERSION = 1
