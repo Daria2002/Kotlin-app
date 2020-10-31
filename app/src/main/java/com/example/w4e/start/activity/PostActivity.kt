@@ -76,6 +76,7 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
         categoryName = findViewById(id.textCategoryName) as AppCompatTextView
         recyclerViewPosts = findViewById(id.recyclerViewPosts) as RecyclerView
         addPostButton = findViewById(id.addPost) as AppCompatButton
+        addPostButton.setTransformationMethod(null)
     }
 
     /**

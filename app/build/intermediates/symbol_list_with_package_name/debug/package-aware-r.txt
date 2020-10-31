@@ -1217,6 +1217,7 @@ id mini
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
+id myProfile
 id navigation_header_container
 id nestedScrollView
 id never
@@ -1491,6 +1492,7 @@ string hint_email
 string hint_name
 string hint_password
 string mtrl_chip_close_icon_content_description
+string myProfile
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through

@@ -19,6 +19,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/myProfile"
+                android:textColor="@android:color/white"
+                android:layout_gravity="left|bottom"
+                android:text="@string/myProfile" />
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/addPost"
                 android:textColor="@android:color/white"
                 android:layout_gravity="right|bottom"
