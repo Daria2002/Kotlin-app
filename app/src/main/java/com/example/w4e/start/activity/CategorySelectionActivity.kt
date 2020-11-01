@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,6 +17,7 @@ import com.example.w4e.start.model.Category
 class CategorySelectionActivity : AppCompatActivity(), View.OnClickListener {
     private val activity = this@CategorySelectionActivity
     private lateinit var userName: AppCompatTextView
+    private lateinit var myProfileButton: AppCompatButton
     private lateinit var recyclerViewCategories: RecyclerView
     private lateinit var listCategories: MutableList<Category>
     private lateinit var categoriesRecyclerAdapter: CategoryAdapter
@@ -45,6 +47,8 @@ class CategorySelectionActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun initViews() {
         userName = findViewById(R.id.userName) as AppCompatTextView
+        myProfileButton = findViewById(R.id.myProfile) as AppCompatButton
+        myProfileButton.setTransformationMethod(null)
         recyclerViewCategories = findViewById(R.id.recyclerViewUsers) as RecyclerView
     }
 

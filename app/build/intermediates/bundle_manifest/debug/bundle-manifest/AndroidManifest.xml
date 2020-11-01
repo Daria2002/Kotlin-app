@@ -35,6 +35,9 @@
         <activity
             android:name="com.example.w4e.start.activity.PostActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.w4e.start.activity.UserProfileActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="aia-compat-api-min-version"

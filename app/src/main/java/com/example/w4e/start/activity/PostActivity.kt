@@ -22,6 +22,7 @@ import com.example.w4e.start.R.id
 import com.example.w4e.start.adapter.PostAdapter
 import com.example.w4e.start.helper.PostDatabaseHelper
 import com.example.w4e.start.helper.UserDatabaseHelper
+import com.example.w4e.start.model.Category
 import com.example.w4e.start.model.Post
 
 
@@ -32,6 +33,7 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
     private val activity = this@PostActivity
     private lateinit var categoryName: AppCompatTextView
     private lateinit var addPostButton: AppCompatButton
+    private lateinit var myProfileButton: AppCompatButton
     private lateinit var recyclerViewPosts: RecyclerView
     private lateinit var postsRecyclerAdapter: PostAdapter
     private lateinit var listPosts: MutableList<Post>
@@ -77,6 +79,8 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
         recyclerViewPosts = findViewById(id.recyclerViewPosts) as RecyclerView
         addPostButton = findViewById(id.addPost) as AppCompatButton
         addPostButton.setTransformationMethod(null)
+        myProfileButton = findViewById(R.id.myProfile) as AppCompatButton
+        myProfileButton.setTransformationMethod(null)
     }
 
     /**
@@ -101,8 +105,15 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
             .setPositiveButton("Bid"
             ) { dialog, which -> sendAnEmail(post.user_name, user_name) }
             .setNegativeButton("Cancel", null)
+            .setNeutralButton("User profile") { dialog, which -> openProfile(post.user_name) }
             .create()
         dialog.show()
+    }
+
+    private fun openProfile(userName: String) {
+        val intent = Intent(applicationContext, UserProfileActivity::class.java)
+        intent.putExtra("USER_NAME", userName)
+        startActivity(intent)
     }
 
     private fun sendAnEmail(receiverName: String, senderName: String) {

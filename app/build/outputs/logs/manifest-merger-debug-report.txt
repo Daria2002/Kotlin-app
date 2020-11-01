@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-33:12
-INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-33:12
-INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-33:12
-INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-33:12
+ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-36:12
 MERGED from [com.google.android.instantapps:instantapps:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/c634e99a3437004e4522287c383cd04a/jetified-instantapps-1.1.0/AndroidManifest.xml:2:1-15:12
 MERGED from [com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6dd10e4b2e96d39901fa5bf2e0fdcaf0/jetified-play-services-auth-17.0.0/AndroidManifest.xml:17:1-39:12
 MERGED from [com.google.android.material:material:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/b17dc223d7884187c5580c1b3b9ce20c/material-1.0.0/AndroidManifest.xml:17:1-24:12
@@ -44,25 +44,25 @@ MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/daria/.gradle/caches/t
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/d86a462a03ac6ffb4f3ab144448281f8/lifecycle-runtime-2.1.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/fed0f8ee682bb48ac1e603badd88b3de/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/aa817d39ca4f9f9f764e5a0b70163814/jetified-savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
-INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-33:12
-INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-33:12
-INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-36:12
 	package
 		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:3:5-36
 		INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
 		INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-33:12
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-36:12
 		INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-33:12
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-36:12
 		INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:11-69
 application
-ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:5:5-32:19
+ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:5:5-35:19
 MERGED from [com.google.android.instantapps:instantapps:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/c634e99a3437004e4522287c383cd04a/jetified-instantapps-1.1.0/AndroidManifest.xml:9:5-13:19
 MERGED from [com.google.android.instantapps:instantapps:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/c634e99a3437004e4522287c383cd04a/jetified-instantapps-1.1.0/AndroidManifest.xml:9:5-13:19
 MERGED from [com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6dd10e4b2e96d39901fa5bf2e0fdcaf0/jetified-play-services-auth-17.0.0/AndroidManifest.xml:22:5-37:19
@@ -123,6 +123,12 @@ ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xm
 		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:30:13-49
 	android:name
 		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:29:19-56
+activity#com.example.w4e.start.activity.UserProfileActivity
+ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:32:9-33:51
+	android:screenOrientation
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:33:13-49
+	android:name
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:32:19-63
 uses-sdk
 INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
