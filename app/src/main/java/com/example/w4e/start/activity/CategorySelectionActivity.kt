@@ -13,6 +13,7 @@ import com.example.w4e.start.R
 import com.example.w4e.start.adapter.CategoryAdapter
 import com.example.w4e.start.helper.UserDatabaseHelper
 import com.example.w4e.start.model.Category
+import kotlinx.android.synthetic.main.item_category_recycler.*
 
 class CategorySelectionActivity : AppCompatActivity(), View.OnClickListener {
     private val activity = this@CategorySelectionActivity
@@ -28,7 +29,12 @@ class CategorySelectionActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_category)
         supportActionBar!!.hide()
         initViews()
+        initListeners()
         initObjects()
+    }
+
+    private fun initListeners() {
+        myProfileButton!!.setOnClickListener(this)
     }
 
     private fun initObjects() {
@@ -52,12 +58,27 @@ class CategorySelectionActivity : AppCompatActivity(), View.OnClickListener {
         recyclerViewCategories = findViewById(R.id.recyclerViewUsers) as RecyclerView
     }
 
+    private fun openProfile(userName: String) {
+        val intent = Intent(applicationContext, UserProfileActivity::class.java)
+        intent.putExtra("USER_NAME", userName)
+        startActivity(intent)
+    }
+
+    private fun showPostsForCategory(categoryIndex: Int) {
+        val intent = Intent(applicationContext, PostActivity::class.java)
+        intent.putExtra("CATEGORY", Category.values()[categoryIndex].title())
+        intent.putExtra("USER_NAME", userName.text)
+        startActivity(intent)
+    }
+
     override fun onClick(v: View?) {
         if (v != null) {
-            val intent = Intent(applicationContext, PostActivity::class.java)
-            intent.putExtra("CATEGORY", Category.values()[v.id].title())
-            intent.putExtra("USER_NAME", userName.text)
-            startActivity(intent)
+            if(v.id == R.id.myProfile) {
+                openProfile(userName = userName.text.toString())
+            } else {
+                var categoryIndex = v.id
+                showPostsForCategory(categoryIndex)
+            }
         }
     }
 }

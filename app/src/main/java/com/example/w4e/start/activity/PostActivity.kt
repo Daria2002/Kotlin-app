@@ -72,6 +72,7 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
 
     private fun initListeners() {
         addPostButton!!.setOnClickListener(this)
+        myProfileButton!!.setOnClickListener(this)
     }
 
     private fun initViews() {
@@ -91,6 +92,7 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
         when(v.id) {
             R.id.addPost -> addNewPost(activity)
             R.id.postText -> showPostDetails(activity, v.tag as Post)
+            R.id.myProfile -> openProfile(user_name)
         }
     }
 
