@@ -1282,6 +1282,7 @@ id start
 id stretch
 id submenuarrow
 id submit_area
+id tabLayout
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -1328,6 +1329,7 @@ id unlabeled
 id up
 id useLogo
 id userName
+id viewPager
 id view_offset_helper
 id visible
 id wide
@@ -1408,6 +1410,8 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout fragment_cv_and_experience
+layout fragment_review
 layout item_category_recycler
 layout item_post_recycler
 layout mtrl_layout_snackbar
