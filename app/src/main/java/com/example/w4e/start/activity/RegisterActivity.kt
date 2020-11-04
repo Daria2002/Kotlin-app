@@ -1,7 +1,12 @@
 package com.example.w4e.start.activity
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
@@ -13,6 +18,7 @@ import com.example.w4e.start.model.User
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import java.io.IOException
 
 class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     private val activity = this@RegisterActivity
@@ -29,6 +35,13 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var appCompatTextViewLoginLink: AppCompatTextView
     private lateinit var inputValidation: InputValidation
     private lateinit var userDatabaseHelper: UserDatabaseHelper
+    private lateinit var selectFileButton: Button
+    private var imageData: ByteArray? = null
+    private lateinit var imageView: ImageView
+
+    companion object {
+        private const val IMAGE_PICK_CODE = 999
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,9 +62,18 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         // NullPointerException if appCompatButtonRegister is a null
         appCompatButtonRegister!!.setOnClickListener(this)
         appCompatTextViewLoginLink!!.setOnClickListener(this)
+        selectFileButton!!.setOnClickListener(this)
+    }
+
+    private fun selectFile() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, IMAGE_PICK_CODE)
     }
 
     private fun initViews() {
+        imageView = findViewById(R.id.imageView)
+        selectFileButton = findViewById(R.id.selectFileButton)
         nestedScrollView = findViewById(R.id.nestedScrollView)
         textInputLayoutName = findViewById(R.id.textInputLayoutName)
         textInputLayoutEmail = findViewById(R.id.textInputLayoutEmail)
@@ -69,6 +91,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         when(v.id) {
             R.id.appCompatButtonRegister -> postDataToSQLite()
             R.id.appCompatTextViewLoginLink -> finish()
+            R.id.selectFileButton -> selectFile()
         }
     }
 
@@ -105,5 +128,24 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     private fun emptyInputEditText() {
         textInputEditTextEmail!!.text = null
         textInputEditTextPassword!!.text = null
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
+            val uri = data?.data
+            if (uri != null) {
+                imageView.setImageURI(uri)
+                createImageData(uri)
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    @Throws(IOException::class)
+    private fun createImageData(uri: Uri) {
+        val inputStream = contentResolver.openInputStream(uri)
+        inputStream?.buffered()?.use {
+            imageData = it.readBytes()
+        }
     }
 }

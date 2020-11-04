@@ -1,12 +1,14 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-36:12
-INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-36:12
-INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-36:12
-INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-36:12
+ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-37:12
+INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-37:12
+INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-37:12
+INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-37:12
 MERGED from [com.google.android.instantapps:instantapps:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/c634e99a3437004e4522287c383cd04a/jetified-instantapps-1.1.0/AndroidManifest.xml:2:1-15:12
+MERGED from [com.android.volley:volley:1.1.1] /home/daria/.gradle/caches/transforms-2/files-2.1/986483abe27d4af908c32f19a77815fa/jetified-volley-1.1.1/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6dd10e4b2e96d39901fa5bf2e0fdcaf0/jetified-play-services-auth-17.0.0/AndroidManifest.xml:17:1-39:12
 MERGED from [com.google.android.material:material:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/b17dc223d7884187c5580c1b3b9ce20c/material-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /home/daria/.gradle/caches/transforms-2/files-2.1/810bc0023f39274b6f9bc838d32f9df6/constraintlayout-2.0.1/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.2.0] /home/daria/.gradle/caches/transforms-2/files-2.1/4e039017508058e03141616af225b4eb/appcompat-1.2.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6491210a79917e95d27ba61fbdcab461/jetified-play-services-auth-api-phone-17.0.0/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-auth-base:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/eb4b0574f48d9e539154aaca38391f66/jetified-play-services-auth-base-17.0.0/AndroidManifest.xml:2:1-7:12
@@ -18,9 +20,11 @@ MERGED from [androidx.recyclerview:recyclerview:1.0.0] /home/daria/.gradle/cache
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/24e0220640645498700fd025d00cbee9/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/76e2c37ae32353ccc0fe554bfc39f522/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6f621cac338d61e4657df2851636b5fa/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/22f084678c0c8123034752ff82b9a006/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat-resources:1.2.0] /home/daria/.gradle/caches/transforms-2/files-2.1/b5466dcfe12488b715be006750d7ab23/jetified-appcompat-resources-1.2.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/2a612bd4c425dcfbfc1a3a304e287881/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.transition:transition:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/c48d2442bb00299de48ca74f75edb773/transition-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/ae0d43a8cd9e2d0dca0ee7612d373384/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/c12747f68fadffbb0e0ad871896b687f/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.activity:activity:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/f128d6cea3d455c774f9a9ff8c16c636/jetified-activity-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/4641752ec657f9b4a42d6a06f25d7d22/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
@@ -30,9 +34,7 @@ MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /home/daria/.gr
 MERGED from [androidx.customview:customview:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/a30017872b14105a400314921d5cb62e/customview-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/7883f5b2dab973bb3ded7066b810b9ab/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/4ce449428576c173262907fc1e6b1200/asynclayoutinflater-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.core:core:1.3.0] /home/daria/.gradle/caches/transforms-2/files-2.1/e270a6e88d0fcab34dc57babf6858d5a/core-1.3.0/AndroidManifest.xml:17:1-26:12
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/22f084678c0c8123034752ff82b9a006/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.cardview:cardview:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/ae0d43a8cd9e2d0dca0ee7612d373384/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.3.1] /home/daria/.gradle/caches/transforms-2/files-2.1/3fad7ea4f0b845c6f6667debb95e1494/core-1.3.1/AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6118f679eabfffe3c12f082544a87853/versionedparcelable-1.1.0/AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6ba1de9be899b775fb2e622bcf9ee329/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.documentfile:documentfile:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/7ab9174479fb69088763d43ae7121c6c/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -44,101 +46,111 @@ MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/daria/.gradle/caches/t
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/d86a462a03ac6ffb4f3ab144448281f8/lifecycle-runtime-2.1.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/fed0f8ee682bb48ac1e603badd88b3de/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/aa817d39ca4f9f9f764e5a0b70163814/jetified-savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
-INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-36:12
-INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-36:12
-INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-37:12
+INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-37:12
+INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-37:12
 	package
 		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:3:5-36
 		INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
 		INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-36:12
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-37:12
 		INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-36:12
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:1-37:12
 		INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:11-69
 application
-ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:5:5-35:19
+ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:5:5-36:19
 MERGED from [com.google.android.instantapps:instantapps:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/c634e99a3437004e4522287c383cd04a/jetified-instantapps-1.1.0/AndroidManifest.xml:9:5-13:19
 MERGED from [com.google.android.instantapps:instantapps:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/c634e99a3437004e4522287c383cd04a/jetified-instantapps-1.1.0/AndroidManifest.xml:9:5-13:19
+MERGED from [com.android.volley:volley:1.1.1] /home/daria/.gradle/caches/transforms-2/files-2.1/986483abe27d4af908c32f19a77815fa/jetified-volley-1.1.1/AndroidManifest.xml:9:5-20
+MERGED from [com.android.volley:volley:1.1.1] /home/daria/.gradle/caches/transforms-2/files-2.1/986483abe27d4af908c32f19a77815fa/jetified-volley-1.1.1/AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6dd10e4b2e96d39901fa5bf2e0fdcaf0/jetified-play-services-auth-17.0.0/AndroidManifest.xml:22:5-37:19
 MERGED from [com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6dd10e4b2e96d39901fa5bf2e0fdcaf0/jetified-play-services-auth-17.0.0/AndroidManifest.xml:22:5-37:19
 MERGED from [com.google.android.material:material:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/b17dc223d7884187c5580c1b3b9ce20c/material-1.0.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/b17dc223d7884187c5580c1b3b9ce20c/material-1.0.0/AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /home/daria/.gradle/caches/transforms-2/files-2.1/810bc0023f39274b6f9bc838d32f9df6/constraintlayout-2.0.1/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /home/daria/.gradle/caches/transforms-2/files-2.1/810bc0023f39274b6f9bc838d32f9df6/constraintlayout-2.0.1/AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.gms:play-services-base:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/548e9fe7c0dbc0938b6828b2531865ee/jetified-play-services-base-17.0.0/AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-base:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/548e9fe7c0dbc0938b6828b2531865ee/jetified-play-services-base-17.0.0/AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/a47ac503a53104cb9453ec1628337d0a/jetified-play-services-tasks-17.0.0/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/a47ac503a53104cb9453ec1628337d0a/jetified-play-services-tasks-17.0.0/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/1b90b1be4df66705fb91818db0752e78/jetified-play-services-basement-17.0.0/AndroidManifest.xml:22:5-26:19
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/1b90b1be4df66705fb91818db0752e78/jetified-play-services-basement-17.0.0/AndroidManifest.xml:22:5-26:19
-MERGED from [androidx.core:core:1.3.0] /home/daria/.gradle/caches/transforms-2/files-2.1/e270a6e88d0fcab34dc57babf6858d5a/core-1.3.0/AndroidManifest.xml:24:5-89
-MERGED from [androidx.core:core:1.3.0] /home/daria/.gradle/caches/transforms-2/files-2.1/e270a6e88d0fcab34dc57babf6858d5a/core-1.3.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.1] /home/daria/.gradle/caches/transforms-2/files-2.1/3fad7ea4f0b845c6f6667debb95e1494/core-1.3.1/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.1] /home/daria/.gradle/caches/transforms-2/files-2.1/3fad7ea4f0b845c6f6667debb95e1494/core-1.3.1/AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6118f679eabfffe3c12f082544a87853/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6118f679eabfffe3c12f082544a87853/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
+	android:requestLegacyExternalStorage
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:6:9-52
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.3.0] /home/daria/.gradle/caches/transforms-2/files-2.1/e270a6e88d0fcab34dc57babf6858d5a/core-1.3.0/AndroidManifest.xml:24:18-86
+		ADDED from [androidx.core:core:1.3.1] /home/daria/.gradle/caches/transforms-2/files-2.1/3fad7ea4f0b845c6f6667debb95e1494/core-1.3.1/AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:9:9-35
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:10:9-35
 	android:label
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:8:9-41
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:9:9-41
 	android:icon
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:7:9-38
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:8:9-38
 	android:allowBackup
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:6:9-35
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:7:9-35
 	android:theme
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:10:9-40
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:11:9-40
 activity#com.example.w4e.start.activity.LoginActivity
-ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:12:9-17:20
+ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:13:9-18:20
 	android:name
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:12:19-57
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:13:19-57
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:13:13-16:29
+ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:14:13-17:29
 action#android.intent.action.MAIN
-ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:14:17-69
+ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:15:17-69
 	android:name
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:14:25-66
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:15:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:15:17-77
+ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:16:17-77
 	android:name
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:15:27-74
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:16:27-74
 activity#com.example.w4e.start.activity.RegisterActivity
-ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:19:9-22:20
+ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:20:9-23:20
 	android:screenOrientation
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:21:13-49
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:22:13-49
 	android:name
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:20:13-54
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:21:13-54
 activity#com.example.w4e.start.activity.CategorySelectionActivity
-ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:24:9-27:20
+ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:25:9-28:20
 	android:screenOrientation
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:26:13-49
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:27:13-49
 	android:name
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:25:13-63
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:26:13-63
 activity#com.example.w4e.start.activity.PostActivity
-ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:29:9-30:51
+ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:30:9-31:51
 	android:screenOrientation
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:30:13-49
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:31:13-49
 	android:name
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:29:19-56
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:30:19-56
 activity#com.example.w4e.start.activity.UserProfileActivity
-ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:32:9-33:51
+ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:33:9-34:51
 	android:screenOrientation
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:33:13-49
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:34:13-49
 	android:name
-		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:32:19-63
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:33:19-63
 uses-sdk
 INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
 INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
 MERGED from [com.google.android.instantapps:instantapps:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/c634e99a3437004e4522287c383cd04a/jetified-instantapps-1.1.0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.android.instantapps:instantapps:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/c634e99a3437004e4522287c383cd04a/jetified-instantapps-1.1.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.volley:volley:1.1.1] /home/daria/.gradle/caches/transforms-2/files-2.1/986483abe27d4af908c32f19a77815fa/jetified-volley-1.1.1/AndroidManifest.xml:7:5-43
+MERGED from [com.android.volley:volley:1.1.1] /home/daria/.gradle/caches/transforms-2/files-2.1/986483abe27d4af908c32f19a77815fa/jetified-volley-1.1.1/AndroidManifest.xml:7:5-43
 MERGED from [com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6dd10e4b2e96d39901fa5bf2e0fdcaf0/jetified-play-services-auth-17.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-auth:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6dd10e4b2e96d39901fa5bf2e0fdcaf0/jetified-play-services-auth-17.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/b17dc223d7884187c5580c1b3b9ce20c/material-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/b17dc223d7884187c5580c1b3b9ce20c/material-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /home/daria/.gradle/caches/transforms-2/files-2.1/810bc0023f39274b6f9bc838d32f9df6/constraintlayout-2.0.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /home/daria/.gradle/caches/transforms-2/files-2.1/810bc0023f39274b6f9bc838d32f9df6/constraintlayout-2.0.1/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.appcompat:appcompat:1.2.0] /home/daria/.gradle/caches/transforms-2/files-2.1/4e039017508058e03141616af225b4eb/appcompat-1.2.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.2.0] /home/daria/.gradle/caches/transforms-2/files-2.1/4e039017508058e03141616af225b4eb/appcompat-1.2.0/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6491210a79917e95d27ba61fbdcab461/jetified-play-services-auth-api-phone-17.0.0/AndroidManifest.xml:5:5-44
@@ -161,12 +173,16 @@ MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/daria/.gradl
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/76e2c37ae32353ccc0fe554bfc39f522/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6f621cac338d61e4657df2851636b5fa/loader-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6f621cac338d61e4657df2851636b5fa/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/22f084678c0c8123034752ff82b9a006/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/22f084678c0c8123034752ff82b9a006/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat-resources:1.2.0] /home/daria/.gradle/caches/transforms-2/files-2.1/b5466dcfe12488b715be006750d7ab23/jetified-appcompat-resources-1.2.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.2.0] /home/daria/.gradle/caches/transforms-2/files-2.1/b5466dcfe12488b715be006750d7ab23/jetified-appcompat-resources-1.2.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/2a612bd4c425dcfbfc1a3a304e287881/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/2a612bd4c425dcfbfc1a3a304e287881/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.transition:transition:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/c48d2442bb00299de48ca74f75edb773/transition-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.transition:transition:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/c48d2442bb00299de48ca74f75edb773/transition-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/ae0d43a8cd9e2d0dca0ee7612d373384/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/ae0d43a8cd9e2d0dca0ee7612d373384/cardview-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/c12747f68fadffbb0e0ad871896b687f/viewpager-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/c12747f68fadffbb0e0ad871896b687f/viewpager-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/f128d6cea3d455c774f9a9ff8c16c636/jetified-activity-1.0.0/AndroidManifest.xml:20:5-22:41
@@ -185,12 +201,8 @@ MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /home/daria/.
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/7883f5b2dab973bb3ded7066b810b9ab/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/4ce449428576c173262907fc1e6b1200/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/4ce449428576c173262907fc1e6b1200/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.3.0] /home/daria/.gradle/caches/transforms-2/files-2.1/e270a6e88d0fcab34dc57babf6858d5a/core-1.3.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.3.0] /home/daria/.gradle/caches/transforms-2/files-2.1/e270a6e88d0fcab34dc57babf6858d5a/core-1.3.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/22f084678c0c8123034752ff82b9a006/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/22f084678c0c8123034752ff82b9a006/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/ae0d43a8cd9e2d0dca0ee7612d373384/cardview-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/ae0d43a8cd9e2d0dca0ee7612d373384/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.3.1] /home/daria/.gradle/caches/transforms-2/files-2.1/3fad7ea4f0b845c6f6667debb95e1494/core-1.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.1] /home/daria/.gradle/caches/transforms-2/files-2.1/3fad7ea4f0b845c6f6667debb95e1494/core-1.3.1/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6118f679eabfffe3c12f082544a87853/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6118f679eabfffe3c12f082544a87853/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.interpolator:interpolator:1.0.0] /home/daria/.gradle/caches/transforms-2/files-2.1/6ba1de9be899b775fb2e622bcf9ee329/interpolator-1.0.0/AndroidManifest.xml:20:5-44

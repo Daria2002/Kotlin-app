@@ -21,6 +21,23 @@
                     }
                 },
                 {
+                    "source": "/home/daria/.gradle/caches/transforms-2/files-2.1/3fad7ea4f0b845c6f6667debb95e1494/core-1.3.1/res/values-am/values-am.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "48",
+                        "startColumns": "4",
+                        "startOffsets": "5298",
+                        "endColumns": "100",
+                        "endOffsets": "5394"
+                    }
+                },
+                {
                     "source": "/home/daria/.gradle/caches/transforms-2/files-2.1/548e9fe7c0dbc0938b6828b2531865ee/jetified-play-services-base-17.0.0/res/values-am/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
@@ -52,23 +69,6 @@
                         "startOffsets": "3806",
                         "endColumns": "190",
                         "endOffsets": "3992"
-                    }
-                },
-                {
-                    "source": "/home/daria/.gradle/caches/transforms-2/files-2.1/e270a6e88d0fcab34dc57babf6858d5a/core-1.3.0/res/values-am/values-am.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "48",
-                        "startColumns": "4",
-                        "startOffsets": "5298",
-                        "endColumns": "100",
-                        "endOffsets": "5394"
                     }
                 }
             ]
