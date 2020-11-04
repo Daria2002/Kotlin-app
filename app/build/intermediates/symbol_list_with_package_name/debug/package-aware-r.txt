@@ -1508,10 +1508,9 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
-id selectFileButton
+id selectCVButton
 id select_dialog_listview
 id selected
-id sendButton
 id shortcut
 id showCustom
 id showHome
@@ -1590,6 +1589,7 @@ id unchecked
 id uniform
 id unlabeled
 id up
+id uploadCVButton
 id useLogo
 id userName
 id viewPager

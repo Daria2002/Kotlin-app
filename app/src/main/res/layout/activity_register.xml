@@ -43,15 +43,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/selectFileButton"
+                app:layout_constraintBottom_toTopOf="@id/selectCVButton"
                 android:layout_margin="10dp"
                 />
 
             <Button
-                android:id="@+id/selectFileButton"
+                android:id="@+id/selectCVButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@id/sendButton"
+                app:layout_constraintBottom_toTopOf="@id/uploadCVButton"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_margin="10dp"
@@ -59,7 +59,7 @@
                 />
 
             <Button
-                android:id="@+id/sendButton"
+                android:id="@+id/uploadCVButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"

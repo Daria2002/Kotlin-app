@@ -11,9 +11,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.widget.NestedScrollView
+import com.android.volley.Response
+import com.android.volley.toolbox.Volley
 import com.example.w4e.start.R
+import com.example.w4e.start.helper.FileDataPart
 import com.example.w4e.start.helper.UserDatabaseHelper
 import com.example.w4e.start.helper.InputValidation
+import com.example.w4e.start.helper.VolleyFileUploadRequest
 import com.example.w4e.start.model.User
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
@@ -35,9 +39,11 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var appCompatTextViewLoginLink: AppCompatTextView
     private lateinit var inputValidation: InputValidation
     private lateinit var userDatabaseHelper: UserDatabaseHelper
-    private lateinit var selectFileButton: Button
+    private lateinit var selectCVButton: Button
+    private lateinit var uploadCVButton: Button
     private var imageData: ByteArray? = null
     private lateinit var imageView: ImageView
+    private val postURL: String = "https://ptsv2.com/t/14839-1604475864/post" // remember to use your own api
 
     companion object {
         private const val IMAGE_PICK_CODE = 999
@@ -62,10 +68,11 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         // NullPointerException if appCompatButtonRegister is a null
         appCompatButtonRegister!!.setOnClickListener(this)
         appCompatTextViewLoginLink!!.setOnClickListener(this)
-        selectFileButton!!.setOnClickListener(this)
+        selectCVButton!!.setOnClickListener(this)
+        uploadCVButton!!.setOnClickListener(this)
     }
 
-    private fun selectFile() {
+    private fun selectCV() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, IMAGE_PICK_CODE)
@@ -73,7 +80,10 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun initViews() {
         imageView = findViewById(R.id.imageView)
-        selectFileButton = findViewById(R.id.selectFileButton)
+        selectCVButton = findViewById(R.id.selectCVButton)
+        selectCVButton.setTransformationMethod(null)
+        uploadCVButton = findViewById(R.id.uploadCVButton)
+        uploadCVButton.setTransformationMethod(null)
         nestedScrollView = findViewById(R.id.nestedScrollView)
         textInputLayoutName = findViewById(R.id.textInputLayoutName)
         textInputLayoutEmail = findViewById(R.id.textInputLayoutEmail)
@@ -91,8 +101,30 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         when(v.id) {
             R.id.appCompatButtonRegister -> postDataToSQLite()
             R.id.appCompatTextViewLoginLink -> finish()
-            R.id.selectFileButton -> selectFile()
+            R.id.selectCVButton -> selectCV()
+            R.id.uploadCVButton -> uploadCV()
         }
+    }
+
+    private fun uploadCV() {
+        imageData?: return
+        val request = object : VolleyFileUploadRequest(
+            Method.POST,
+            postURL,
+            Response.Listener {
+                println("response is: $it")
+            },
+            Response.ErrorListener {
+                println("error is: $it")
+            }
+        ) {
+            override fun getByteData(): MutableMap<String, FileDataPart> {
+                var params = HashMap<String, FileDataPart>()
+                params["imageFile"] = FileDataPart("image", imageData!!, "jpeg")
+                return params
+            }
+        }
+        Volley.newRequestQueue(this).add(request)
     }
 
     private fun postDataToSQLite() {

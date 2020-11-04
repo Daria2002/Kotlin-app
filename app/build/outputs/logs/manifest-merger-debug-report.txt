@@ -63,6 +63,10 @@ INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest
 		INJECTED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:4:5-66
+	android:name
+		ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:4:22-64
 application
 ADDED from /home/daria/Documents/Work4Experience/app/src/main/AndroidManifest.xml:5:5-36:19
 MERGED from [com.google.android.instantapps:instantapps:1.1.0] /home/daria/.gradle/caches/transforms-2/files-2.1/c634e99a3437004e4522287c383cd04a/jetified-instantapps-1.1.0/AndroidManifest.xml:9:5-13:19
