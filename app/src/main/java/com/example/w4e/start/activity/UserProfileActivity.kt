@@ -43,7 +43,7 @@ class UserProfileActivity: AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initViews() {
-        title = userName + "'s Profile"
+        title = "$userName's Profile"
         tabLayout = findViewById(R.id.tabLayout)
         viewPager = findViewById(R.id.viewPager)
     }

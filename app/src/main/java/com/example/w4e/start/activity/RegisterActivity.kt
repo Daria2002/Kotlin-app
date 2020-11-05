@@ -15,13 +15,15 @@ import com.android.volley.Response
 import com.android.volley.toolbox.Volley
 import com.example.w4e.start.R
 import com.example.w4e.start.helper.FileDataPart
-import com.example.w4e.start.helper.UserDatabaseHelper
 import com.example.w4e.start.helper.InputValidation
+import com.example.w4e.start.helper.UserDatabaseHelper
 import com.example.w4e.start.helper.VolleyFileUploadRequest
 import com.example.w4e.start.model.User
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.android.synthetic.main.activity_category.*
+import java.io.ByteArrayOutputStream
 import java.io.IOException
 
 class RegisterActivity : AppCompatActivity(), View.OnClickListener {
@@ -41,11 +43,11 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var userDatabaseHelper: UserDatabaseHelper
     private lateinit var selectCVButton: Button
     private lateinit var uploadCVButton: Button
-    private var imageData: ByteArray? = null
-    private lateinit var imageView: ImageView
+    private var documentData: ByteArray? = null
     private val postURL: String = "https://ptsv2.com/t/14839-1604475864/post" // remember to use your own api
 
     companion object {
+        private const val REQUEST_CODE_DOC = 234
         private const val IMAGE_PICK_CODE = 999
     }
 
@@ -73,13 +75,13 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun selectCV() {
-        val intent = Intent(Intent.ACTION_PICK)
-        intent.type = "image/*"
-        startActivityForResult(intent, IMAGE_PICK_CODE)
+        val intentPDF = Intent(Intent.ACTION_GET_CONTENT)
+        intentPDF.type = "application/pdf"
+        intentPDF.addCategory(Intent.CATEGORY_OPENABLE)
+        startActivityForResult(intentPDF, REQUEST_CODE_DOC)
     }
 
     private fun initViews() {
-        imageView = findViewById(R.id.imageView)
         selectCVButton = findViewById(R.id.selectCVButton)
         selectCVButton.setTransformationMethod(null)
         uploadCVButton = findViewById(R.id.uploadCVButton)
@@ -107,7 +109,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun uploadCV() {
-        imageData?: return
+        documentData?: return
         val request = object : VolleyFileUploadRequest(
             Method.POST,
             postURL,
@@ -120,7 +122,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         ) {
             override fun getByteData(): MutableMap<String, FileDataPart> {
                 var params = HashMap<String, FileDataPart>()
-                params["imageFile"] = FileDataPart("image", imageData!!, "jpeg")
+                params["documentFile"] = FileDataPart("cv_$userName", documentData!!, "pdf")
                 return params
             }
         }
@@ -128,29 +130,46 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun postDataToSQLite() {
-        if(!inputValidation!!.isInputEditTextFilled(textInputEditTextName, textInputLayoutName, getString(R.string.error_message_name))) {
+        if(!inputValidation!!.isInputEditTextFilled(textInputEditTextName,
+                textInputLayoutName,
+                getString(
+                    R.string.error_message_name))) {
             return
         }
-        if(!inputValidation!!.isInputEditTextFilled(textInputEditTextEmail, textInputLayoutEmail, getString(R.string.error_message_email))) {
+        if(!inputValidation!!.isInputEditTextFilled(textInputEditTextEmail,
+                textInputLayoutEmail,
+                getString(
+                    R.string.error_message_email))) {
             return
         }
-        if(!inputValidation!!.isInputEditTextEmail(textInputEditTextEmail!!, textInputLayoutEmail!!, getString(R.string.error_message_email))) {
+        if(!inputValidation!!.isInputEditTextEmail(textInputEditTextEmail!!,
+                textInputLayoutEmail!!,
+                getString(
+                    R.string.error_message_email))) {
             return
         }
-        if(!inputValidation!!.isInputEditTextFilled(textInputEditTextPassword!!, textInputLayoutPassword!!, getString(R.string.error_message_email))) {
+        if(!inputValidation!!.isInputEditTextFilled(textInputEditTextPassword!!,
+                textInputLayoutPassword!!,
+                getString(
+                    R.string.error_message_email))) {
             return
         }
-        if(!userDatabaseHelper!!.checkUser(textInputEditTextEmail!!.text.toString().trim {it <= ' '}, textInputEditTextPassword!!.text.toString().trim {it <= ' '})) {
+        if(!userDatabaseHelper!!.checkUser(textInputEditTextEmail!!.text.toString()
+                .trim { it <= ' ' }, textInputEditTextPassword!!.text.toString().trim { it <= ' ' })) {
             var user = User(name = textInputEditTextName!!.text.toString().trim(),
-            email = textInputEditTextEmail!!.text.toString().trim(),
-            password = textInputEditTextPassword!!.text.toString().trim())
+                email = textInputEditTextEmail!!.text.toString().trim(),
+                password = textInputEditTextPassword!!.text.toString().trim())
             userDatabaseHelper!!.addUser(user)
             // Snack Bar to show success message that record is saved successfully
-            Snackbar.make(nestedScrollView!!, getString(R.string.success_message), Snackbar.LENGTH_LONG).show()
+            Snackbar.make(nestedScrollView!!,
+                getString(R.string.success_message),
+                Snackbar.LENGTH_LONG).show()
             emptyInputEditText()
         } else {
             // Snack Bar to show error message that record already exists
-            Snackbar.make(nestedScrollView!!, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show()
+            Snackbar.make(nestedScrollView!!,
+                getString(R.string.error_valid_email_password),
+                Snackbar.LENGTH_LONG).show()
         }
     }
 
@@ -163,21 +182,20 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
+        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE_DOC) {
             val uri = data?.data
             if (uri != null) {
-                imageView.setImageURI(uri)
-                createImageData(uri)
+                // imageView.setImageURI(uri)
+                createDocumentData(uri)
             }
         }
         super.onActivityResult(requestCode, resultCode, data)
     }
 
     @Throws(IOException::class)
-    private fun createImageData(uri: Uri) {
-        val inputStream = contentResolver.openInputStream(uri)
-        inputStream?.buffered()?.use {
-            imageData = it.readBytes()
-        }
+    private fun createDocumentData(uri: Uri) {
+        var os = ByteArrayOutputStream()
+        var inputStream = this@RegisterActivity?.contentResolver.openInputStream(uri)
+        documentData = inputStream?.readBytes()
     }
 }
