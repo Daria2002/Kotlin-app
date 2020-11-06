@@ -34,7 +34,7 @@ class CategorySelectionActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initListeners() {
-        myProfileButton!!.setOnClickListener(this)
+        myProfileButton.setOnClickListener(this)
     }
 
     private fun initObjects() {
@@ -52,10 +52,10 @@ class CategorySelectionActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initViews() {
-        userName = findViewById(R.id.userName) as AppCompatTextView
-        myProfileButton = findViewById(R.id.myProfile) as AppCompatButton
-        myProfileButton.setTransformationMethod(null)
-        recyclerViewCategories = findViewById(R.id.recyclerViewUsers) as RecyclerView
+        userName = findViewById<AppCompatTextView>(R.id.userName)
+        myProfileButton = findViewById<AppCompatButton>(R.id.myProfile)
+        myProfileButton.transformationMethod = null
+        recyclerViewCategories = findViewById<RecyclerView>(R.id.recyclerViewUsers)
     }
 
     private fun openProfile(userName: String) {

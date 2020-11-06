@@ -90,7 +90,6 @@ class PostDatabaseHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, n
             PostDatabaseHelper.COLUMN_TIME)
         // sorting orders
         val sortOrder = "${PostDatabaseHelper.COLUMN_CATEGORY} ASC"
-        val postList = ArrayList<Post>()
         val db = this.readableDatabase
         // selection criteria
         val selection = "${PostDatabaseHelper.COLUMN_TEXT} = ?"
@@ -105,9 +104,7 @@ class PostDatabaseHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, n
             null,
             sortOrder)
         if(cursor.moveToFirst()) {
-            do {
-                return cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_USER_NAME))
-            } while (cursor.moveToNext())
+            return cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_USER_NAME))
         }
         cursor.close()
         db.close()

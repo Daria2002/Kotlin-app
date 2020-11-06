@@ -68,10 +68,10 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     private fun initListeners() {
         // set OnClickListener is appCompatButtonRegister is non-null value or throw
         // NullPointerException if appCompatButtonRegister is a null
-        appCompatButtonRegister!!.setOnClickListener(this)
-        appCompatTextViewLoginLink!!.setOnClickListener(this)
-        selectCVButton!!.setOnClickListener(this)
-        uploadCVButton!!.setOnClickListener(this)
+        appCompatButtonRegister.setOnClickListener(this)
+        appCompatTextViewLoginLink.setOnClickListener(this)
+        selectCVButton.setOnClickListener(this)
+        uploadCVButton.setOnClickListener(this)
     }
 
     private fun selectCV() {
@@ -83,9 +83,9 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun initViews() {
         selectCVButton = findViewById(R.id.selectCVButton)
-        selectCVButton.setTransformationMethod(null)
+        selectCVButton.transformationMethod = null
         uploadCVButton = findViewById(R.id.uploadCVButton)
-        uploadCVButton.setTransformationMethod(null)
+        uploadCVButton.transformationMethod = null
         nestedScrollView = findViewById(R.id.nestedScrollView)
         textInputLayoutName = findViewById(R.id.textInputLayoutName)
         textInputLayoutEmail = findViewById(R.id.textInputLayoutEmail)
@@ -130,44 +130,46 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun postDataToSQLite() {
-        if(!inputValidation!!.isInputEditTextFilled(textInputEditTextName,
+        if(!inputValidation.isInputEditTextFilled(textInputEditTextName,
                 textInputLayoutName,
                 getString(
                     R.string.error_message_name))) {
             return
         }
-        if(!inputValidation!!.isInputEditTextFilled(textInputEditTextEmail,
+        if(!inputValidation.isInputEditTextFilled(textInputEditTextEmail,
                 textInputLayoutEmail,
                 getString(
                     R.string.error_message_email))) {
             return
         }
-        if(!inputValidation!!.isInputEditTextEmail(textInputEditTextEmail!!,
-                textInputLayoutEmail!!,
+        if(!inputValidation.isInputEditTextEmail(textInputEditTextEmail,
+                textInputLayoutEmail,
                 getString(
                     R.string.error_message_email))) {
             return
         }
-        if(!inputValidation!!.isInputEditTextFilled(textInputEditTextPassword!!,
-                textInputLayoutPassword!!,
+        if(!inputValidation.isInputEditTextFilled(textInputEditTextPassword,
+                textInputLayoutPassword,
                 getString(
                     R.string.error_message_email))) {
             return
         }
-        if(!userDatabaseHelper!!.checkUser(textInputEditTextEmail!!.text.toString()
-                .trim { it <= ' ' }, textInputEditTextPassword!!.text.toString().trim { it <= ' ' })) {
-            var user = User(name = textInputEditTextName!!.text.toString().trim(),
-                email = textInputEditTextEmail!!.text.toString().trim(),
-                password = textInputEditTextPassword!!.text.toString().trim())
-            userDatabaseHelper!!.addUser(user)
+        if(!userDatabaseHelper.checkUser(textInputEditTextEmail.text.toString()
+                .trim { it <= ' ' }, textInputEditTextPassword.text.toString().trim { it <= ' ' }) &&
+                documentData != null) {
+            var user = User(name = textInputEditTextName.text.toString().trim(),
+                email = textInputEditTextEmail.text.toString().trim(),
+                password = textInputEditTextPassword.text.toString().trim(),
+                cv = documentData!!)
+            userDatabaseHelper.addUser(user)
             // Snack Bar to show success message that record is saved successfully
-            Snackbar.make(nestedScrollView!!,
+            Snackbar.make(nestedScrollView,
                 getString(R.string.success_message),
                 Snackbar.LENGTH_LONG).show()
             emptyInputEditText()
         } else {
             // Snack Bar to show error message that record already exists
-            Snackbar.make(nestedScrollView!!,
+            Snackbar.make(nestedScrollView,
                 getString(R.string.error_valid_email_password),
                 Snackbar.LENGTH_LONG).show()
         }
@@ -177,8 +179,8 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
      * This method is to empty all input edit text
      */
     private fun emptyInputEditText() {
-        textInputEditTextEmail!!.text = null
-        textInputEditTextPassword!!.text = null
+        textInputEditTextEmail.text = null
+        textInputEditTextPassword.text = null
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -194,8 +196,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
     @Throws(IOException::class)
     private fun createDocumentData(uri: Uri) {
-        var os = ByteArrayOutputStream()
-        var inputStream = this@RegisterActivity?.contentResolver.openInputStream(uri)
+        var inputStream = this@RegisterActivity.contentResolver.openInputStream(uri)
         documentData = inputStream?.readBytes()
     }
 }

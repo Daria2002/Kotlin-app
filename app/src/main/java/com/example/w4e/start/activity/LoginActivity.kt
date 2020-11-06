@@ -82,23 +82,27 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
      * This method validates the input text fields and verify login credentials from SQLite
      */
     private fun verifyFromSQLite() {
-        if(!inputValidation!!.isInputEditTextFilled(textInputEditTextEmail!!, textInputLayoutEmail!!, getString(R.string.error_message_email))) {
+        if(!inputValidation.isInputEditTextFilled(textInputEditTextEmail,
+                textInputLayoutEmail, getString(R.string.error_message_email))) {
             return
         }
-        if(!inputValidation!!.isInputEditTextEmail(textInputEditTextEmail!!, textInputLayoutEmail!!, getString(R.string.error_message_email))) {
+        if(!inputValidation.isInputEditTextEmail(textInputEditTextEmail,
+                textInputLayoutEmail, getString(R.string.error_message_email))) {
             return
         }
-        if(!inputValidation!!.isInputEditTextFilled(textInputEditTextPassword!!, textInputLayoutPassword!!, getString(R.string.error_message_email))) {
+        if(!inputValidation.isInputEditTextFilled(textInputEditTextPassword,
+                textInputLayoutPassword, getString(R.string.error_message_email))) {
             return
         }
-        if(userDatabaseHelper!!.checkUser(textInputEditTextEmail!!.text.toString().trim {it <= ' '}, textInputEditTextPassword!!.text.toString().trim{ it <= ' '})) {
+        if(userDatabaseHelper.checkUser(textInputEditTextEmail.text.toString().trim {it <= ' '},
+                textInputEditTextPassword.text.toString().trim{ it <= ' '})) {
             val accountsIntent = Intent(activity, CategorySelectionActivity::class.java)
-            accountsIntent.putExtra("EMAIL", textInputEditTextEmail!!.text.toString().trim {it <= ' '})
+            accountsIntent.putExtra("EMAIL", textInputEditTextEmail.text.toString().trim {it <= ' '})
             emptyInputEditText()
             startActivity(accountsIntent)
         } else {
             // Snack Bar to show success message that record is wrong
-            Snackbar.make(nestedScrollView!!, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show()
+            Snackbar.make(nestedScrollView, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show()
         }
     }
 
@@ -106,7 +110,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
      * This method clears all input edit text
      */
     private fun emptyInputEditText() {
-        textInputEditTextEmail!!.text = null
-        textInputEditTextPassword!!.text = null
+        textInputEditTextEmail.text = null
+        textInputEditTextPassword.text = null
     }
 }

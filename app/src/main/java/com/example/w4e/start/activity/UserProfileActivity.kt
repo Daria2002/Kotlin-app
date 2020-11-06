@@ -7,12 +7,14 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.viewpager.widget.ViewPager
 import com.example.w4e.start.R
 import com.example.w4e.start.adapter.UserProfileAdapter
+import com.example.w4e.start.model.User
 import com.google.android.material.tabs.TabLayout
 
 class UserProfileActivity: AppCompatActivity(), View.OnClickListener {
     private lateinit var userName: String
     lateinit var tabLayout: TabLayout
     lateinit var viewPager: ViewPager
+    lateinit var user: User
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         userName = intent.getStringExtra("USER_NAME").toString()
@@ -37,9 +39,14 @@ class UserProfileActivity: AppCompatActivity(), View.OnClickListener {
         tabLayout.addTab(tabLayout.newTab().setText("Review"))
         tabLayout.addTab(tabLayout.newTab().setText("CV and Experience"))
         tabLayout.tabGravity = TabLayout.GRAVITY_FILL
+        user = getUserWithName(userName)
         val adapter = UserProfileAdapter(this, supportFragmentManager,
-            tabLayout.tabCount)
+            tabLayout.tabCount, user)
         viewPager.adapter = adapter
+    }
+
+    private fun getUserWithName(userName: String): User {
+        TODO("Not yet implemented")
     }
 
     private fun initViews() {

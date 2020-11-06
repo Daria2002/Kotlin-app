@@ -10,7 +10,7 @@ class UserDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
     // create table sql query
     private val CREATE_USER_TABLE = ("CREATE TABLE " + TABLE_USER + "("
             + COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_USER_NAME + " TEXT,"
-            + COLUMN_USER_EMAIL + " TEXT," + COLUMN_USER_PASSWORD + " TEXT" + ")")
+            + COLUMN_USER_EMAIL + " TEXT," + COLUMN_USER_PASSWORD + " TEXT," + COLUMN_CV + " BLOB" + ")")
 
     // drop table sql query
     private val DROP_USER_TABLE = "DROP TABLE IF EXISTS $TABLE_USER"
@@ -48,9 +48,7 @@ class UserDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
             null,
             null)
         if(cursor.moveToFirst()) {
-            do {
-                return cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME))
-            } while (cursor.moveToNext())
+            return cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME))
         }
         return ""
     }
@@ -61,7 +59,7 @@ class UserDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
      */
     fun getAllUser() : List<User> {
         // arr of columns to fetch
-        val columns = arrayOf(COLUMN_USER_ID, COLUMN_USER_EMAIL, COLUMN_USER_NAME, COLUMN_USER_PASSWORD)
+        val columns = arrayOf(COLUMN_USER_ID, COLUMN_USER_EMAIL, COLUMN_USER_NAME, COLUMN_USER_PASSWORD, COLUMN_CV)
         // sorting orders
         val sortOrder = "$COLUMN_USER_NAME ASC"
         val userList = ArrayList<User>()
@@ -79,7 +77,8 @@ class UserDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
                 val user = User(id = cursor.getString(cursor.getColumnIndex(COLUMN_USER_ID)).toInt(),
                                 name = cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME)),
                                 email = cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL)),
-                                password = cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD)))
+                                password = cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD)),
+                                cv = cursor.getBlob(cursor.getColumnIndex(COLUMN_CV)))
                 userList.add(user)
             } while (cursor.moveToNext())
         }
@@ -217,9 +216,7 @@ class UserDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
             null,
             null)
         if(cursor.moveToFirst()) {
-            do {
-                return cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL))
-            } while (cursor.moveToNext())
+            return cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL))
         }
         return ""
     }
@@ -236,5 +233,6 @@ class UserDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
         private val COLUMN_USER_NAME = "user_name"
         private val COLUMN_USER_EMAIL = "user_email"
         private val COLUMN_USER_PASSWORD = "user_password"
+        private val COLUMN_CV = "user_cv"
     }
 }

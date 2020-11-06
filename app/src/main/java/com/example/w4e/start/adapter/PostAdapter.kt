@@ -32,7 +32,7 @@ class PostAdapter(private val listPosts: MutableList<Post>, private val listener
         var postText: AppCompatButton
         init {
             postText = view.findViewById(R.id.postText) as AppCompatButton
-            postText.setTransformationMethod(null); // all caps off
+            postText.transformationMethod = null // all caps off
         }
     }
 }

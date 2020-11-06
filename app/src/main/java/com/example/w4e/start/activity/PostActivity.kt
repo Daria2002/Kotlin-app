@@ -71,17 +71,17 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initListeners() {
-        addPostButton!!.setOnClickListener(this)
-        myProfileButton!!.setOnClickListener(this)
+        this.addPostButton.setOnClickListener(this)
+        this.myProfileButton.setOnClickListener(this)
     }
 
     private fun initViews() {
-        categoryName = findViewById(id.textCategoryName) as AppCompatTextView
-        recyclerViewPosts = findViewById(id.recyclerViewPosts) as RecyclerView
-        addPostButton = findViewById(id.addPost) as AppCompatButton
-        addPostButton.setTransformationMethod(null)
-        myProfileButton = findViewById(R.id.myProfile) as AppCompatButton
-        myProfileButton.setTransformationMethod(null)
+        categoryName = findViewById<AppCompatTextView>(id.textCategoryName)
+        recyclerViewPosts = findViewById<RecyclerView>(id.recyclerViewPosts)
+        addPostButton = findViewById<AppCompatButton>(id.addPost)
+        addPostButton.transformationMethod = null
+        myProfileButton = findViewById<AppCompatButton>(R.id.myProfile)
+        myProfileButton.transformationMethod = null
     }
 
     /**
@@ -105,9 +105,9 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
             .setTitle("Post details")
             .setMessage(postDetails)
             .setPositiveButton("Bid"
-            ) { dialog, which -> sendAnEmail(post.user_name, user_name) }
+            ) { _, _ -> sendAnEmail(post.user_name, user_name) }
             .setNegativeButton("Cancel", null)
-            .setNeutralButton("User profile") { dialog, which -> openProfile(post.user_name) }
+            .setNeutralButton("User profile") { _, _ -> openProfile(post.user_name) }
             .create()
         dialog.show()
     }
@@ -159,7 +159,7 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
             .setMessage("What do you want to post?")
             .setView(postEditText)
             .setPositiveButton("Add"
-            ) { dialog, which -> updatePostsInDb(postEditText.text.toString()) }
+            ) { _, _ -> updatePostsInDb(postEditText.text.toString()) }
             .setNegativeButton("Cancel", null)
             .create()
         dialog.show()

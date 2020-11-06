@@ -96,7 +96,7 @@ open class VolleyFileUploadRequest(
             val dataFile = it.value
             dataOutputStream.writeBytes("$divider$boundary$ending")
             dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"${it.key}\"; filename=\"${dataFile.fileName}\"$ending")
-            if (dataFile.type != null && dataFile.type.trim().isNotEmpty()) {
+            if (dataFile.type.trim().isNotEmpty()) {
                 dataOutputStream.writeBytes("Content-Type: ${dataFile.type}$ending")
             }
             dataOutputStream.writeBytes(ending)
