@@ -42,7 +42,6 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var inputValidation: InputValidation
     private lateinit var userDatabaseHelper: UserDatabaseHelper
     private lateinit var selectCVButton: Button
-    private lateinit var uploadCVButton: Button
     private var documentData: ByteArray? = null
     private val postURL: String = "https://ptsv2.com/t/14839-1604475864/post" // remember to use your own api
 
@@ -71,7 +70,6 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         appCompatButtonRegister.setOnClickListener(this)
         appCompatTextViewLoginLink.setOnClickListener(this)
         selectCVButton.setOnClickListener(this)
-        uploadCVButton.setOnClickListener(this)
     }
 
     private fun selectCV() {
@@ -84,8 +82,6 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     private fun initViews() {
         selectCVButton = findViewById(R.id.selectCVButton)
         selectCVButton.transformationMethod = null
-        uploadCVButton = findViewById(R.id.uploadCVButton)
-        uploadCVButton.transformationMethod = null
         nestedScrollView = findViewById(R.id.nestedScrollView)
         textInputLayoutName = findViewById(R.id.textInputLayoutName)
         textInputLayoutEmail = findViewById(R.id.textInputLayoutEmail)
@@ -104,29 +100,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             R.id.appCompatButtonRegister -> postDataToSQLite()
             R.id.appCompatTextViewLoginLink -> finish()
             R.id.selectCVButton -> selectCV()
-            R.id.uploadCVButton -> uploadCV()
         }
-    }
-
-    private fun uploadCV() {
-        documentData?: return
-        val request = object : VolleyFileUploadRequest(
-            Method.POST,
-            postURL,
-            Response.Listener {
-                println("response is: $it")
-            },
-            Response.ErrorListener {
-                println("error is: $it")
-            }
-        ) {
-            override fun getByteData(): MutableMap<String, FileDataPart> {
-                var params = HashMap<String, FileDataPart>()
-                params["documentFile"] = FileDataPart("cv_$userName", documentData!!, "pdf")
-                return params
-            }
-        }
-        Volley.newRequestQueue(this).add(request)
     }
 
     private fun postDataToSQLite() {

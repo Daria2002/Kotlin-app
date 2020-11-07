@@ -18,7 +18,7 @@ internal class UserProfileAdapter(
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> {
-                CVAndExperience()
+                CVAndExperience.newInstance(user.name)
             }
             1 -> {
                 Review()
