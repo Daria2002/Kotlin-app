@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.w4e.start.fragment.CVAndExperience
 import com.example.w4e.start.fragment.Review
+import com.example.w4e.start.helper.UserDatabaseHelper
 import com.example.w4e.start.model.User
 
 @Suppress("DEPRECATION")
@@ -12,13 +13,14 @@ internal class UserProfileAdapter(
     var context: Context,
     fm: FragmentManager,
     var totalTabs: Int,
-    var user: User
+    var userName: String,
+    var cv: ByteArray
 ) :
     FragmentPagerAdapter(fm) {
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> {
-                CVAndExperience.newInstance(user.name)
+                CVAndExperience.newInstance(userName, cv)
             }
             1 -> {
                 Review()

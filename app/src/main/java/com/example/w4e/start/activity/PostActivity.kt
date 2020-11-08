@@ -115,6 +115,7 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
     private fun openProfile(userName: String) {
         val intent = Intent(applicationContext, UserProfileActivity::class.java)
         intent.putExtra("USER_NAME", userName)
+        intent.putExtra("CV", userDatabaseHelper.getCV(userName))
         startActivity(intent)
     }
 

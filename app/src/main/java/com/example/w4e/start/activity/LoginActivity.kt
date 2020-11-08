@@ -10,9 +10,11 @@ import androidx.core.widget.NestedScrollView
 import com.example.w4e.start.R
 import com.example.w4e.start.helper.UserDatabaseHelper
 import com.example.w4e.start.helper.InputValidation
+import com.example.w4e.start.model.User
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.android.synthetic.main.activity_category.*
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private val activity = this@LoginActivity
@@ -24,6 +26,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var appCompatButtonLogin: AppCompatButton
     private lateinit var textViewLinkRegister: AppCompatTextView
     private lateinit var inputValidation: InputValidation
+    private lateinit var user: User
     private lateinit var userDatabaseHelper: UserDatabaseHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {

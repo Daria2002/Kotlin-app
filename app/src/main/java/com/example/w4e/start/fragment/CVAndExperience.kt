@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.w4e.start.R
 import com.example.w4e.start.helper.FileDataPart
+import com.example.w4e.start.helper.UserDatabaseHelper
 import com.example.w4e.start.model.User
 import kotlinx.android.synthetic.main.activity_category.*
 
@@ -27,7 +28,7 @@ class CVAndExperience: Fragment() {
     }
     companion object {
         @JvmStatic
-        fun newInstance(name: String) = CVAndExperience().apply {
+        fun newInstance(name: String, cv: ByteArray) = CVAndExperience().apply {
             userName = name
         }
     }

@@ -53,6 +53,31 @@ class UserDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
         return ""
     }
 
+    fun getCV(name: String?) : ByteArray {
+        // arr of columns to fetch
+        val columns = arrayOf(COLUMN_CV, COLUMN_USER_NAME)
+        val db = this.readableDatabase
+        // selection criteria
+        val selection = "$COLUMN_USER_NAME = ?"
+        // selection arg
+        val selectionArgs = arrayOf(name)
+        // query user table with condition
+        /**
+         * query function fetches records from user table
+         * sql query of this function:
+         * SELECT user_name FROM user WHERE user_email = 'jack@app.com'
+         */
+        val cursor = db.query(TABLE_USER,
+            columns,
+            selection,
+            selectionArgs,
+            null,
+            null,
+            null)
+        cursor.moveToFirst()
+        return cursor.getBlob(cursor.getColumnIndex(COLUMN_CV))
+    }
+
     /**
      * This method is to fetch all user and return the list of user records
      * @return list
@@ -97,6 +122,7 @@ class UserDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
         values.put(COLUMN_USER_NAME, user.name)
         values.put(COLUMN_USER_EMAIL, user.email)
         values.put(COLUMN_USER_PASSWORD, user.password)
+        values.put(COLUMN_CV, user.cv)
         // Inserting row
         db.insert(TABLE_USER, null, values)
         db.close()
@@ -112,6 +138,7 @@ class UserDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
         values.put(COLUMN_USER_NAME, user.name)
         values.put(COLUMN_USER_EMAIL, user.email)
         values.put(COLUMN_USER_PASSWORD, user.password)
+        values.put(COLUMN_CV, user.cv)
         // updating row
         db.update(TABLE_USER, values, "$COLUMN_USER_ID = ?",
                 arrayOf(user.id.toString()))
