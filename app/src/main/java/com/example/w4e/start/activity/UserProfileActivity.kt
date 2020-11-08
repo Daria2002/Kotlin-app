@@ -16,6 +16,7 @@ class UserProfileActivity: AppCompatActivity(), View.OnClickListener {
     lateinit var tabLayout: TabLayout
     lateinit var viewPager: ViewPager
     lateinit var cv: ByteArray
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         userName = intent.getStringExtra("USER_NAME").toString()
