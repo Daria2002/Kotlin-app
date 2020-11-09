@@ -1,15 +1,25 @@
 package com.example.w4e.start.activity
 
+import android.content.Context
 import android.os.Bundle
+import android.os.Environment
+import android.os.FileUtils
 import android.view.View
+import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
+import com.downloader.OnDownloadListener
+import com.downloader.PRDownloader
 import com.example.w4e.start.R
 import com.example.w4e.start.adapter.UserProfileAdapter
 import com.example.w4e.start.helper.UserDatabaseHelper
 import com.example.w4e.start.model.User
+import com.github.barteksc.pdfviewer.PDFView
 import com.google.android.material.tabs.TabLayout
+import java.io.File
 
 class UserProfileActivity: AppCompatActivity(), View.OnClickListener {
     private lateinit var userName: String
@@ -45,6 +55,18 @@ class UserProfileActivity: AppCompatActivity(), View.OnClickListener {
         val adapter = UserProfileAdapter(this, supportFragmentManager,
             tabLayout.tabCount, userName, cv)
         viewPager.adapter = adapter
+    }
+
+    fun getRootDirPath(context: Context): String {
+        return if (Environment.MEDIA_MOUNTED == Environment.getExternalStorageState()) {
+            val file: File = ContextCompat.getExternalFilesDirs(
+                context.applicationContext,
+                null
+            )[0]
+            file.absolutePath
+        } else {
+            context.applicationContext.filesDir.absolutePath
+        }
     }
 
     private fun initViews() {

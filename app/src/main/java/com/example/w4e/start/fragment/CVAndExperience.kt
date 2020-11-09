@@ -1,50 +1,100 @@
 package com.example.w4e.start.fragment
 
-import android.content.Context
-import android.os.Bundle
-import android.view.LayoutInflater
+import android.os.Build
+import android.os.Environment
 import android.view.View
-import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AppCompatButton
-import androidx.appcompat.widget.AppCompatTextView
+import android.widget.ProgressBar
+import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.example.w4e.start.R
-import com.example.w4e.start.R.id
-import com.example.w4e.start.R.id.*
-import com.example.w4e.start.helper.FileDataPart
-import com.example.w4e.start.helper.UserDatabaseHelper
-import com.example.w4e.start.model.User
-import kotlinx.android.synthetic.main.activity_category.*
+import androidx.fragment.app.FragmentActivity
+import com.downloader.OnDownloadListener
+import com.downloader.PRDownloader
+import com.github.barteksc.pdfviewer.PDFView
+import java.io.File
 
 class CVAndExperience: Fragment() {
     private lateinit var userName: String
     private lateinit var userCv: String
-    private lateinit var cv_view: AppCompatTextView
+    lateinit var progressBar: ProgressBar
+    lateinit var pdfView: PDFView
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        cv_view = view!!.findViewById<AppCompatTextView>(R.id.cv)
-        cv_view.text = userCv
+    fun getRootDirPath(context: FragmentActivity?): String {
+        return if (Environment.MEDIA_MOUNTED == Environment.getExternalStorageState()) {
+            val file: File = ContextCompat.getExternalFilesDirs(
+                context!!.applicationContext,
+                null
+            )[0]
+            file.absolutePath
+        } else {
+            context!!.applicationContext.filesDir.absolutePath
+        }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cv_and_experience, container, false)
-        /*
-        var params = HashMap<String, FileDataPart>()
-        params["documentFile"] = FileDataPart("cv_$userName", user.cv!!, "pdf")
-         */
+    fun getPdfUrl(): String {
+        return "https://mindorks.s3.ap-south-1.amazonaws.com/courses/MindOrks_Android_Online_Professional_Course-Syllabus.pdf"
+    }
+
+    private fun downloadCV() {
+        progressBar.visibility = View.VISIBLE
+        val fileName = "myFile.pdf"
+        downloadPdf(
+            getPdfUrl(),
+            getRootDirPath(activity),
+            fileName
+        )
+    }
+
+    private fun showPdfFromFile(file: File) {
+        pdfView.fromFile(file)
+            .password(null)
+            .defaultPage(0)
+            .enableSwipe(true)
+            .swipeHorizontal(false)
+            .enableDoubletap(true)
+            .onPageError { page, _ ->
+                Toast.makeText(
+                    activity,
+                    "Error at page: $page", Toast.LENGTH_LONG
+                ).show()
+            }
+            .load()
+    }
+
+    private fun downloadPdf(url: String, dirPath: String, fileName: String) {
+        PRDownloader.initialize(activity);
+        PRDownloader.download(
+            url,
+            dirPath,
+            fileName
+        ).build()
+            .start(object : OnDownloadListener {
+                override fun onDownloadComplete() {
+                    Toast.makeText(activity, "downloadComplete", Toast.LENGTH_LONG)
+                        .show()
+                    val downloadedFile = File(dirPath, fileName)
+                    progressBar.visibility = View.GONE
+                    showPdfFromFile(downloadedFile)
+                }
+
+                override fun onError(error: com.downloader.Error?) {
+                    Toast.makeText(
+                        activity,
+                        "Error in downloading file : $error",
+                        Toast.LENGTH_LONG
+                    )
+                        .show()
+                }
+            })
     }
 
     companion object {
+        @RequiresApi(Build.VERSION_CODES.O)
         @JvmStatic
         fun newInstance(name: String, cv: ByteArray) = CVAndExperience().apply {
             userName = name
-            userCv = cv.contentToString()
+            userCv = cv.toString()
         }
     }
 }
