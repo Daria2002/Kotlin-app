@@ -1,9 +1,12 @@
 package com.example.w4e.start.fragment
 
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -23,14 +26,15 @@ class CVAndExperience: Fragment() {
     lateinit var progressBar: ProgressBar
     lateinit var pdfView: PDFView
 
+    // TODO: check how to execute
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        progressBar = view.findViewById(R.id.progressBar)
-        pdfView = view.findViewById(R.id.pdfView)
+        progressBar = view!!.findViewById(R.id.cvProgressBar)
+        pdfView = view!!.findViewById(R.id.pdfView)
         downloadCV(cvUrl)
     }
 
-    fun getRootDirPath(context: FragmentActivity?): String {
+    private fun getRootDirPath(context: FragmentActivity?): String {
         return if (Environment.MEDIA_MOUNTED == Environment.getExternalStorageState()) {
             val file: File = ContextCompat.getExternalFilesDirs(
                 context!!.applicationContext,
@@ -93,14 +97,5 @@ class CVAndExperience: Fragment() {
                         .show()
                 }
             })
-    }
-
-    companion object {
-        @RequiresApi(Build.VERSION_CODES.O)
-        @JvmStatic
-        fun newInstance(cv_url: String) = CVAndExperience().apply {
-            cvUrl = cv_url
-            cvUrl = "https://mindorks.s3.ap-south-1.amazonaws.com/courses/MindOrks_Android_Online_Professional_Course-Syllabus.pdf"
-        }
     }
 }
