@@ -1,6 +1,7 @@
 package com.example.w4e.start.fragment
 
 import android.os.Build
+import android.os.Bundle
 import android.os.Environment
 import android.view.View
 import android.widget.ProgressBar
@@ -11,13 +12,23 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.downloader.OnDownloadListener
 import com.downloader.PRDownloader
+import com.example.w4e.start.R
 import com.github.barteksc.pdfviewer.PDFView
+import kotlinx.android.synthetic.main.fragment_cv_and_experience.view.*
 import java.io.File
 
 class CVAndExperience: Fragment() {
-    private lateinit var cvUrl: String
+    // TODO: get argument from previous activity
+    private var cvUrl: String = "https://mindorks.s3.ap-south-1.amazonaws.com/courses/MindOrks_Android_Online_Professional_Course-Syllabus.pdf"
     lateinit var progressBar: ProgressBar
     lateinit var pdfView: PDFView
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        progressBar = view.findViewById(R.id.progressBar)
+        pdfView = view.findViewById(R.id.pdfView)
+        downloadCV(cvUrl)
+    }
 
     fun getRootDirPath(context: FragmentActivity?): String {
         return if (Environment.MEDIA_MOUNTED == Environment.getExternalStorageState()) {
@@ -31,11 +42,11 @@ class CVAndExperience: Fragment() {
         }
     }
 
-    private fun downloadCV() {
+    private fun downloadCV(url: String) {
         progressBar.visibility = View.VISIBLE
         val fileName = "myFile.pdf"
         downloadPdf(
-            cvUrl,
+            url,
             getRootDirPath(activity),
             fileName
         )

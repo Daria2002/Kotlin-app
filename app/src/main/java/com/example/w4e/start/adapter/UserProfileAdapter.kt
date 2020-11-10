@@ -23,6 +23,7 @@ internal class UserProfileAdapter(
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> {
+                // TODO: send cvUrl
                 CVAndExperience()
             }
             1 -> {
