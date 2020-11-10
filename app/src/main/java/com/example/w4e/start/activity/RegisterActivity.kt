@@ -22,8 +22,6 @@ import com.example.w4e.start.model.User
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import kotlinx.android.synthetic.main.activity_category.*
-import java.io.ByteArrayOutputStream
 import java.io.IOException
 
 class RegisterActivity : AppCompatActivity(), View.OnClickListener {
@@ -42,8 +40,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var inputValidation: InputValidation
     private lateinit var userDatabaseHelper: UserDatabaseHelper
     private lateinit var selectCVButton: Button
-    private var documentData: ByteArray? = null
-    private val postURL: String = "https://ptsv2.com/t/14839-1604475864/post" // remember to use your own api
+    private var cv_added: Boolean = false
 
     companion object {
         private const val REQUEST_CODE_DOC = 234
@@ -130,11 +127,11 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         }
         if(!userDatabaseHelper.checkUser(textInputEditTextEmail.text.toString()
                 .trim { it <= ' ' }, textInputEditTextPassword.text.toString().trim { it <= ' ' }) &&
-                documentData != null) {
+                cv_added) {
             var user = User(name = textInputEditTextName.text.toString().trim(),
                 email = textInputEditTextEmail.text.toString().trim(),
                 password = textInputEditTextPassword.text.toString().trim(),
-                cv = documentData!!)
+                cv = "https://mindorks.s3.ap-south-1.amazonaws.com/courses/MindOrks_Android_Online_Professional_Course-Syllabus.pdf")
             userDatabaseHelper.addUser(user)
             // Snack Bar to show success message that record is saved successfully
             Snackbar.make(nestedScrollView,
@@ -161,16 +158,9 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE_DOC) {
             val uri = data?.data
             if (uri != null) {
-                // imageView.setImageURI(uri)
-                createDocumentData(uri)
+                cv_added = true
             }
         }
         super.onActivityResult(requestCode, resultCode, data)
-    }
-
-    @Throws(IOException::class)
-    private fun createDocumentData(uri: Uri) {
-        var inputStream = this@RegisterActivity.contentResolver.openInputStream(uri)
-        documentData = inputStream?.readBytes()
     }
 }

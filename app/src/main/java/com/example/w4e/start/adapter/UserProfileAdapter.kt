@@ -17,8 +17,7 @@ internal class UserProfileAdapter(
     var context: Context,
     fm: FragmentManager,
     var totalTabs: Int,
-    var userName: String,
-    var cv: ByteArray
+    var cvUrl: String
 ) :
     FragmentPagerAdapter(fm) {
     override fun getItem(position: Int): Fragment {

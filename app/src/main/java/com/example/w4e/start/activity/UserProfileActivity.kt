@@ -23,14 +23,14 @@ import java.io.File
 
 class UserProfileActivity: AppCompatActivity(), View.OnClickListener {
     private lateinit var userName: String
+    private lateinit var cvUrl: String
     lateinit var tabLayout: TabLayout
     lateinit var viewPager: ViewPager
-    lateinit var cv: ByteArray
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         userName = intent.getStringExtra("USER_NAME").toString()
-        cv = intent.getByteArrayExtra("CV")!!
+        cvUrl = intent.getStringExtra("CV_URL").toString()
         setContentView(R.layout.activity_user_profile)
         initViews()
         initListeners()
@@ -53,7 +53,7 @@ class UserProfileActivity: AppCompatActivity(), View.OnClickListener {
         tabLayout.addTab(tabLayout.newTab().setText("CV and Experience"))
         tabLayout.tabGravity = TabLayout.GRAVITY_FILL
         val adapter = UserProfileAdapter(this, supportFragmentManager,
-            tabLayout.tabCount, userName, cv)
+            tabLayout.tabCount, cvUrl)
         viewPager.adapter = adapter
     }
 

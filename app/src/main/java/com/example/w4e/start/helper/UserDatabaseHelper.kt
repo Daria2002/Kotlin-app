@@ -10,7 +10,7 @@ class UserDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
     // create table sql query
     private val CREATE_USER_TABLE = ("CREATE TABLE " + TABLE_USER + "("
             + COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_USER_NAME + " TEXT,"
-            + COLUMN_USER_EMAIL + " TEXT," + COLUMN_USER_PASSWORD + " TEXT," + COLUMN_CV + " BLOB" + ")")
+            + COLUMN_USER_EMAIL + " TEXT," + COLUMN_USER_PASSWORD + " TEXT," + COLUMN_CV + " TEXT" + ")")
 
     // drop table sql query
     private val DROP_USER_TABLE = "DROP TABLE IF EXISTS $TABLE_USER"
@@ -53,7 +53,7 @@ class UserDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
         return ""
     }
 
-    fun getCV(name: String?) : ByteArray {
+    fun getCV(name: String?) : String {
         // arr of columns to fetch
         val columns = arrayOf(COLUMN_CV, COLUMN_USER_NAME)
         val db = this.readableDatabase
@@ -75,7 +75,7 @@ class UserDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
             null,
             null)
         cursor.moveToFirst()
-        return cursor.getBlob(cursor.getColumnIndex(COLUMN_CV))
+        return cursor.getString(cursor.getColumnIndex(COLUMN_CV))
     }
 
     /**
@@ -103,7 +103,7 @@ class UserDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
                                 name = cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME)),
                                 email = cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL)),
                                 password = cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD)),
-                                cv = cursor.getBlob(cursor.getColumnIndex(COLUMN_CV)))
+                                cv = cursor.getString(cursor.getColumnIndex(COLUMN_CV)))
                 userList.add(user)
             } while (cursor.moveToNext())
         }

@@ -15,8 +15,7 @@ import com.github.barteksc.pdfviewer.PDFView
 import java.io.File
 
 class CVAndExperience: Fragment() {
-    private lateinit var userName: String
-    private lateinit var userCv: String
+    private lateinit var cvUrl: String
     lateinit var progressBar: ProgressBar
     lateinit var pdfView: PDFView
 
@@ -32,15 +31,11 @@ class CVAndExperience: Fragment() {
         }
     }
 
-    fun getPdfUrl(): String {
-        return "https://mindorks.s3.ap-south-1.amazonaws.com/courses/MindOrks_Android_Online_Professional_Course-Syllabus.pdf"
-    }
-
     private fun downloadCV() {
         progressBar.visibility = View.VISIBLE
         val fileName = "myFile.pdf"
         downloadPdf(
-            getPdfUrl(),
+            cvUrl,
             getRootDirPath(activity),
             fileName
         )
@@ -92,9 +87,9 @@ class CVAndExperience: Fragment() {
     companion object {
         @RequiresApi(Build.VERSION_CODES.O)
         @JvmStatic
-        fun newInstance(name: String, cv: ByteArray) = CVAndExperience().apply {
-            userName = name
-            userCv = cv.toString()
+        fun newInstance(cv_url: String) = CVAndExperience().apply {
+            cvUrl = cv_url
+            cvUrl = "https://mindorks.s3.ap-south-1.amazonaws.com/courses/MindOrks_Android_Online_Professional_Course-Syllabus.pdf"
         }
     }
 }
