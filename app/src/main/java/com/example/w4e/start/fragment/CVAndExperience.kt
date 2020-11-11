@@ -1,5 +1,6 @@
 package com.example.w4e.start.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.os.Environment
 import android.view.LayoutInflater
@@ -20,7 +21,7 @@ import java.io.File
 class CVAndExperience: Fragment() {
     // TODO: get argument from previous activity
     private var cvUrl: String = "https://mindorks.s3.ap-south-1.amazonaws.com/courses/MindOrks_Android_Online_Professional_Course-Syllabus.pdf"
-    //lateinit var progressBar: ProgressBar
+    lateinit var progressBar: ProgressBar
     lateinit var pdfView: PDFView
 
     override fun onCreateView(
@@ -34,7 +35,7 @@ class CVAndExperience: Fragment() {
     // TODO: check how to execute
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //progressBar = view!!.findViewById(R.id.cvProgressBar)
+        progressBar = view!!.findViewById(R.id.cvProgressBar)
         pdfView = view!!.findViewById(R.id.pdfView)
         downloadCV(cvUrl)
     }
@@ -52,7 +53,7 @@ class CVAndExperience: Fragment() {
     }
 
     private fun downloadCV(url: String) {
-        //progressBar.visibility = View.VISIBLE
+        progressBar.visibility = View.VISIBLE
         val fileName = "myFile.pdf"
         downloadPdf(
             url,
@@ -89,7 +90,7 @@ class CVAndExperience: Fragment() {
                     Toast.makeText(activity, "downloadComplete", Toast.LENGTH_LONG)
                         .show()
                     val downloadedFile = File(dirPath, fileName)
-                    //progressBar.visibility = View.GONE
+                    progressBar.visibility = View.GONE
                     showPdfFromFile(downloadedFile)
                 }
 
