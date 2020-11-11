@@ -1,7 +1,5 @@
 package com.example.w4e.start.fragment
 
-import android.content.Context
-import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.view.LayoutInflater
@@ -9,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -17,19 +14,27 @@ import com.downloader.OnDownloadListener
 import com.downloader.PRDownloader
 import com.example.w4e.start.R
 import com.github.barteksc.pdfviewer.PDFView
-import kotlinx.android.synthetic.main.fragment_cv_and_experience.view.*
 import java.io.File
+
 
 class CVAndExperience: Fragment() {
     // TODO: get argument from previous activity
     private var cvUrl: String = "https://mindorks.s3.ap-south-1.amazonaws.com/courses/MindOrks_Android_Online_Professional_Course-Syllabus.pdf"
-    lateinit var progressBar: ProgressBar
+    //lateinit var progressBar: ProgressBar
     lateinit var pdfView: PDFView
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_cv_and_experience, container, false)
+    }
 
     // TODO: check how to execute
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        progressBar = view!!.findViewById(R.id.cvProgressBar)
+        //progressBar = view!!.findViewById(R.id.cvProgressBar)
         pdfView = view!!.findViewById(R.id.pdfView)
         downloadCV(cvUrl)
     }
@@ -47,7 +52,7 @@ class CVAndExperience: Fragment() {
     }
 
     private fun downloadCV(url: String) {
-        progressBar.visibility = View.VISIBLE
+        //progressBar.visibility = View.VISIBLE
         val fileName = "myFile.pdf"
         downloadPdf(
             url,
@@ -84,7 +89,7 @@ class CVAndExperience: Fragment() {
                     Toast.makeText(activity, "downloadComplete", Toast.LENGTH_LONG)
                         .show()
                     val downloadedFile = File(dirPath, fileName)
-                    progressBar.visibility = View.GONE
+                    //progressBar.visibility = View.GONE
                     showPdfFromFile(downloadedFile)
                 }
 

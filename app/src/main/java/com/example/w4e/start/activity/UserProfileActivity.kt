@@ -49,8 +49,8 @@ class UserProfileActivity: AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initObjects() {
-        tabLayout.addTab(tabLayout.newTab().setText("Review"))
         tabLayout.addTab(tabLayout.newTab().setText("CV and Experience"))
+        tabLayout.addTab(tabLayout.newTab().setText("Review"))
         tabLayout.tabGravity = TabLayout.GRAVITY_FILL
         val adapter = UserProfileAdapter(this, supportFragmentManager,
             tabLayout.tabCount, cvUrl)
