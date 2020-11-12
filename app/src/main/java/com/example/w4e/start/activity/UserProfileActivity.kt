@@ -70,18 +70,6 @@ class UserProfileActivity: AppCompatActivity(), View.OnClickListener {
         transaction.commit()
     }
 
-    fun getRootDirPath(context: Context): String {
-        return if (Environment.MEDIA_MOUNTED == Environment.getExternalStorageState()) {
-            val file: File = ContextCompat.getExternalFilesDirs(
-                context.applicationContext,
-                null
-            )[0]
-            file.absolutePath
-        } else {
-            context.applicationContext.filesDir.absolutePath
-        }
-    }
-
     private fun initViews() {
         title = "$userName's Profile"
         tabLayout = findViewById(R.id.tabLayout)

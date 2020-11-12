@@ -57,6 +57,7 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
         recyclerViewPosts.adapter = postsRecyclerAdapter
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun initObjects() {
         postDatabaseHelper = PostDatabaseHelper(activity)
         userDatabaseHelper = UserDatabaseHelper(activity)
