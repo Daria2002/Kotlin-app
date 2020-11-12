@@ -1,6 +1,5 @@
 package com.example.w4e.start.fragment
 
-import android.content.Context
 import android.os.Bundle
 import android.os.Environment
 import android.view.LayoutInflater
@@ -19,10 +18,8 @@ import java.io.File
 
 
 class CVAndExperience: Fragment() {
-    // TODO: get argument from previous activity
-    private var cvUrl: String = "https://mindorks.s3.ap-south-1.amazonaws.com/courses/MindOrks_Android_Online_Professional_Course-Syllabus.pdf"
-    lateinit var progressBar: ProgressBar
-    lateinit var pdfView: PDFView
+    private lateinit var progressBar: ProgressBar
+    private lateinit var pdfView: PDFView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -103,5 +100,14 @@ class CVAndExperience: Fragment() {
                         .show()
                 }
             })
+    }
+
+    companion object {
+        private lateinit var cvUrl: String
+        // newInstance constructor for creating fragment with arguments
+        fun newInstance(cv: String): CVAndExperience? {
+            cvUrl = cv
+            return CVAndExperience()
+        }
     }
 }

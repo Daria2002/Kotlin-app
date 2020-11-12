@@ -12,7 +12,17 @@ class Review: Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // TODO: create table with reviews (db with username and reviews)
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_review, container, false)
+    }
+
+    companion object {
+        private lateinit var userName: String
+        // newInstance constructor for creating fragment with arguments
+        fun newInstance(name: String): Review? {
+            userName = name
+            return Review()
+        }
     }
 }

@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.downloader.OnDownloadListener
 import com.downloader.PRDownloader
@@ -53,8 +54,20 @@ class UserProfileActivity: AppCompatActivity(), View.OnClickListener {
         tabLayout.addTab(tabLayout.newTab().setText("Review"))
         tabLayout.tabGravity = TabLayout.GRAVITY_FILL
         val adapter = UserProfileAdapter(this, supportFragmentManager,
-            tabLayout.tabCount, cvUrl)
+            tabLayout.tabCount, cvUrl, userName)
         viewPager.adapter = adapter
+    }
+
+    // Extension function to replace fragment
+    fun AppCompatActivity.replaceFragment(fragment: Fragment){
+        val fragmentManager = supportFragmentManager
+        val transaction = fragmentManager.beginTransaction()
+        val bundle = Bundle()
+        bundle.putString("CV_URL", cvUrl)
+        fragment.arguments = bundle
+        transaction.replace(R.id.userProfile, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 
     fun getRootDirPath(context: Context): String {
