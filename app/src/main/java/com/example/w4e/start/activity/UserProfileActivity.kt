@@ -16,6 +16,7 @@ import com.downloader.OnDownloadListener
 import com.downloader.PRDownloader
 import com.example.w4e.start.R
 import com.example.w4e.start.adapter.UserProfileAdapter
+import com.example.w4e.start.helper.PostDatabaseHelper
 import com.example.w4e.start.helper.UserDatabaseHelper
 import com.example.w4e.start.model.User
 import com.github.barteksc.pdfviewer.PDFView
@@ -50,6 +51,7 @@ class UserProfileActivity: AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initObjects() {
+        tabLayout.addTab(tabLayout.newTab().setText("Posts"))
         tabLayout.addTab(tabLayout.newTab().setText("CV and Experience"))
         tabLayout.addTab(tabLayout.newTab().setText("Review"))
         tabLayout.tabGravity = TabLayout.GRAVITY_FILL

@@ -17,7 +17,7 @@ import com.github.barteksc.pdfviewer.PDFView
 import java.io.File
 
 
-class CVAndExperience: Fragment() {
+class CVAndExperienceTab: Fragment() {
     private lateinit var progressBar: ProgressBar
     private lateinit var pdfView: PDFView
 
@@ -29,7 +29,6 @@ class CVAndExperience: Fragment() {
         return inflater.inflate(R.layout.fragment_cv_and_experience, container, false)
     }
 
-    // TODO: check how to execute
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         progressBar = view!!.findViewById(R.id.cvProgressBar)
@@ -105,9 +104,9 @@ class CVAndExperience: Fragment() {
     companion object {
         private lateinit var cvUrl: String
         // newInstance constructor for creating fragment with arguments
-        fun newInstance(cv: String): CVAndExperience? {
+        fun newInstance(cv: String): CVAndExperienceTab? {
             cvUrl = cv
-            return CVAndExperience()
+            return CVAndExperienceTab()
         }
     }
 }

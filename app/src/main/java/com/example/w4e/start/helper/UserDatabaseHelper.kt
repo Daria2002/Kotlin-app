@@ -7,6 +7,22 @@ import android.database.sqlite.SQLiteOpenHelper
 import com.example.w4e.start.model.User
 
 class UserDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+
+    companion object {
+        // Database Version
+        private val DATABASE_VERSION = 1
+        // Database Name
+        private val DATABASE_NAME = "UserManager.db"
+        // User table name
+        private val TABLE_USER = "User"
+        // User Table Columns names
+        private val COLUMN_USER_ID = "user_id"
+        private val COLUMN_USER_NAME = "user_name"
+        private val COLUMN_USER_EMAIL = "user_email"
+        private val COLUMN_USER_PASSWORD = "user_password"
+        private val COLUMN_CV = "user_cv"
+    }
+
     // create table sql query
     private val CREATE_USER_TABLE = ("CREATE TABLE " + TABLE_USER + "("
             + COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_USER_NAME + " TEXT,"
@@ -246,20 +262,5 @@ class UserDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
             return cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL))
         }
         return ""
-    }
-
-    companion object {
-        // Database Version
-        private val DATABASE_VERSION = 1
-        // Database Name
-        private val DATABASE_NAME = "UserManager.db"
-        // User table name
-        private val TABLE_USER = "User"
-        // User Table Columns names
-        private val COLUMN_USER_ID = "user_id"
-        private val COLUMN_USER_NAME = "user_name"
-        private val COLUMN_USER_EMAIL = "user_email"
-        private val COLUMN_USER_PASSWORD = "user_password"
-        private val COLUMN_CV = "user_cv"
     }
 }

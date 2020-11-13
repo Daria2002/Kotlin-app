@@ -1,13 +1,13 @@
 package com.example.w4e.start.adapter
 import android.content.Context
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.example.w4e.start.R
-import com.example.w4e.start.fragment.CVAndExperience
-import com.example.w4e.start.fragment.Review
+import com.example.w4e.start.fragment.CVAndExperienceTab
+import com.example.w4e.start.fragment.PostTab
+import com.example.w4e.start.fragment.ReviewTab
+import com.example.w4e.start.helper.PostDatabaseHelper
+import com.example.w4e.start.helper.UserDatabaseHelper
 
 
 @Suppress("DEPRECATION")
@@ -22,10 +22,13 @@ internal class UserProfileAdapter(
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> {
-                CVAndExperience.newInstance(cvUrl)!!
+                PostTab.newInstance(userName)!!
             }
             1 -> {
-                Review.newInstance(userName)!!
+                CVAndExperienceTab.newInstance(cvUrl)!!
+            }
+            2 -> {
+                ReviewTab.newInstance(userName)!!
             }
             else -> getItem(position)
         }

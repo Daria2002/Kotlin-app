@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.w4e.start.R
 
-class Review: Fragment() {
+class ReviewTab: Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -20,9 +20,9 @@ class Review: Fragment() {
     companion object {
         private lateinit var userName: String
         // newInstance constructor for creating fragment with arguments
-        fun newInstance(name: String): Review? {
+        fun newInstance(name: String): ReviewTab? {
             userName = name
-            return Review()
+            return ReviewTab()
         }
     }
 }

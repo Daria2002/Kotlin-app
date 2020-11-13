@@ -39,8 +39,10 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
     private lateinit var listPosts: MutableList<Post>
     private lateinit var category: String
     private lateinit var user_name: String
-    private lateinit var postDatabaseHelper: PostDatabaseHelper
+    private var postDatabaseHelper: PostDatabaseHelper = PostDatabaseHelper.getInstance(activity)
     private lateinit var userDatabaseHelper: UserDatabaseHelper
+
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.category_posts)
@@ -59,7 +61,6 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun initObjects() {
-        postDatabaseHelper = PostDatabaseHelper(activity)
         userDatabaseHelper = UserDatabaseHelper(activity)
         categoryName.text = category.toUpperCase()
         val mLayoutManager = LinearLayoutManager(applicationContext)
