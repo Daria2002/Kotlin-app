@@ -44,7 +44,6 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
     companion object {
         private const val REQUEST_CODE_DOC = 234
-        private const val IMAGE_PICK_CODE = 999
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

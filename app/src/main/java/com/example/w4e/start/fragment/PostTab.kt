@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -29,11 +30,10 @@ import com.example.w4e.start.model.Post
 import com.example.w4e.start.model.User
 import java.io.File
 
-class PostTab: Fragment() {
+class PostTab: Fragment(), OnClickListener {
     private lateinit var recyclerViewPosts: RecyclerView
-    private lateinit var postsRecyclerAdapter: PostAdapter
     private lateinit var listPosts: List<Post>
-    private lateinit var category: String
+    private lateinit var postsRecyclerAdapter: PostAdapter
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
@@ -41,7 +41,8 @@ class PostTab: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.category_posts, container, false)
+        // TODO: remove action bar for all tabs
+        return inflater.inflate(R.layout.posts_table, container, false)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -60,7 +61,12 @@ class PostTab: Fragment() {
         recyclerViewPosts.setHasFixedSize(true)
         listPosts = mutableListOf<Post>()
         listPosts = PostDatabaseHelper.getInstance(context).getAllPosts(userName)
-        // updatePostsInGui()
+        updatePostsInGui()
+    }
+
+    private fun updatePostsInGui() {
+        postsRecyclerAdapter = PostAdapter(listPosts as MutableList<Post>, this)
+        recyclerViewPosts.adapter = postsRecyclerAdapter
     }
 
     private fun initListeners() {
@@ -77,5 +83,9 @@ class PostTab: Fragment() {
             userName = name
             return PostTab()
         }
+    }
+
+    override fun onClick(v: View?) {
+        TODO("Not yet implemented")
     }
 }

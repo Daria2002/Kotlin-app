@@ -180,9 +180,8 @@ class PostDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DB_NAME, 
         val columns = arrayOf(PostDatabaseHelper.COLUMN_POST_ID,
             PostDatabaseHelper.COLUMN_USER_NAME,
             PostDatabaseHelper.COLUMN_CATEGORY,
-            PostDatabaseHelper.COLUMN_TEXT)
-        // sorting orders
-        val sortOrder = "${PostDatabaseHelper.COLUMN_CATEGORY} ASC"
+            PostDatabaseHelper.COLUMN_TEXT,
+            PostDatabaseHelper.COLUMN_TIME)
         val postList = ArrayList<Post>()
         val db = this.readableDatabase
         // selection criteria
@@ -196,7 +195,7 @@ class PostDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DB_NAME, 
             selectionArgs,
             null,
             null,
-            sortOrder)
+            null)
         if (cursor.moveToFirst()) {
             do {
                 val post =
