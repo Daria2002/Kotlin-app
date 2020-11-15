@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/userProfile"
-    tools:context=".activity.UserProfileActivity">
+    tools:context=".activity.UserProfileActivity"
+    android:theme="@style/Theme.AppCompat.Light.NoActionBar">
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
@@ -17,6 +18,5 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tabLayout"
         android:layout_centerInParent="true"
-        android:layout_marginTop="100dp"
         tools:layout_editor_absoluteX="8dp" />
 </RelativeLayout>
