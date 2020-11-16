@@ -2,6 +2,7 @@ package com.example.w4e.start.fragment
 
 import android.app.Activity
 import android.content.Context
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
@@ -9,8 +10,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
@@ -85,7 +88,21 @@ class PostTab: Fragment(), OnClickListener {
         }
     }
 
+    private fun showPostDetails(c: Context, post: Post) {
+        val postEditText = EditText(c)
+        var postDetails = post.text + "\nPosted on: " + post.time
+        postEditText.setTextColor(Color.WHITE)
+        val dialog = AlertDialog.Builder(c, R.style.Work4Experience_AddPostDialog)
+            .setTitle("Post details")
+            .setMessage(postDetails)
+            .setNegativeButton("Cancel", null)
+            .create()
+        dialog.show()
+    }
+
     override fun onClick(v: View?) {
-        TODO("Not yet implemented")
+        when(v!!.id) {
+            R.id.postText -> showPostDetails(v.context, v.tag as Post)
+        }
     }
 }

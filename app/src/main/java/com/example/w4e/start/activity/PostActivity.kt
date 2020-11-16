@@ -122,10 +122,8 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
     }
 
     private fun sendAnEmail(receiverName: String, senderName: String) {
-        // TODO:
-        // var receiverEmail = userDatabaseHelper.getUserEmail(receiverName)
-        // var senderEmail = userDatabaseHelper.getUserEmail(senderName)
-        var receiverEmail = "dariamatkovicdaria@gmail.com"
+        var receiverEmail = userDatabaseHelper.getUserEmail(receiverName)
+        var senderEmail = userDatabaseHelper.getUserEmail(senderName)
         /*ACTION_SEND action to launch an email client installed on your Android device.*/
         val mIntent = Intent(Intent.ACTION_SEND)
         /*To send an email you need to specify mailto: as URI using setData() method

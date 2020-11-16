@@ -239,7 +239,7 @@ class UserDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
 
     fun getUserEmail(userName: String): String {
         // arr of columns to fetch
-        val columns = arrayOf(COLUMN_USER_NAME)
+        val columns = arrayOf(COLUMN_USER_NAME, COLUMN_USER_EMAIL)
         val db = this.readableDatabase
         // selection criteria
         val selection = "$COLUMN_USER_NAME = ?"
