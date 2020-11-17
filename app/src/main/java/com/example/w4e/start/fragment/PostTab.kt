@@ -1,37 +1,24 @@
 package com.example.w4e.start.fragment
 
-import android.app.Activity
 import android.content.Context
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AppCompatButton
-import androidx.appcompat.widget.AppCompatTextView
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.downloader.OnDownloadListener
-import com.downloader.PRDownloader
 import com.example.w4e.start.R
 import com.example.w4e.start.adapter.PostAdapter
 import com.example.w4e.start.helper.PostDatabaseHelper
-import com.example.w4e.start.helper.UserDatabaseHelper
 import com.example.w4e.start.model.Post
-import com.example.w4e.start.model.User
-import java.io.File
 
 class PostTab: Fragment(), OnClickListener {
     private lateinit var recyclerViewPosts: RecyclerView
@@ -44,8 +31,7 @@ class PostTab: Fragment(), OnClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // TODO: remove action bar for all tabs
-        return inflater.inflate(R.layout.posts_table, container, false)
+        return inflater.inflate(R.layout.item_table, container, false)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
