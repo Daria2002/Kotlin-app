@@ -1,29 +1,31 @@
 package com.example.w4e.start.fragment
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
-import android.widget.EditText
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.w4e.start.R
+import com.example.w4e.start.adapter.AddReviewAdapter
 import com.example.w4e.start.adapter.PostAdapter
 import com.example.w4e.start.helper.PostDatabaseHelper
 import com.example.w4e.start.model.Post
 
-class PostTab: Fragment(), OnClickListener {
-    private lateinit var recyclerViewPosts: RecyclerView
+/**
+ * When user profile is opened there is a tab "In Progress".
+ * This tab shows posts that the user is currently involved in and it has button for adding reviews
+ * if logged user has posted some post or if logged user has been working on the post that the user has posted.
+ */
+class InProgressTab: Fragment(), View.OnClickListener {
+    private lateinit var recyclerViewAddReview: RecyclerView
     private lateinit var listPosts: List<Post>
-    private lateinit var postsRecyclerAdapter: PostAdapter
+    private lateinit var addReviewRecyclerAdapter: AddReviewAdapter
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
@@ -44,51 +46,32 @@ class PostTab: Fragment(), OnClickListener {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun initObjects(context: Context) {
-        val mLayoutManager = LinearLayoutManager(context)
-        recyclerViewPosts.layoutManager = mLayoutManager
-        recyclerViewPosts.itemAnimator = DefaultItemAnimator()
-        recyclerViewPosts.setHasFixedSize(true)
-        listPosts = mutableListOf<Post>()
-        listPosts = PostDatabaseHelper.getInstance(context).getAllPosts(userName)
         updatePostsInGui()
     }
 
     private fun updatePostsInGui() {
-        postsRecyclerAdapter = PostAdapter(listPosts as MutableList<Post>, this)
-        recyclerViewPosts.adapter = postsRecyclerAdapter
+        // list of posts that the user in currently working on
+        addReviewRecyclerAdapter = AddReviewAdapter(listPosts as MutableList<Post>, this)
+        recyclerViewAddReview.adapter = addReviewRecyclerAdapter
     }
 
     private fun initListeners() {
     }
 
     private fun initViews(view: View) {
-        recyclerViewPosts = view.findViewById<RecyclerView>(R.id.recyclerViewPosts)
+        recyclerViewAddReview = view.findViewById<RecyclerView>(R.id.recyclerViewPosts)
     }
 
     companion object {
         private lateinit var userName: String
         // newInstance constructor for creating fragment with arguments
-        fun newInstance(name: String): PostTab? {
+        fun newInstance(name: String): InProgressTab? {
             userName = name
-            return PostTab()
+            return InProgressTab()
         }
-    }
-
-    private fun showPostDetails(c: Context, post: Post) {
-        val postEditText = EditText(c)
-        var postDetails = post.text + "\nPosted on: " + post.time
-        postEditText.setTextColor(Color.WHITE)
-        val dialog = AlertDialog.Builder(c, R.style.Work4Experience_AddPostDialog)
-            .setTitle("Post details")
-            .setMessage(postDetails)
-            .setNegativeButton("Cancel", null)
-            .create()
-        dialog.show()
     }
 
     override fun onClick(v: View?) {
-        when(v!!.id) {
-            R.id.postText -> showPostDetails(v.context, v.tag as Post)
-        }
+        TODO("Not yet implemented")
     }
 }

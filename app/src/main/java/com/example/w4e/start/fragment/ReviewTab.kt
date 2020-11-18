@@ -13,11 +13,8 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.w4e.start.R
-import com.example.w4e.start.adapter.PostAdapter
 import com.example.w4e.start.adapter.ReviewAdapter
-import com.example.w4e.start.helper.PostDatabaseHelper
 import com.example.w4e.start.helper.ReviewDatabaseHelper
-import com.example.w4e.start.model.Post
 import com.example.w4e.start.model.Review
 
 class ReviewTab: Fragment(), OnClickListener {
@@ -31,7 +28,7 @@ class ReviewTab: Fragment(), OnClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.item_table, container, false)
+        return inflater.inflate(R.layout.fragment_item_table, container, false)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)

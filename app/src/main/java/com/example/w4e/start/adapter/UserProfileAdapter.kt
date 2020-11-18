@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.w4e.start.fragment.CVAndExperienceTab
+import com.example.w4e.start.fragment.InProgressTab
 import com.example.w4e.start.fragment.PostTab
 import com.example.w4e.start.fragment.ReviewTab
 import com.example.w4e.start.helper.PostDatabaseHelper
@@ -29,6 +30,9 @@ internal class UserProfileAdapter(
             }
             2 -> {
                 ReviewTab.newInstance(userName)!!
+            }
+            3 -> {
+                InProgressTab.newInstance(userName)!!
             }
             else -> getItem(position)
         }
