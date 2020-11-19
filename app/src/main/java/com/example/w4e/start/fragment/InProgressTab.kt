@@ -46,6 +46,12 @@ class InProgressTab: Fragment(), View.OnClickListener {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun initObjects(context: Context) {
+        val mLayoutManager = LinearLayoutManager(context)
+        recyclerViewAddReview.layoutManager = mLayoutManager
+        recyclerViewAddReview.itemAnimator = DefaultItemAnimator()
+        recyclerViewAddReview.setHasFixedSize(true)
+        listPosts = mutableListOf<Post>()
+        listPosts = PostDatabaseHelper.getInstance(context).getAllPosts(InProgressTab.userName)
         updatePostsInGui()
     }
 

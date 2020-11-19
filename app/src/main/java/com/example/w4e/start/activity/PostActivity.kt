@@ -107,7 +107,7 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
             .setTitle("Post details")
             .setMessage(postDetails)
             .setPositiveButton("Bid"
-            ) { _, _ -> sendAnEmail(post.user_name, user_name) }
+            ) { _, _ -> bidUser(post.user_name, user_name, post.id) } // TODO: implement post id
             .setNegativeButton("Cancel", null)
             .setNeutralButton("User profile") { _, _ -> openProfile(post.user_name) }
             .create()
@@ -119,6 +119,13 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
         intent.putExtra("USER_NAME", userName)
         intent.putExtra("CV_URL", userDatabaseHelper.getCV(userName))
         startActivity(intent)
+    }
+
+    private fun bidUser(receiverName: String, senderName: String, postId: Int) {
+        // todo: add postId
+        var postId: Int = 1
+        postDatabaseHelper.addWorker(receiverName, senderName, postId)
+        sendAnEmail(receiverName, senderName)
     }
 
     private fun sendAnEmail(receiverName: String, senderName: String) {
@@ -168,10 +175,11 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun updatePostsInDb(text: String) {
-        var newPost = Post(text = text,
+        var newPost = Post(
+            id = 1, // TODO: post id -> instance count
+            text = text,
             user_name = user_name,
-            category = PostDatabaseHelper.titleToCategory(
-                category))
+            category = PostDatabaseHelper.titleToCategory(category))
         postDatabaseHelper.addPost(newPost)
         listPosts.add(newPost)
         updatePostsInGui()

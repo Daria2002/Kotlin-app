@@ -9,7 +9,9 @@ import java.time.format.FormatStyle
 @RequiresApi(Build.VERSION_CODES.O)
 val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
 
-data class Post @RequiresApi(Build.VERSION_CODES.O) constructor(val id: Int = -1, var text: String,
+
+data class Post @RequiresApi(Build.VERSION_CODES.O) constructor(val id: Int, var text: String,
                                                                 var user_name: String,
                                                                 var category: Category,
-                                                                var time: String = LocalDateTime.now().format(formatter))
+                                                                var time: String = LocalDateTime.now().format(formatter),
+                                                                var worker_name: String = "")
