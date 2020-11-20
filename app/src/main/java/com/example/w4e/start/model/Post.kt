@@ -10,8 +10,22 @@ import java.time.format.FormatStyle
 val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
 
 
-data class Post @RequiresApi(Build.VERSION_CODES.O) constructor(val id: Int, var text: String,
+data class Post @RequiresApi(Build.VERSION_CODES.O) constructor(val id: Int = counter(), var text: String,
                                                                 var user_name: String,
                                                                 var category: Category,
                                                                 var time: String = LocalDateTime.now().format(formatter),
-                                                                var worker_name: String = "")
+                                                                var worker_name: String = "") {
+
+    companion object {
+        var counter: Int = 0
+
+        fun counter(): Int {
+            return counter
+        }
+    }
+
+    init {
+        counter++
+    }
+}
+
