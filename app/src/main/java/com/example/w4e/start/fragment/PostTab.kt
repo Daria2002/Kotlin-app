@@ -76,7 +76,7 @@ class PostTab: Fragment(), OnClickListener {
 
     private fun showPostDetails(c: Context, post: Post) {
         val postEditText = EditText(c)
-        var postDetails = post.text + "\nPosted on: " + post.time
+        var postDetails = post.text + "\nPost category: " + post.category + "\nPosted on: " + post.time
         postEditText.setTextColor(Color.WHITE)
         val dialog = AlertDialog.Builder(c, R.style.Work4Experience_AddPostDialog)
             .setTitle("Post details")

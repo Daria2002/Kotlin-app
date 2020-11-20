@@ -107,7 +107,7 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
             .setTitle("Post details")
             .setMessage(postDetails)
             .setPositiveButton("Bid"
-            ) { _, _ -> bidUser(post.user_name, user_name, post.id) } // TODO: implement post id
+            ) { _, _ -> bidUser(post.user_name, user_name, post.id) }
             .setNegativeButton("Cancel", null)
             .setNeutralButton("User profile") { _, _ -> openProfile(post.user_name) }
             .create()
@@ -122,8 +122,6 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
     }
 
     private fun bidUser(receiverName: String, senderName: String, postId: Int) {
-        // todo: add postId
-        var postId: Int = 1
         postDatabaseHelper.addWorker(receiverName, senderName, postId)
         sendAnEmail(receiverName, senderName)
     }
