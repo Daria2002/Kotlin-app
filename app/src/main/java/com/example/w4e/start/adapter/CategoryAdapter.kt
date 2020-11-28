@@ -19,6 +19,7 @@ class CategoryAdapter(private val listCategories: MutableList<Category>, private
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         holder.categoryName.text = listCategories[position].title()
+        holder.categoryName.transformationMethod = null
         holder.categoryName.setOnClickListener {
             it.id = position
             listener.onClick(it)
@@ -32,6 +33,7 @@ class CategoryAdapter(private val listCategories: MutableList<Category>, private
 
         init {
             categoryName = view.findViewById(R.id.categoryName) as AppCompatButton
+            categoryName.transformationMethod = null
         }
     }
 }

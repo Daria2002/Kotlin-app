@@ -51,13 +51,6 @@ class PostDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DB_NAME, 
         private val COLUMN_TEXT = "text"
         private val COLUMN_CATEGORY = "category"
         private val COLUMN_TIME = "time"
-
-        fun titleToCategory(title: String): Category {
-            for (c: Category in Category.values()) {
-                if (c.title() == title) return c
-            }
-            return Category.GRAPHICS
-        }
     }
 
     override fun onCreate(db: SQLiteDatabase) {
@@ -80,7 +73,7 @@ class PostDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DB_NAME, 
         val db = this.writableDatabase
         val values = ContentValues()
         values.put(PostDatabaseHelper.COLUMN_USER_NAME, post.user_name)
-        values.put(PostDatabaseHelper.COLUMN_CATEGORY, post.category.title())
+        values.put(PostDatabaseHelper.COLUMN_CATEGORY, post.category)
         values.put(PostDatabaseHelper.COLUMN_TEXT, post.text)
         values.put(PostDatabaseHelper.COLUMN_TIME, post.time)
         values.put(PostDatabaseHelper.COLUMN_WORKER_NAME, post.worker_name)
@@ -167,8 +160,8 @@ class PostDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DB_NAME, 
                     Post(id = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_POST_ID))
                         .toInt(),
                         user_name = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_USER_NAME)),
-                        category = titleToCategory(cursor.getString(cursor.getColumnIndex(
-                            PostDatabaseHelper.COLUMN_CATEGORY))),
+                        category = cursor.getString(cursor.getColumnIndex(
+                            PostDatabaseHelper.COLUMN_CATEGORY)),
                         text = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_TEXT)),
                         time = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_TIME)),
                         worker_name = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_WORKER_NAME)))
@@ -214,8 +207,8 @@ class PostDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DB_NAME, 
                     Post(id = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_POST_ID))
                         .toInt(),
                         user_name = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_USER_NAME)),
-                        category = titleToCategory(cursor.getString(cursor.getColumnIndex(
-                            PostDatabaseHelper.COLUMN_CATEGORY))),
+                        category = cursor.getString(cursor.getColumnIndex(
+                            PostDatabaseHelper.COLUMN_CATEGORY)),
                         text = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_TEXT)),
                         time = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_TIME)),
                         worker_name = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_WORKER_NAME)))
@@ -261,8 +254,8 @@ class PostDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DB_NAME, 
                     Post(id = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_POST_ID))
                         .toInt(),
                         user_name = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_USER_NAME)),
-                        category = titleToCategory(cursor.getString(cursor.getColumnIndex(
-                            PostDatabaseHelper.COLUMN_CATEGORY))),
+                        category = cursor.getString(cursor.getColumnIndex(
+                            PostDatabaseHelper.COLUMN_CATEGORY)),
                         text = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_TEXT)),
                         time = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_TIME)),
                         worker_name = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_WORKER_NAME)))
@@ -304,8 +297,8 @@ class PostDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DB_NAME, 
                     Post(id = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_POST_ID))
                         .toInt(),
                         user_name = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_USER_NAME)),
-                        category = titleToCategory(cursor.getString(cursor.getColumnIndex(
-                            PostDatabaseHelper.COLUMN_CATEGORY))),
+                        category = cursor.getString(cursor.getColumnIndex(
+                            PostDatabaseHelper.COLUMN_CATEGORY)),
                         text = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_TEXT)),
                         time = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_TIME)),
                         worker_name = cursor.getString(cursor.getColumnIndex(PostDatabaseHelper.COLUMN_WORKER_NAME)))

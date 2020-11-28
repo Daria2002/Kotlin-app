@@ -62,7 +62,7 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun initObjects() {
         userDatabaseHelper = UserDatabaseHelper(activity)
-        categoryName.text = category.toUpperCase()
+        categoryName.text = category
         val mLayoutManager = LinearLayoutManager(applicationContext)
         recyclerViewPosts.layoutManager = mLayoutManager
         recyclerViewPosts.itemAnimator = DefaultItemAnimator()
@@ -79,6 +79,7 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
 
     private fun initViews() {
         categoryName = findViewById<AppCompatTextView>(id.textCategoryName)
+        categoryName.transformationMethod = null
         recyclerViewPosts = findViewById<RecyclerView>(id.recyclerViewPosts)
         addPostButton = findViewById<AppCompatButton>(id.addPost)
         addPostButton.transformationMethod = null
@@ -177,7 +178,7 @@ class PostActivity: AppCompatActivity(), View.OnClickListener {
             id = 1, // TODO: post id -> instance count
             text = text,
             user_name = user_name,
-            category = PostDatabaseHelper.titleToCategory(category))
+            category = category)
         postDatabaseHelper.addPost(newPost)
         listPosts.add(newPost)
         updatePostsInGui()

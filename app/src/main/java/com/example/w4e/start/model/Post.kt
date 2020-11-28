@@ -12,7 +12,7 @@ val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
 
 data class Post @RequiresApi(Build.VERSION_CODES.O) constructor(val id: Int = counter(), var text: String,
                                                                 var user_name: String,
-                                                                var category: Category,
+                                                                var category: String,
                                                                 var time: String = LocalDateTime.now().format(formatter),
                                                                 var worker_name: String = "") {
 
